@@ -1,0 +1,83 @@
+@import '../reset.css';
+
+.l-login-main {
+    margin: 0 auto;
+    width: 640px;
+    height: 685px;
+    border: 1px solid #2F4156;
+    border-radius: 20px;
+    padding: 61px 41px 0px 41px;
+}
+
+.l-login-main>h2 {
+    color: #2F4156;
+    text-align: center;
+    font-family: "Pretendard Variable";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 72px;
+    margin: 0 0 38.12px 0;
+
+    /* 150% */
+}
+
+.l-login-main>form {
+    display: flex;
+    flex-direction: column;
+}
+
+.l-login-main>form>input {
+    width: 558px;
+    border-radius: 10px;
+    border: 1px solid #2F4156;
+    background: #FFF;
+    height: 64.201px;
+    padding: 16px 20px;
+    margin-top: 13.88px;
+    margin-bottom: 21.91px;
+
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.l-login-btn,
+.l-signup-btn {
+    width: 558px;
+    height: 72px;
+    line-height: 72px;
+    text-align: center;
+    border-radius: 10px;
+
+}
+
+.l-login-btn {
+    margin-top: 78.8px;
+    background: #567C8D;
+    border: 0;
+    color: #FFF;
+    text-align: center;
+    font-family: "Pretendard Variable";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px;
+    /* 150% */
+}
+
+.l-signup-btn {
+    border: 1px solid #2F4156;
+    background: #FFF;
+    color: #2F4156;
+    text-align: center;
+    font-family: "Pretendard Variable";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px;
+    margin-top: 11px;
+    /* 150% */
+}
