@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/css/student/contentTotal.css">
+    <link rel="stylesheet" href="/src/css/reset.css">
+    <title>CARDI</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="ct-lecture-container">
+            <div class="ct-lecture-content">
+                <h1 class="ct-lecture-title">강의 목록</h1>
+
+                <div class="ct-search-box">
+                    <img src="/src/assets/img/searchIcon.svg" alt="검색 아이콘" class="ct-search-icon" />
+                    <input type="search" placeholder="제목으로 검색..." class="ct-search-input" />
+                </div>
+
+                <div class="ct-category-list">
+                    <button class="ct-category-btn active">전체</button>
+                    <button class="ct-category-btn">HTML</button>
+                    <button class="ct-category-btn">CSS</button>
+                    <button class="ct-category-btn">JavaScript</button>
+                    <button class="ct-category-btn">C+</button>
+                    <button class="ct-category-btn">Python</button>
+                </div>
+
+                <div class="ct-lecture-list">
+                    <div class="ct-lecture-card">
+                        <div class="ct-lecture-img"></div>
+                        <div class="ct-lecture-info">
+                            <h2 class="ct-lecture-card-title">강의 제목</h2>
+                            <p class="ct-lecture-preview">강의 요약 텍스트1</p>
+                            <span class="ct-lecturer-name">강사명</span>
+                            <span class="ct-lecture-category">HTML</span>
+                        </div>
+                    </div>
+
+                    <div class="ct-lecture-card">
+                        <div class="ct-lecture-img"></div>
+                        <div class="ct-lecture-info">
+                            <h2 class="ct-lecture-card-title">강의 제목2</h2>
+                            <p class="ct-lecture-preview">강의 요약 텍스트</p>
+                            <span class="ct-lecturer-name">강사명</span>
+                            <span class="ct-lecture-category">CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/src/js/components/includeHeader.js"></script>
+    <script src="/src/js/components/includeNav.js"></script>
+    <script src="/src/js/student/contentTotal.js"></script>
+</body>
+
+</html>
