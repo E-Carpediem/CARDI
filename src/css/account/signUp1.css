@@ -2,7 +2,7 @@
 
 .su-signup-main {
     width: 900px;
-    margin: 0 auto;
+    margin: 127px auto 100px auto;
     text-align: center;
 }
 
@@ -10,7 +10,7 @@
     padding-bottom: 60px;
 }
 
-h2 {
+.su-role-ct>h2 {
     color: #2F4156;
     font-family: "Pretendard Variable";
     font-size: 48px;
@@ -53,7 +53,7 @@ h2 {
     margin-top: 50px;
 }
 
-h3 {
+.su-btn-ct h3 {
     color: #2F4156;
     font-family: "Pretendard Variable";
     font-size: 48px;
@@ -64,7 +64,7 @@ h3 {
     /* 150% */
 }
 
-h3+p {
+.su-btn-ct h3+p {
     color: #567C8D;
     font-family: "Pretendard Variable";
     font-size: 16px;

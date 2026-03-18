@@ -1,7 +1,7 @@
 @import '../reset.css';
 
 .l-login-main {
-    margin: 0 auto;
+    margin: 111px auto 100px auto;
     width: 640px;
     height: 685px;
     border: 1px solid #2F4156;
