@@ -8,7 +8,7 @@ const $navStudent = document.querySelector(".c-student-ct");
 const $navManager = document.querySelector(".c-manager-ct"); 
 const $navlecture = document.querySelector(".c-lecture-ct");
 
-if($navStudent.contains('c-student')) {
+// if($navStudent.contains('c-student')) {
     
-}
+// }
 
