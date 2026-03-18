@@ -1,0 +1,148 @@
+.mm-title {
+    color: #2F4156;
+    font-family: "Pretendard";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 20px 0px 0px 50px;
+}
+
+.mm-sub-title {
+    color: #2F4156;
+    font-family: "Pretendard";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 5px 0px 10px 50px;
+}
+
+.mm-top-ct {
+    display: flex;
+    gap: 50px;
+    padding: 0px 50px;
+}
+
+.mm-inf-ct {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+    border-radius: 20px;
+    border: 3px solid rgba(200, 217, 230, 0.40);
+    background: #FFF;
+
+    width: 25%;
+    height: 200px;
+}
+
+.mm-inf-content-ct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.mm-inf-title {
+    color: #2F4156;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.mm-inf-count {
+    color: #2F4156;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.mm-bottom-total-ct {
+    display: flex;
+    gap: 40px;
+    margin: 0px 50px;
+}
+
+.mm-recent-user-ct,
+.mm-popular-lecture-ct {
+    width: 50%;
+    height: 530px;
+
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background: white;
+    gap: 2px;
+
+    border-radius: 20px;
+    border: 3px solid rgba(200, 217, 230, 0.40);
+
+    margin : 50px 0px;
+}
+
+.mm-recent-user-title,
+.mm-popular-lecture-title {
+    color: #2F4156;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 20px;
+}
+
+.mm-recent-user-content-ct {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mm-recent-user-content,
+.mm-recent-user-email {
+    color: #2F4156;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.mm-recent-user-email {
+    color: #567C8D;
+}
+
+hr,
+.mm-popular-hr {
+    width: 100%;
+    height: 1px;
+    margin: 2px 0px 10px 0px;
+    border: 1px solid rgba(47, 65, 86, 0.10);
+    ;
+}
+
+.mm-popular-content-ct {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mm-popular-content-title {
+    color: #2F4156;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.mm-popular-content-personnel {
+    color: #567C8D;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.mm-popular-hr {
+    margin: 10px 0px;
+}

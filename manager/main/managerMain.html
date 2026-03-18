@@ -6,123 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/src/css/reset.css">
+    <link rel="stylesheet" href="/src/css/manager/managerMain.css">
     <style>
-        * {
-            margin: 0px;
-            padding: 0px;
-            box-sizing: border-box;
-        }
-
         .container {
             background: #F5F5F5;
             width: 100%;
-            height: 100vw;
-        }
-
-        .m-title {
-            font-size: 36px;
-            font-weight: 700;
-        }
-
-        .m-mini-title {
-            font-size: 20px;
-            font-weight: 500;
-        }
-
-        .m-total-inf-ct {
-            display: flex;
-            gap: 70px;
-            padding: 0px 50px;
-
-        }
-
-        .m-inf-ct {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid #c8d9e6;
-            width: 25%;
-            height: 200px;
-            background: #FFFFFF;
-            gap: 20%;
-        }
-
-        .m-inf-left-ct {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .m-inf-title {
-            font-size: 20px;
-            font-weight: 500;
-        }
-
-        .m-inf-count {
-            font-size: 40px;
-            font-weight: 700;
-        }
-
-        .m-sub-total-ct {
-            display: flex;
-            gap: 40px;
-            margin: 50px 50px;
-        }
-
-        .m-sub-left-ct,
-        .m-sub-right-ct {
-            width: 890px;
-            height: 530px;
-
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            overflow: scroll;
-            padding: 50px;
-            background: white;
-            gap: 2px;
-        }
-
-        .m-sub-right-ct {
-            gap : 10px;
-        }
-
-        .m-sub-left-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2F4156;
-            margin-bottom: 20px;
-        }
-        
-
-        .m-sub-left-content-ct {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .m-sub-left-content {
-            font-size: 16px;
-            color: #2F4156;
-
-        }
-
-        .m-sub-left-email {
-            font-size: 16px;
-            color: #567C8D;
-        }
-
-        .m-sub-left-date {
-            color: rgba(47, 65, 86, 0.50);
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-        }
-
-        .m-right-ct {
-            display: flex;
-            justify-content: space-between;
+            /* height: 100; */
         }
 
         .m-right-title {
@@ -144,166 +33,167 @@
 </head>
 
 <body>
-    
+
     <div class="container">
         <p class="mm-title"> 대시보드 </p>
         <p class="mm-sub-title"> 관리 현황을 한눈에 확인하세요.</p>
 
-        <section class="m-total-inf-ct">
+        <section class="mm-top-ct">
 
-            <div class="m-inf-ct">
-                <div class="m-inf-left-ct">
-                    <img src="/Group 32.svg">
-                    <p class="m-inf-title"> 전체 회원</p>
+            <div class="mm-inf-ct">
+                <div class="mm-inf-content-ct">
+                    <img src="/src/assets/img/manager-totalUser.svg">
+                    <p class="mm-inf-title"> 전체 회원</p>
                 </div>
 
-                <p class="m-inf-count"> 1,234</p>
+                <p class="mm-inf-count"> 1,234</p>
             </div>
 
-            <div class="m-inf-ct">
-                <div class="m-inf-left-ct">
-                    <img src="/Group 32.svg">
-                    <p class="m-inf-title"> 수강생</p>
+            <div class="mm-inf-ct">
+                <div class="mm-inf-content-ct">
+                    <img src="/src/assets/img/manager-student.svg">
+                    <p class="mm-inf-title"> 수강생</p>
                 </div>
 
-                <p class="m-inf-count"> 987</p>
+                <p class="mm-inf-count"> 987</p>
             </div>
 
-            <div class="m-inf-ct">
-                <div class="m-inf-left-ct">
-                    <img src="/Group 32.svg">
-                    <p class="m-inf-title"> 강사 </p>
+            <div class="mm-inf-ct">
+                <div class="mm-inf-content-ct">
+                    <img src="/src/assets/img/manager-lecture.svg">
+                    <p class="mm-inf-title"> 강사 </p>
                 </div>
-                <p class="m-inf-count"> 247</p>
+                <p class="mm-inf-count"> 247</p>
             </div>
 
-            <div class="m-inf-ct">
-                <div class="m-inf-left-ct">
-                    <img src="/Group 32.svg">
-                    <p class="m-inf-title"> 컨텐츠</p>
+            <div class="mm-inf-ct">
+                <div class="mm-inf-content-ct">
+                    <img src="/src/assets/img/manager-contents.svg">
+                    <p class="mm-inf-title"> 컨텐츠</p>
                 </div>
-                <p class="m-inf-count"> 156</p>
+                <p class="mm-inf-count"> 156</p>
             </div>
+
         </section>
 
-        <section class="m-sub-total-ct">
-            <article class="m-sub-left-ct">
-                <p class="m-sub-left-title"> 최근 가입한 회원</p>
-                <div class="m-sub-left-content-ct">
+        <section class="mm-bottom-total-ct">
+            <article class="mm-recent-user-ct">
+                <p class="mm-recent-user-title"> 최근 가입한 회원</p>
+                <div class="mm-recent-user-content-ct">
                     <div>
-                        <div class="m-sub-left-content"> 홍길동1</div>
-                        <div class="m-sub-left-email"> user1@example.com</div>
+                        <div class="mm-recent-user-content"> 홍길동1</div>
+                        <div class="mm-recent-user-email"> user1@example.com</div>
                     </div>
-                    <p class="m-sub-left-date"> 2026.03.14</p>
+                    <p class="mm-recent-user-date"> 2026.03.14</p>
                 </div>
                 <hr>
 
-                <div class="m-sub-left-content-ct">
+                <div class="mm-recent-user-content-ct">
                     <div>
-                        <div class="m-sub-left-content"> 홍길동1</div>
-                        <div class="m-sub-left-email"> user1@example.com</div>
+                        <div class="mm-recent-user-content"> 홍길동1</div>
+                        <div class="mm-recent-user-email"> user1@example.com</div>
                     </div>
-                    <p class="m-sub-left-date"> 2026.03.14</p>
+                    <p class="mm-recent-user-date"> 2026.03.14</p>
                 </div>
                 <hr>
 
-                <div class="m-sub-left-content-ct">
+                <div class="mm-recent-user-content-ct">
                     <div>
-                        <div class="m-sub-left-content"> 홍길동1</div>
-                        <div class="m-sub-left-email"> user1@example.com</div>
+                        <div class="mm-recent-user-content"> 홍길동1</div>
+                        <div class="mm-recent-user-email"> user1@example.com</div>
                     </div>
-                    <p class="m-sub-left-date"> 2026.03.14</p>
+                    <p class="mm-recent-user-date"> 2026.03.14</p>
                 </div>
                 <hr>
 
-                <div class="m-sub-left-content-ct">
+                <div class="mm-recent-user-content-ct">
                     <div>
-                        <div class="m-sub-left-content"> 홍길동1</div>
-                        <div class="m-sub-left-email"> user1@example.com</div>
+                        <div class="mm-recent-user-content"> 홍길동1</div>
+                        <div class="mm-recent-user-email"> user1@example.com</div>
                     </div>
-                    <p class="m-sub-left-date"> 2026.03.14</p>
+                    <p class="mm-recent-user-date"> 2026.03.14</p>
                 </div>
                 <hr>
 
-                <div class="m-sub-left-content-ct">
+                <div class="mm-recent-user-content-ct">
                     <div>
-                        <div class="m-sub-left-content"> 홍길동1</div>
-                        <div class="m-sub-left-email"> user1@example.com</div>
+                        <div class="mm-recent-user-content"> 홍길동1</div>
+                        <div class="mm-recent-user-email"> user1@example.com</div>
                     </div>
-                    <p class="m-sub-left-date"> 2026.03.14</p>
+                    <p class="mm-recent-user-date"> 2026.03.14</p>
                 </div>
                 <hr>
 
-                <div class="m-sub-left-content-ct">
+                <div class="mm-recent-user-content-ct">
                     <div>
-                        <div class="m-sub-left-content"> 홍길동1</div>
-                        <div class="m-sub-left-email"> user1@example.com</div>
+                        <div class="mm-recent-user-content"> 홍길동1</div>
+                        <div class="mm-recent-user-email"> user1@example.com</div>
                     </div>
-                    <p class="m-sub-left-date"> 2026.03.14</p>
+                    <p class="mm-recent-user-date"> 2026.03.14</p>
                 </div>
                 <hr>
 
 
-                <div class="m-sub-left-content-ct">
+                <div class="mm-recent-user-content-ct">
                     <div>
-                        <div class="m-sub-left-content"> 홍길동1</div>
-                        <div class="m-sub-left-email"> user1@example.com</div>
+                        <div class="mm-recent-user-content"> 홍길동1</div>
+                        <div class="mm-recent-user-email"> user1@example.com</div>
                     </div>
-                    <p class="m-sub-left-date"> 2026.03.14</p>
+                    <p class="mm-recent-user-date"> 2026.03.14</p>
                 </div>
                 <hr>
 
             </article>
 
-            <article class="m-sub-right-ct">
-                <p class="m-sub-left-title"> 인기 강의</p>
-                <div class="m-right-ct">
-                    <div class="m-right-title"> AI 영상 기획, 편집까지 완성하는 실전 올인원 콘텐츠 제작 클래스</div>
-                    <div class="m-right-sugang"> 234명 수강중</div>
+            <article class="mm-popular-lecture-ct">
+                <p class="mm-popular-lecture-title"> 인기 강의</p>
+                <div class="mm-popular-content-ct">
+                    <div class="mm-popular-content-title"> AI 영상 기획, 편집까지 완성하는 실전 올인원 콘텐츠 제작 클래스</div>
+                    <div class="mm-popular-content-personnel"> 234명 수강중</div>
                 </div>
-                <hr>
+                <hr class="mm-popular-hr">
 
-                <div class="m-right-ct">
-                    <div class="m-right-title"> AI 영상 기획, 편집까지 완성하는 실전 올인원 콘텐츠 제작 클래스</div>
-                    <div class="m-right-sugang"> 234명 수강중</div>
+                <div class="mm-popular-content-ct">
+                    <div class="mm-popular-content-title"> AI 영상 기획, 편집까지 완성하는 실전 올인원 콘텐츠 제작 클래스</div>
+                    <div class="mm-popular-content-personnel"> 234명 수강중</div>
                 </div>
-                <hr>
+                <hr class="mm-popular-hr">
 
-                <div class="m-right-ct">
-                    <div class="m-right-title"> AI 영상 기획, 편집까지 완성하는 실전 올인원 콘텐츠 제작 클래스</div>
-                    <div class="m-right-sugang"> 234명 수강중</div>
+                <div class="mm-popular-content-ct">
+                    <div class="mm-popular-content-title"> AI 영상 기획, 편집까지 완성하는 실전 올인원 콘텐츠 제작 클래스</div>
+                    <div class="mm-popular-content-personnel"> 234명 수강중</div>
                 </div>
-                <hr>
+                <hr class="mm-popular-hr">
 
-                <div class="m-right-ct">
-                    <div class="m-right-title"> AI 영상 기획, 편집까지 완성하는 실전 올인원 콘텐츠 제작 클래스</div>
-                    <div class="m-right-sugang"> 234명 수강중</div>
+                <div class="mm-popular-content-ct">
+                    <div class="mm-popular-content-title"> AI 영상 기획, 편집까지 완성하는 실전 올인원 콘텐츠 제작 클래스</div>
+                    <div class="mm-popular-content-personnel"> 234명 수강중</div>
                 </div>
-                <hr>
+                <hr class="mm-popular-hr">
 
-                <div class="m-right-ct">
-                    <div class="m-right-title"> AI 영상 기획, 편집까지 완성하는 실전 올인원 콘텐츠 제작 클래스</div>
-                    <div class="m-right-sugang"> 234명 수강중</div>
+                <div class="mm-popular-content-ct">
+                    <div class="mm-popular-content-title"> AI 영상 기획, 편집까지 완성하는 실전 올인원 콘텐츠 제작 클래스</div>
+                    <div class="mm-popular-content-personnel"> 234명 수강중</div>
                 </div>
-                <hr>
+                <hr class="mm-popular-hr">
 
-                <div class="m-right-ct">
-                    <div class="m-right-title"> AI 영상 기획, 편집까지 완성하는 실전 올인원 콘텐츠 제작 클래스</div>
-                    <div class="m-right-sugang"> 234명 수강중</div>
+                <div class="mm-popular-content-ct">
+                    <div class="mm-popular-content-title"> AI 영상 기획, 편집까지 완성하는 실전 올인원 콘텐츠 제작 클래스</div>
+                    <div class="mm-popular-content-personnel"> 234명 수강중</div>
                 </div>
-                <hr>
+                <hr class="mm-popular-hr">
 
-                <div class="m-right-ct">
-                    <div class="m-right-title"> AI 영상 기획, 편집까지 완성하는 실전 올인원 콘텐츠 제작 클래스</div>
-                    <div class="m-right-sugang"> 234명 수강중</div>
+                <div class="mm-popular-content-ct">
+                    <div class="mm-popular-content-title"> AI 영상 기획, 편집까지 완성하는 실전 올인원 콘텐츠 제작 클래스</div>
+                    <div class="mm-popular-content-personnel"> 234명 수강중</div>
                 </div>
-                <hr>
+                <hr class="mm-popular-hr">
 
-                <div class="m-right-ct">
-                    <div class="m-right-title"> AI 영상 기획, 편집까지 완성하는 실전 올인원 콘텐츠 제작 클래스</div>
-                    <div class="m-right-sugang"> 234명 수강중</div>
+                <div class="mm-popular-content-ct">
+                    <div class="mm-popular-content-title"> AI 영상 기획, 편집까지 완성하는 실전 올인원 콘텐츠 제작 클래스</div>
+                    <div class="mm-popular-content-personnel"> 234명 수강중</div>
                 </div>
-                <hr>
+                <hr class="mm-popular-hr">
 
 
             </article>
