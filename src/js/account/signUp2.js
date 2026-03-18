@@ -47,6 +47,25 @@ function SignUp() {
     }
 
 
+    const phoneCheck = () => {
+        if ($('#su-user-pone').value.length < 13) {
+            removeBlue('#su-user-pone');
+            addRed('#su-user-pone');
+            $('#su-user-pone-p').innerText = '전화번호 길이를 다시 확인해주세요.';
+        } else {
+            if (($('#su-user-pone').value[3] === '-') && ($('#su-user-pone').value[8] === '-')) {
+                removeRed('#su-user-pone');
+                addBlue('#su-user-pone');
+                $('#su-user-pone-p').innerText = '정상적인 전화번호입니다.';
+            } else {
+                $('#su-user-pone-p').innerText = '‘ - ’ 포함하여 작성해주세요 ex) 010-1234-5678';
+                removeBlue('#su-user-pone');
+                addRed('#su-user-pone');
+            }
+        }
+    }
+
+
     //아이디 input 영어, 숫자만 입력 
     $('#su-user-id').addEventListener('input', (e) => {
         if (e.target.value.length === 1) {
@@ -112,26 +131,22 @@ function SignUp() {
     })
 
     //전화번호 경고
-    $('#su-user-pone').addEventListener('change', (e) => {
-        if (e.target.value.length < 13) {
-            removeBlue('#su-user-pone');
-            addRed('#su-user-pone');
-            $('#su-user-pone-p').innerText = '전화번호 길이를 다시 확인해주세요.';
+    $('#su-user-pone').addEventListener('change', () => {
+        phoneCheck();
+    })
+
+
+    $('#su-user-email').addEventListener('change', (e) => {
+        const index = [...e.target.value].findIndex(email => email === '@')
+        if (index) {
+            removeRed('#su-user-email');
         } else {
-            if ((e.target.value[3] === '-') && (e.target.value[8] === '-')) {
-                removeRed('#su-user-pone');
-                addBlue('#su-user-pone');
-                $('#su-user-pone-p').innerText = '정상적인 전화번호입니다.';
-            } else {
-                $('#su-user-pone-p').innerText = '‘ - ’ 포함하여 작성해주세요 ex) 010-1234-5678';
-                removeBlue('#su-user-pone');
-                addRed('#su-user-pone');
-            }
+            addRed('#su-user-email');
         }
     })
 
 
-    //날짜 빈값 경고
+    //날짜 빈 값 경고
     $('#su-user-birth').addEventListener('input', (e) => {
         if (e.target.value === '') {
             addRed('#su-user-birth');
@@ -166,6 +181,23 @@ function SignUp() {
         inputId.forEach((key) => {
             changeRed(key);
         })
+        phoneCheck();
+
+
+        const $inputs = document.querySelectorAll('input');
+
+        const result = [...$inputs].map(input => {
+            return input.classList.contains('su-border-red');
+        }).reduce((a, b) => {
+            return a || b;
+        })
+        console.log(result);
+
+        if (result) {
+            alert('회원가입 실패');
+        } else {
+            alert('회원가입 성공')
+        }
 
     })
 

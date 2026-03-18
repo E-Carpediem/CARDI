@@ -1,0 +1,23 @@
+.manager-background {
+    background : #F5F5F5; 
+}
+
+.manager-title {
+    color: #2F4156;
+    font-family: "Pretendard";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 20px 0px 0px 50px;
+}
+
+.manager-sub-title {
+    color: #2F4156;
+    font-family: "Pretendard";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 5px 0px 10px 50px;
+}
