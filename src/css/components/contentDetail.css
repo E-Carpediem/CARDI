@@ -71,7 +71,7 @@
     background: #567c8d;
 }
 
-h2 {
+#cd-content-title {
     margin: 40px auto 25px 30px;
     font-size: 48px;
     font-weight: 600;
@@ -351,6 +351,7 @@ h2 {
     .cd-main-container {
         display: flex;
         flex-direction: column-reverse;
+        gap: 50px;
     }
 
     .cd-content-box {
