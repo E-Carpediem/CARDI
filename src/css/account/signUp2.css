@@ -22,6 +22,7 @@
 .su-main input[type="text"],
 .su-main input[type="password"],
 .su-main input[type="number"],
+.su-main input[type="tel"],
 .su-main input[type="date"],
 .su-main input[type="email"] {
     width: 100%;
@@ -155,4 +156,27 @@
 
 .su-check-ct>label {
     margin-right: 20px;
+}
+
+
+
+.su-border-red {
+    border-color: red !important;
+}
+
+.su-color-red {
+    color: red !important;
+}
+
+.su-border-blue {
+    border-color: blue !important;
+}
+
+.su-color-blue {
+    color: blue !important;
+}
+
+
+.su-main input {
+    outline: none;
 }
