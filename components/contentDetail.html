@@ -15,8 +15,11 @@
             width: 100%;
             height: 544px;
             border: 1px solid black;
+            border-radius: 20px;
             margin-top: 30px;
-            background-color: lightgray;
+            background-image: url("../src/assets/img/lectureThumbnail.png");
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         .cd-main-container {
@@ -26,9 +29,21 @@
             flex-direction: row;
             justify-content: space-between;
         }
+
         .cd-main-content {
-            width: 1309px;
-            /* border: 1px solid black; */
+            width: 71%;
+        }
+
+        .cd-content-box {
+            width: 26%;
+            height: 500px;
+            border-radius: 20px;
+            border: 1px solid #2F4156;
+            background: #FFF;
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: 50px;
         }
 
         .cd-main-nav {
@@ -38,22 +53,345 @@
             gap: 39px;
         }
 
-        p {
-            display: inline;
+        .cd-nav-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2f4156;
         }
+
 
         .cd-long-line {
             width: 100%;
             height: 1px;
             background-color: #2f4156;
+            display: flex;
+            flex-direction: row;
+            padding-left: 35px;
+            gap: 39px;
         }
 
-        .cd-content-box {
-            width: 483px;
-            height: 528px;
+        .cd-short-line {
+            width: 83px;
+            height: 4px;
+        }
+
+        #cd-short-line1 {
+            background: #567c8d;
+        }
+
+        h2 {
+            margin: 40px auto 25px 30px;
+            font-size: 48px;
+            font-weight: 600;
+        }
+
+        #cd-content-preview {
+            margin: auto auto 20px 35px;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        #cd-category {
+            width: 117px;
+            height: 26px;
+            margin: auto auto 50px 35px;
             border-radius: 20px;
-            border: 1px solid #2F4156;
-            background: #FFF;
+            background: #c8d9e6;
+            text-align: center;
+            line-height: 26px;
+            color: #2F4156;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .cd-content-index {
+            width: 100%;
+            height: 85px;
+            line-height: 85px;
+            padding-left: 35px;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            background: #F5EFEB;
+            color: #2F4156;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .cd-content-container {
+            width: auto;
+            height: 55px;
+            line-height: 55px;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            margin-bottom: 45px;
+        }
+
+        #cd-after-container3 {
+            margin-bottom: 55px;
+        }
+
+        .cd-number {
+            width: 55px;
+            height: 55px;
+            line-height: 55px;
+            text-align: center;
+            border-radius: 50%;
+            background: #567C8D;
+            color: #FFF;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .cd-content {
+            width: auto;
+            height: 55px;
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        .cd-simple-content {
+            width: 70%;
+            margin: 0px auto 50px 30px;
+            color: #2F4156;
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        .cd-curry-content {
+            color: #2F4156;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .cd-curry-list {
+            margin-bottom: 45px;
+        }
+
+        .cd-curry-list>li {
+            margin: 20px auto 20px 110px;
+            color: #2F4156;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .cd-content-info {
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 24px;
+            margin: 0px auto 9% 10%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #price {
+            height: 8%;
+            font-size: 36px;
+            font-weight: 600;
+            margin: 8% auto 12% 6%;
+        }
+
+        .cd-btn {
+            width: 92%;
+            height: 12%;
+            border-radius: 10px;
+            border: none;
+            font-size: 24px;
+            font-weight: 600;
+            margin: 5px auto;
+        }
+
+
+        #cd-btn-color1 {
+            background: #F5EFEB;
+            color: #2F4156;
+        }
+
+        #cd-btn-color1:hover {
+            cursor: pointer;
+            background: #e9e3df;
+        }
+
+        #cd-btn-color2 {
+            background: #2f4156;
+            color: #ffffff;
+        }
+
+        #cd-btn-color2:hover {
+            cursor: pointer;
+            background: #283749;
+        }
+
+        @media (max-width: 1800px) {
+            #price {
+                font-size: 34px;
+            }
+
+            .cd-content-info,
+            .cd-btn,
+            .cd-nav-title {
+                font-size: 22px;
+            }
+
+            .cd-short-line {
+                width: 76px;
+            }
+
+            .cd-content-box {
+                height: 480px;
+            }
+        }
+
+        @media (max-width: 1680px) {
+            #price {
+                font-size: 32px;
+            }
+
+            .cd-content-info,
+            .cd-btn,
+            .cd-nav-title {
+                font-size: 20px;
+            }
+
+            .cd-short-line {
+                width: 69px;
+            }
+
+            .cd-content-box {
+                height: 460px;
+            }
+        }
+
+        @media (max-width: 1560px) {
+            #price {
+                font-size: 30px;
+            }
+
+            .cd-content-info,
+            .cd-btn,
+            .cd-nav-title {
+                font-size: 18px;
+            }
+
+            .cd-short-line {
+                width: 62px;
+            }
+
+            .cd-content-box {
+                height: 440px;
+            }
+        }
+
+        @media (max-width: 1340px) {
+            #price {
+                font-size: 28px;
+            }
+
+            .cd-content-info,
+            .cd-btn,
+            .cd-nav-title {
+                font-size: 17px;
+            }
+
+            .cd-short-line {
+                width: 59px;
+            }
+
+            .cd-content-box {
+                height: 420px;
+            }
+        }
+
+        @media (max-width: 1220px) {
+            #price {
+                font-size: 26px;
+            }
+
+            .cd-content-info,
+            .cd-btn,
+            .cd-nav-title {
+                font-size: 16px;
+            }
+
+            .cd-short-line {
+                width: 56px;
+            }
+
+            .cd-content-box {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            #price {
+                font-size: 24px;
+            }
+
+            .cd-content-info,
+            .cd-btn,
+            .cd-nav-title {
+                font-size: 16px;
+            }
+
+            .cd-short-line {
+                width: 53px;
+            }
+
+            .cd-content-box {
+                height: 380px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .cd-content-info,
+            .cd-btn,
+            .cd-nav-title {
+                font-size: 16px;
+            }
+
+            .cd-short-line {
+                width: 42px;
+            }
+
+            .cd-main-container {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            .cd-content-box {
+                width: 100%;
+                height: 250px;
+                display: grid;
+                grid-template-columns: 1fr 2fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #price {
+                font-size: 20px;
+                margin: 30px;
+                grid-row: span 2;
+            }
+
+            .cd-content-info {
+                grid-row: span 2;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .cd-main-content {
+                width: 100%;
+            }
+
+            .cd-btn {
+                width: 100px;
+                height: 40px;
+                margin: 10px;
+            }
         }
     </style>
 </head>
@@ -65,25 +403,85 @@
             <div class="cd-main-container">
                 <div class="cd-main-content">
                     <div class="cd-main-nav">
-                        <p>강의소개</p>
-                        <p>커리큘럼</p>
-                        <p>커뮤니티</p>
+                        <p class="cd-nav-title">강의소개</p>
+                        <p class="cd-nav-title">커리큘럼</p>
+                        <p class="cd-nav-title">커뮤니티</p>
                     </div>
                     <div class="cd-long-line">
-                        <div class="cd-short-line"></div>
-                        <div class="cd-short-line"></div>
-                        <div class="cd-short-line"></div>
+                        <div class="cd-short-line" id="cd-short-line1"></div>
+                        <div class="cd-short-line" id="cd-short-line2"></div>
+                    </div>
+                    <h2 id="cd-content-title">강의 제목</h2>
+                    <p id="cd-content-preview">이 텍스트는 강의 한줄 설명입니다.</p>
+                    <div id="cd-category">HTML</div>
+                    <div id="cd-after-container">
+                        <div class="cd-content-index" id="cd-content-after">수강 후에는...</div>
+                        <div class="cd-content-container" id="cd-after-container1">
+                            <div class="cd-number" id="cd-after-number1">1</div>
+                            <div class="cd-content" id="cd-after-content1">누구나 따라할 수 있도록 알려주는 강의</div>
+                        </div>
+                        <div class="cd-content-container" id="cd-after-container2">
+                            <div class="cd-number" id="cd-after-number2">2</div>
+                            <div class="cd-content" id="cd-after-content2">간단하게 누구나 따라할 수 있도록 알려주는 강의</div>
+                        </div>
+                        <div class="cd-content-container" id="cd-after-container3">
+                            <div class="cd-number" id="cd-after-number3">3</div>
+                            <div class="cd-content" id="cd-after-content3">쉽고 간단하게 누구나 따라할 수 있도록 알려주는 강의</div>
+                        </div>
+                    </div>
+                    <div id="cd-simple-container">
+                        <div class="cd-content-index" id="cd-content-simple">강의 요약</div>
+                        <div class="cd-simple-content" id="cd-simple-content">이 강의는 기본적인 HTML, CSS, JS에 대한 지식을 다룹니다.
+                            이 강의는 기본적인 HTML, CSS, JS에 대한 지식을 다룹니다.이 강의는 기본적인 HTML, CSS, JS에 대한 지식을 다룹니다.
+                            이 강의는 기본적인 HTML, CSS, JS에 대한 지식을 다룹니다.이 강의는 기본적인 HTML, CSS, JS에 대한 지식을 다룹니다.
+                        </div>
+                    </div>
+                    <div id="cd-curry-container">
+                        <div class="cd-content-index" id="cd-content-curry">커리큘럼</div>
+                        <div class="cd-content-container" id="cd-curry-container1">
+                            <div class="cd-number" id="cd-curry-number1">1</div>
+                            <div class="cd-content cd-curry-content" id="cd-curry-content1">HTML</div>
+                        </div>
+                        <ul class="cd-curry-list" id="cd-curry-list1">
+                            <li>1번 태그</li>
+                            <li>2번 태그</li>
+                            <li>3번 태그</li>
+                        </ul>
+                        <div class="cd-content-container" id="cd-curry-container2">
+                            <div class="cd-number" id="cd-curry-number2">2</div>
+                            <div class="cd-content cd-curry-content" id="cd-curry-content2">CSS</div>
+                        </div>
+                        <ul class="cd-curry-list" id="cd-curry-list2">
+                            <li>1번 스타일</li>
+                            <li>2번 스타일</li>
+                            <li>3번 스타일</li>
+                        </ul>
+                        <div class="cd-content-container" id="cd-curry-container3">
+                            <div class="cd-number" id="cd-curry-number3">3</div>
+                            <div class="cd-content cd-curry-content" id="cd-curry-content3">JS</div>
+                        </div>
+                        <ul class="cd-curry-list" id="cd-curry-list3">
+                            <li>변수</li>
+                            <li>함수</li>
+                            <li>객체</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="cd-content-box">
-                    <p id="price">₩80,000</p>
-                    <button class="modal-open-one-btn">원버튼</button>
-                    <button class="modal-open-two-btn">투버튼</button>
+                    <div id="price">₩80,000</div>
+                    <div class="cd-content-info">
+                        <div id="cd-lecturer-name">강사명: </div>
+                        <div id="cd-use-time">이용 기간: 무제한</div>
+                        <div id="cd-content-time">강의 시간: </div>
+                        <div id="cd-content-level">난이도: </div>
+                    </div>
+                    <button class="cd-btn modal-open-one-btn" id="cd-btn-color1">수정하기</button>
+                    <button class="cd-btn modal-open-two-btn" id="cd-btn-color2">삭제하기</button>
                 </div>
             </div>
         </main>
     </div>
-    
+
     <div class="active-modal"></div>
     <script type="module" src="../src/js/components/includeHeader.js"></script>
     <script type="module" src="../src/js/components/includeNav.js"></script>

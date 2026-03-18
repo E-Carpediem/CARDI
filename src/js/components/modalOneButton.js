@@ -5,8 +5,7 @@ $btn.addEventListener('click', (e) => {
     <div class="modal" data-url="">
         <div class="modal-container">
             <div class="modal-top">
-                삭제하시겠습니까?<br>
-                삭제 후엔 되돌릴 수 없습니다.
+                확인되었습니다.
             </div>
             <div class="modal-bottom modal-check" id="modal-check1">확인</div>
         </div>
