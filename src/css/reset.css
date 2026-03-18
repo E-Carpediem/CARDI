@@ -1,0 +1,11 @@
+@import '../css/components/header.css';
+@import '../css/components/nav.css';
+@import '../css/components/modal.css';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}

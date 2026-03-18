@@ -1,0 +1,141 @@
+@import '../reset.css';
+
+main {
+    width: 600px;
+    margin: 0 auto;
+}
+
+
+h2 {
+    color: #2F4156;
+    text-align: center;
+    font-family: "Pretendard Variable";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 72px;
+    margin: 128px 0 62px 0;
+    /* 150% */
+}
+
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="email"] {
+    width: 100%;
+    height: 64px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 2px solid #2F4156;
+    font-family: "Pretendard Variable";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 11px;
+}
+
+.su-id-check-ct {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+}
+
+.su-id-check-ct>input {
+    flex: 1;
+}
+
+
+.su-id-check-ct>button {
+    border-radius: 10px;
+    border: 2px solid #2F4156;
+    background: #FFF;
+    height: 64px;
+    width: 133px;
+    margin-top: 11px;
+}
+
+p {
+    margin: 5px 0 28px 5px;
+    color: rgba(47, 65, 86, 0.70);
+    font-family: "Pretendard Variable";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    /* 150% */
+}
+
+label {
+    color: #2F4156;
+    font-family: "Pretendard Variable";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    /* 150% */
+}
+
+.su-agree-ct>div {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.su-agree-ct>div>label {
+    color: #2F4156;
+    font-family: "Pretendard Variable";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    /* 150% */
+
+
+}
+
+.su-check-ct {
+    margin: 0 0 29px 0;
+}
+
+
+#userEmail {
+    margin-bottom: 54px;
+}
+
+#userBirth,
+#userAge,
+#userName {
+    margin-bottom: 28px;
+}
+
+.su-signup-btn {
+    border-radius: 10px;
+    background: rgba(47, 65, 86, 0.60);
+    color: #FFF;
+    text-align: center;
+    font-family: "Pretendard Variable";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px;
+    margin: 60px 0 115px 0;
+    width: 600px;
+    padding: 20px 0;
+    /* 150% */
+    border: 0;
+}
+
+span {
+    color: rgba(47, 65, 86, 0.60);
+    text-align: center;
+    font-family: "Pretendard Variable";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 800;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+}
