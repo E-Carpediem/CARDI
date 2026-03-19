@@ -1,7 +1,7 @@
 fetch("/components/nav.html")
     .then((response) => response.text())
     .then((responseText) => {
-        document.querySelector('.container').insertAdjacentHTML("afterbegin", responseText);
+        document.querySelector('.top-container').insertAdjacentHTML("afterbegin", responseText);
     });
 
 const $navStudent = document.querySelector(".c-student-ct");
