@@ -15,6 +15,10 @@ const user = {
 function SignUp() {
     this.users = [];
 
+    this.init = () => {
+        this.users = user.getLocalStorage('userList');
+    }
+
     const inputId = ['#su-user-id', '#su-user-pwd', '#su-user-pwdcheck', '#su-user-name', '#su-user-age', '#su-user-pone', '#su-user-email', '#su-user-birth'];
 
 
@@ -112,13 +116,28 @@ function SignUp() {
     })
 
     //아이디 4글자 미만 경고
-    $('#su-user-id').addEventListener('change', (e) => {
+    $('#su-user-id').addEventListener('input', (e) => {
         if (e.target.value.length < 4) {
+            removeBlue('#su-user-id');
             addRed('#su-user-id');
             $(`#su-user-id-p`).innerText = '아이디는 4자 이상 입력해주세요.';
         } else {
+            removeBlue('#su-user-id');
+            addRed('#su-user-id');
+            $(`#su-user-id-p`).innerText = '아이디 중복확인 해주세요.';
+        }
+    })
+
+    //아이디 중복 확인
+    $('.su-same-check-btn').addEventListener('click', () => {
+        if (this.users.find(u => { return u.userId === $('#su-user-id').value })) {
+            removeBlue('#su-user-id');
+            addRed('#su-user-id');
+            $(`#su-user-id-p`).innerText = '이미 존재하는 아이디입니다.';
+        } else {
             removeRed('#su-user-id');
-            $(`#su-user-id-p`).innerText = '4~8자로 입력해주세요';
+            addBlue('#su-user-id');
+            $(`#su-user-id-p`).innerText = '사용 가능한 아이디입니다.';
         }
     })
 
@@ -283,6 +302,9 @@ function SignUp() {
         inputId.forEach((key) => {
             changeRed(key);
         })
+        if (!$('#su-user-id').classList.contains('su-border-blue')) {
+            addRed('#su-user-id');
+        }
         phoneCheck();
 
         //input값들 확인
@@ -315,6 +337,29 @@ function SignUp() {
             inputResult ? activeModal(() => closeModal($('.modal')), '정보를 다시 확인해주세요.') : activeModal(() => closeModal($('.modal')), '약관 동의를 진행해주세요');
 
         } else {
+            const signUpInfo = {
+                "role": "student",
+                "id": this.users.length + 1,
+                "userId": $('#su-user-id').value,
+                "password": $('#su-user-pwd').value,
+                "userName": $('#su-user-name').value,
+                "userAge": $('#su-user-age').value,
+                "phoneNumber": $('#su-user-pone').value,
+                "userEmail": $('#su-user-email').value,
+                "gender": $('input[name="gender"]:checked').value,
+                "birth": $('#su-user-birth').value,
+            }
+
+            if ($('#su-lecture-info') !== null) {
+                signUpInfo.role = "lecturer";
+                signUpInfo.userProfile = $('#su-lecture-img').files[0];
+                signUpInfo.userDocument = $('#su-lecture-info').files;
+
+            }
+            this.users.push(signUpInfo)
+            console.log(this.users);
+            user.setLocalStorage('userList', this.users);
+            console.log(user.getLocalStorage('userList'));
             activeModal(() => movePage('../signUp/signUp4.html'), '회원가입이 완료되었습니다.');
         }
 
@@ -324,3 +369,5 @@ function SignUp() {
 
 
 const signUp = new SignUp();
+
+signUp.init();
