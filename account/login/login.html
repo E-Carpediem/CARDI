@@ -14,14 +14,14 @@
 
             <h2>로그인</h2>
             <form>
-                <label>아이디</label>
-                <input placeholder="아이디를 입력하세요.">
-                <label>비밀번호</label>
-                <input placeholder="비밀번호를 입력하세요.">
-                <button class="l-login-btn">
+                <label for="su-login-id">아이디</label>
+                <input placeholder="아이디를 입력하세요." type="text" id="su-login-id">
+                <label for="su-login-pwd">비밀번호</label>
+                <input placeholder="비밀번호를 입력하세요." type="password" id="su-login-pwd">
+                <button class="l-login-btn" type="button">
                     로그인
                 </button>
-                <button class="l-signup-btn">
+                <button class="l-signup-btn" type="button">
                     회원가입
                 </button>
             </form>
@@ -29,7 +29,8 @@
         </main>
     </div>
     <script src="/src/js/components/includeHeader.js"></script>
-
+    <script src="/src/js/account/signUpRoute.js"></script>
+    <script src="/src/js/account/login.js"></script>
 </body>
 
 </html>
