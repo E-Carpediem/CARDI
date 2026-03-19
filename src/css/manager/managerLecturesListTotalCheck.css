@@ -1,0 +1,346 @@
+.tmm-main-lecture-ct {
+    border-radius: 20px;
+    border: 3px solid rgba(200, 217, 230, 0.40);
+    background: #FFF;
+    margin: 20px 50px 50px 50px;
+    padding: 50px;
+}
+
+.tmm-lecture-inf-ct {
+    display: flex;
+    gap: 50px;
+}
+
+.tmm-lecture-inf {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.tmm-lecture-inf-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tmm-lecture-inf-content>p:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 25px;
+    border-radius: 5px;
+    background: #DCFCE7;
+
+    color: #16A34A;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.tmm-lecture-inf-content>p:nth-child(2) {
+    color: #2F4156;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.tmm-lecture-inf-content>p:nth-child(3),
+.tmm-lecture-inf-content>p:nth-child(4),
+.tmm-lecture-inf-content>p:nth-child(5) {
+    color: #2F4156;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.tmm-lecture-inf-content>p:nth-child(6) {
+    color: #2F4156;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.tmm-lecture-inf-profile {
+    width: 180px;
+    height: 200px;
+    background: #D9D9D9;
+
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.tmm-lector-main-lecture {
+    flex: 1;
+    display: flex;
+    gap: 60px;
+}
+
+.tmm-lector-lecture {
+    width: 25%;
+    height: 250px;
+    border-radius: 20px;
+    background: #D9D9D9;
+
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    gap: 90px;
+}
+
+.tmm-lector-category {
+    background: #567C8D;
+    border-radius: 20px;
+    width: 45px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+
+.tmm-lector-lecture-coment-ct {
+    height: 125px;
+    background-color: #FFF;
+    align-self: stretch;
+    padding: 20px;
+    border-radius: 0px 0px 20px 20px;
+    border: 1px solid #D9D9D9;
+}
+
+.tmm-lector-lecture-title {
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.tmm-lector-oneline-example {
+    color: rgba(0, 0, 0, 0.20);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.tmm-lector-list-ct {
+    display: flex;
+    flex-direction: column;
+}
+
+.tmm-lector-list-title {
+    color: #2F4156;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border: 0px solid #2F4156;
+    border-bottom-width: 4px;
+    margin: 20px 0px 0px 50px;
+    width: 90px;
+    height: 50px;
+    box-sizing: content-box;
+    display: inline;
+    text-align: center;
+
+}
+
+.tmm-lector-list-hr {
+    width: 100%;
+    height: 1px;
+    background: #2F4156;
+    border: none;
+    margin: 0px 0px 30px 0px;
+}
+
+.tmm-lector-search-ct {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.tmm-lector-search-input-ct {
+    flex: 1;
+    width: 100%;
+    position: relative;
+}
+
+.tmm-lector-search-input-ct>img {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.tmm-lector-search-input-ct>input {
+    width: 100%;
+    height: 40px;
+
+    border-radius: 10px;
+    border: 1px solid #D1D5D8;
+    background: #F5F5F5;
+    padding-left: 40px;
+}
+
+.tmm-lecotr-search-input-ct>input::placeholder {
+    color: #C2C2C2;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.tmm-lector-search-array-btn,
+.tmm-lector-search-filter-btn {
+    width: 10%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #2F4156;
+    background: #F5F5F5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.tmm-lector-content-ct {
+    display: flex;
+    flex-direction: column;
+}
+
+.tmm-lector-content-top-ct {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    border-top: 1px solid rgba(47, 65, 86, 0.25);
+    border-bottom: 1px solid rgba(47, 65, 86, 0.25);
+    background: #F5F5F5;
+
+    height: 50px;
+    padding: 0px 20px;
+}
+
+.tmm-lector-content-top-ct>p {
+    color: #567C8D;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+
+.tmm-lector-content-top-ct>p:nth-child(1) {
+    width: 5%;
+}
+
+.tmm-lector-content-top-ct>p:nth-child(2) {
+    width: 10%;
+}
+
+.tmm-lector-content-top-ct>p:nth-child(3) {
+    width: 40%;
+}
+
+.tmm-lector-content-top-ct>p:nth-child(4) {
+    width: 10%;
+}
+
+.tmm-lector-content-top-ct>p:nth-child(5) {
+    width: 10%;
+}
+
+.tmm-lector-content-top-ct>p:nth-child(6) {
+    width: 10%;
+}
+
+
+.tmm-lector-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(47, 65, 86, 0.25);
+
+}
+
+.tmm-lector-content>p:nth-child(1) {
+    width: 5%;
+}
+
+.tmm-lector-content>p:nth-child(2) {
+    width: 10%;
+}
+
+.tmm-lector-content>p:nth-child(3) {
+    width: 40%;
+}
+
+.tmm-lector-content>p:nth-child(4) {
+    width: 10%;
+}
+
+.tmm-lector-content>p:nth-child(5) {
+    width: 10%;
+}
+
+.tmm-lector-content>p:nth-child(6) {
+    width: 10%;
+}
+
+.tmm-lector-content>p:nth-child(7) {
+    width: 60px;
+    height: 25px;
+    border-radius: 5px;
+    background: #FEE2E2;
+
+    color: #DC2626;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.tmm-lector-bottom-number {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0px 0px 0px;
+    align-items: center;
+}
+
+.tmm-lector-bottom-number>p {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tmm-lector-bottom-number>p:first-child {
+    border-radius: 10px;
+    background: #2F4156;
+    color: white;
+}
