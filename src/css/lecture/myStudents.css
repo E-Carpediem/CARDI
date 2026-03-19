@@ -1,0 +1,126 @@
+.ms-page-container {
+    margin: 0 50px;
+}
+
+.ms-page-content {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ms-header {
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: sticky;
+    top: 0;
+    background-color: #FFF;
+}
+
+.ms-header-title-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.ms-header-title {
+    color: #2F4156;
+    font-size: 48px;
+    margin: 0;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.ms-header-stats-box {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 50px;
+}
+
+.ms-stat-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    border: 3px solid #D9D9D9;
+    border-radius: 20px;
+    background: #FFF;
+    padding: 20px;
+    width: 40%;
+    height: 200px;
+}
+
+.ms-stat-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.ms-stat-label {
+    font-size: 20px;
+    font-weight: 400;
+    color: #2F4156;
+    line-height: normal;
+}
+
+.ms-stat-value {
+    color: #2F4156;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.ms-lecture-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ms-lecture-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #F5EFEB;
+    border: 1px solid #D9D9D9;
+    border-radius: 20px;
+    padding: 20px 30px;
+    margin-bottom: 30px;
+    height: 80px;
+}
+
+.ms-lecture-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2F4156;
+}
+
+.ms-lecture-info-box {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.ms-lecture-stats {
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(47, 65, 86, 0.8);
+}
+
+.ms-lecture-category {
+    width: 180px;
+    height: 50px;
+    background: #2F4156;
+    border-radius: 20px;
+    color: #FFF;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

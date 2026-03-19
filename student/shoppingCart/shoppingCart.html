@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="top-container">
         <div class="sc-cart-container">
             <div class="sc-cart-content">
                 <h1 class="sc-cart-title">장바구니</h1>
@@ -33,7 +33,6 @@
                                 </div>
                                 <button class="sc-cart-btn move">강의로 이동</button>
                             </div>
-
                         </div>
                     </div>
 
@@ -47,17 +46,21 @@
                             <p class="sc-cart-selected-count">선택된 강의 : n개</p>
                             <p class="sc-cart-total-price">총 가격: nnn,nnn 원</p>
                             <div class="sc-cart-summary-actions">
-                                <button class="sc-cart-btn delete">삭제하기</button>
-                                <button class="sc-cart-btn apply">신청하기</button>
+                                <button class="sc-cart-btn delete modal-open-two-btn" data-url="">삭제하기</button>
+                                <button class="sc-cart-btn apply modal-open-two-btn"
+                                    data-url="../contentTotal/contentTotal.html" data-message="
+                                신청하시겠습니까?<br>
+                                신청하기 버튼을 누르면 신청이 완료됩니다.">신청하기</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
 
-
+                <div class="active-modal"></div>
                 <script src="/src/js/components/includeHeader.js"></script>
                 <script src="/src/js/components/includeNav.js"></script>
+                <script src="/src/js/components/modalTwoButton.js"></script>
                 <script src="./shoppingCart.js"></script>
 </body>
 
