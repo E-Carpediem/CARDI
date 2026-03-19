@@ -3,6 +3,15 @@
 
 const $ = (selector) => document.querySelector(selector)
 
+const user = {
+    setLocalStorage(key, value) {
+        localStorage.setItem(key, JSON.stringify(value));
+    },
+    getLocalStorage(key) {
+        return JSON.parse(localStorage.getItem(key))
+    }
+}
+
 function SignUp() {
     this.users = [];
 
@@ -10,6 +19,34 @@ function SignUp() {
 
 
     const $agreeButtons = document.querySelectorAll('.su-agree-check');
+
+
+
+    const activeModal = ((clickE, message) => {
+        document.querySelector('.active-modal').innerHTML = `
+            <div class="modal">
+                <div class="modal-container">
+                    <div class="modal-top">
+                        ${message}
+                    </div>
+                    <div class="modal-bottom modal-check" id="modal-check1">확인</div>
+                </div>
+            </div>`;
+
+        const $modal = document.querySelector(".modal");
+        $modal.style.display = 'flex';
+        document.querySelector('.modal-check').addEventListener('click', clickE);
+    })
+
+    function movePage(url) {
+        window.location.href = url;
+    }
+
+    function closeModal(modal) {
+        modal.style.display = 'none';
+    }
+
+
 
     // 경고 red 추가 
     const addRed = (selector) => {
@@ -86,21 +123,39 @@ function SignUp() {
     })
 
     //비밀번호 6글자 미만 경고
-    $('#su-user-pwd').addEventListener('change', (e) => {
+    $('#su-user-pwd').addEventListener('input', (e) => {
         if (e.target.value.length < 6) {
             removeBlue('#su-user-pwd');
             addRed('#su-user-pwd');
             $(`#su-user-pwd-p`).innerText = '비밀번호는 6자 이상 입력해주세요.';
         } else {
-            removeRed('#su-user-pwd');
-            addBlue('#su-user-pwd');
-            $(`#su-user-pwd-p`).innerText = '사용 가능한 비밀번호입니다.';
+            const english = /[a-zA-Z]/.test(e.target.value);
+            const number = /[0-9]/.test(e.target.value);
+            if (english && number) {
+                removeRed('#su-user-pwd');
+                addBlue('#su-user-pwd');
+                $(`#su-user-pwd-p`).innerText = '사용 가능한 비밀번호입니다.';
+            } else {
+                removeBlue('#su-user-pwd');
+                addRed('#su-user-pwd');
+                english ? $(`#su-user-pwd-p`).innerText = '숫자를 포함해주세요.' : $(`#su-user-pwd-p`).innerText = '영어를 포함해주세요.';
+            }
 
+        }
+
+        if ($('#su-user-pwd').value !== $('#su-user-pwdcheck').value) {
+            removeBlue('#su-user-pwdcheck');
+            addRed('#su-user-pwdcheck');
+            $(`#su-user-pwdcheck-p`).innerText = '비밀번호가 일치하지 않습니다.';
+        } else {
+            removeRed('#su-user-pwdcheck');
+            addBlue('#su-user-pwdcheck');
+            $(`#su-user-pwdcheck-p`).innerText = '비밀번호가 일치합니다.'
         }
     })
 
     //비밀번호 확인 경고
-    $('#su-user-pwdcheck').addEventListener('change', (e) => {
+    $('#su-user-pwdcheck').addEventListener('input', (e) => {
         if ($('#su-user-pwd').value !== $('#su-user-pwdcheck').value) {
             removeBlue('#su-user-pwdcheck');
             addRed('#su-user-pwdcheck');
@@ -122,7 +177,7 @@ function SignUp() {
     })
 
     //14세 미만 경고
-    $('#su-user-age').addEventListener('change', (e) => {
+    $('#su-user-age').addEventListener('input', (e) => {
         if (e.target.value < 14) {
             addRed('#su-user-age');
         } else {
@@ -131,17 +186,23 @@ function SignUp() {
     })
 
     //전화번호 경고
-    $('#su-user-pone').addEventListener('change', () => {
+    $('#su-user-pone').addEventListener('input', () => {
         phoneCheck();
     })
 
-
-    $('#su-user-email').addEventListener('change', (e) => {
+    //이메일 경고
+    $('#su-user-email').addEventListener('input', (e) => {
         const index = [...e.target.value].findIndex(email => email === '@')
-        if (index) {
+        const posibleEmail = $('#su-user-email').value[index - 1] && $('#su-user-email').value[index + 1]
+
+        if (index + 1 && posibleEmail) {
             removeRed('#su-user-email');
+            addBlue('#su-user-email');
+            $(`#su-user-email-p`).innerText = '정상적인 이메일입니다.'
         } else {
+            removeBlue('#su-user-email');
             addRed('#su-user-email');
+            $(`#su-user-email-p`).innerText = '이메일을 작성해주세요.'
         }
     })
 
@@ -183,6 +244,8 @@ function SignUp() {
                     $('.su-lecture-profile-img').src = event.target.result;
                 };
                 reader.readAsDataURL(file);
+            } else {
+                $('.su-lecture-profile-img').removeAttribute('src');
             }
         })
     }
@@ -194,6 +257,9 @@ function SignUp() {
             const file = e.target.files[0];
             if (file) {
                 const fileNames = [...e.target.files].map((f) => f.name).join(', ');
+                if (fileNames.length > 15) {
+                    $('.su-qualification-ct').style.display = 'block';
+                }
                 $('.su-selected-file').innerText = `${fileNames}`;
             } else {
                 $('.su-selected-file').innerText = `선택된 파일 없음`;
@@ -202,31 +268,54 @@ function SignUp() {
         })
     }
 
-
+    //버튼 활성화 이벤트
+    $('.su-signup-form').addEventListener('change', () => {
+        inputId.map((key) => {
+            return $(key).value.trim()
+        }).every(input => input) ? $('.su-signup-btn').style.backgroundColor = '#2F4156' : $('.su-signup-btn').style.backgroundColor = '#2F415699';
+    })
 
     //제출 이벤트
     $('.su-signup-form').addEventListener('submit', (e) => {
         e.preventDefault();
 
+        //공백 처리
         inputId.forEach((key) => {
             changeRed(key);
         })
         phoneCheck();
 
-
-        const $inputs = document.querySelectorAll('input');
-
-        const result = [...$inputs].map(input => {
+        //input값들 확인
+        const inputs = document.querySelectorAll('input');
+        const inputResults = [...inputs].map(input => {
             return input.classList.contains('su-border-red');
-        }).reduce((a, b) => {
+        })
+        if ($('#su-lecture-info') !== null) {
+            inputResults.push($('#su-lecture-info').files.length === 0)
+            inputResults.push($('#su-lecture-img').files.length === 0)
+        }
+        const inputResult = inputResults.reduce((a, b) => {
+            return a || b;
+        })
+
+        //check값들 확인
+        const checks = document.querySelectorAll('.su-agree-check');
+        const checkResults = [...checks].map(check => {
+            return !check.checked;
+        });
+        const checkResult = checkResults.reduce((a, b) => {
             return a || b;
         })
 
 
-        if (result) {
-            alert('회원가입 실패');
+
+
+
+        if (inputResult || checkResult) {
+            inputResult ? activeModal(() => closeModal($('.modal')), '정보를 다시 확인해주세요.') : activeModal(() => closeModal($('.modal')), '약관 동의를 진행해주세요');
+
         } else {
-            alert('회원가입 성공')
+            activeModal(() => movePage('../signUp/signUp4.html'), '회원가입이 완료되었습니다.');
         }
 
     })

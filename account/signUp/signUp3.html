@@ -26,15 +26,16 @@
                 <div class="su-id-check-ct">
                     <input placeholder="아이디 입력" type="text" id="su-user-id"><button type="button">중복확인</button>
                 </div>
-                <p>2~8자로 입력해주세요</p>
+                <p id="su-user-id-p">4~8자로 입력해주세요</p>
 
                 <label for="su-user-pwd">비밀번호</label>
                 <input placeholder="비밀번호 입력" type="password" id="su-user-pwd">
-                <p>2~8자로 입력해주세요</p>
+                <p id="su-user-pwd-p">영문, 숫자를 포함해 6~18자로 입력해주세요</p>
+
 
                 <label for="su-user-pwdcheck">비밀번호 확인</label>
                 <input placeholder="비밀번호 재입력" type="password" id="su-user-pwdcheck">
-                <p>2~8자로 입력해주세요</p>
+                <p id="su-user-pwdcheck-p">영문, 숫자를 포함해 6~18자로 입력해주세요</p>
 
                 <label for="su-user-name">이름</label>
                 <input placeholder="이름 입력" type="text" id="su-user-name">
@@ -45,16 +46,16 @@
 
 
                 <label for="su-user-pone">전화번호</label>
-                <input placeholder="전화번호 입력" type="number" id="su-user-pone">
-                <p>2~8자로 입력해주세요</p>
+                <input placeholder="전화번호 입력" type="tel" id="su-user-pone" value="010-" maxlength="13">
+                <p id="su-user-pone-p">‘ - ’ 포함하여 작성해주세요 ex) 010-1234-5678</p>
 
                 <label for="su-user-email">이메일</label>
                 <input placeholder="이메일 입력" id="su-user-email" type="email">
-
+                <p id="su-user-email-p">이메일을 작성해주세요.</p>
 
                 <label>성별</label>
                 <div class="su-check-ct">
-                    <input type="radio" id="su-male" name="gender"><label for="su-male">남성</label>
+                    <input type="radio" id="su-male" name="gender" checked><label for="su-male">남성</label>
                     <input type="radio" id="su-female" name="gender"><label for="su-female">여성</label>
                 </div>
 
@@ -65,7 +66,9 @@
                 <div class="su-qualification-ct">
                     <label for="su-lecture-info">파일선택</label>
                     <input type="file" id="su-lecture-info" hidden multiple>
-                    <span class="su-selected-file">선택된 파일 없음</span>
+                    <p class="su-selected-file">
+                        선택된 파일 없음
+                    </p>
                 </div>
 
 
@@ -98,9 +101,9 @@
 
         </main>
     </div>
+    <div class="active-modal"></div>
     <script src="/src/js/components/includeHeader.js"></script>
     <script src="../../src/js/account/signUp2.js"></script>
-
 </body>
 
 </html>
