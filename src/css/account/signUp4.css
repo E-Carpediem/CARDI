@@ -1,0 +1,58 @@
+@import '../reset.css';
+
+.su-main-ct {
+    width: 600px;
+    height: 825px;
+    margin: 130px auto 0 auto;
+    text-align: center;
+
+}
+
+.su-main-ct>h2 {
+    margin: 39px 0 29px 0;
+    color: #2F4156;
+    font-family: "Pretendard Variable";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 72px;
+    /* 150% */
+}
+
+.su-main-ct>p {
+    margin: 29px 0 67px 0;
+    color: #2F4156;
+    font-family: "Pretendard Variable";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px;
+    /* 150% */
+}
+
+
+.su-main-ct>div {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: #2F4156;
+    margin: auto;
+    margin-bottom: 133px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.su-main-ct>button {
+    border-radius: 10px;
+    background: #2F4156;
+    width: 600px;
+    padding: 20px 0;
+    color: #FFF;
+    font-family: "Pretendard Variable";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px;
+    /* 150% */
+}
