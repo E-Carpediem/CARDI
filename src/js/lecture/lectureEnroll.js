@@ -32,19 +32,7 @@ $(".le-content-level").addEventListener("change", () => {
 });
 
 const formContainer = $(".le-form-container");
-const addBigBtn = $("#le-add-big");
 
-// 대제목 인덱스 구하기
-function getNextBigIndex() {
-    return $$(".le-content-curry").length + 1;
-}
-
-// 특정 대제목 그룹의 다음 소제목 인덱스 구하기
-function getNextSmallIndex(groupElement) {
-    return groupElement.querySelectorAll(".le-curry-small").length + 1;
-}
-
-// 소제목 HTML 생성
 function createSmallHTML(bigIndex, smallIndex) {
     const lessonNumber = `${bigIndex}-${smallIndex}`;
 
@@ -78,7 +66,6 @@ function createSmallHTML(bigIndex, smallIndex) {
     `;
 }
 
-// 대제목 그룹 HTML 생성
 function createBigHTML(bigIndex) {
     return `
         <div class="le-add-big">
@@ -101,34 +88,40 @@ function createBigHTML(bigIndex) {
     `;
 }
 
-// 대제목 추가
-if (addBigBtn) {
-    addBigBtn.addEventListener("click", () => {
+formContainer.addEventListener("click", (e) => {
+    if (e.target.id === "le-add-big") {
+        console.log(e.target.id);
         const nextBigIndex = getNextBigIndex();
-        addBigBtn.insertAdjacentHTML("beforebegin", createBigHTML(nextBigIndex));
-    });
-}
+        e.target.insertAdjacentHTML("beforebegin", createBigHTML(nextBigIndex));
+        return;
+    }
 
-// 소제목 추가
-if (formContainer) {
-    formContainer.addEventListener("click", (e) => {
-        if (!e.target.classList.contains("le-add-small")) return;
-
+    if (e.target.classList.contains("le-add-small")) {
+        console.log(e.target.classList.contains("le-add-small"));
         const currentGroup = e.target.closest(".le-add-big");
-        if (!currentGroup) return;
-
+        console.log('?',currentGroup);
         const bigInput = currentGroup.querySelector(".le-content-curry");
-        if (!bigInput) return;
-
+        console.log('??',bigInput);
         const bigIndex = bigInput.id.replace("le-content-curry", "");
+        console.log('???',bigIndex);
         const nextSmallIndex = getNextSmallIndex(currentGroup);
+        console.log('????',nextSmallIndex);
 
         e.target.insertAdjacentHTML(
             "beforebegin",
             createSmallHTML(bigIndex, nextSmallIndex)
         );
-    });
+    }
+});
+
+function getNextBigIndex() {
+    return $$(".le-content-curry").length + 1;
 }
+
+function getNextSmallIndex(groupElement) {
+    return groupElement.querySelectorAll(".le-curry-small").length + 1;
+}
+
 
 
 
