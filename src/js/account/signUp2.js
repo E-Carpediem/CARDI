@@ -129,7 +129,11 @@ function SignUp() {
     })
 
     //아이디 중복 확인
+
+    console.log($('.su-same-check-btn'));
+    console.log('asdsdffff');
     $('.su-same-check-btn').addEventListener('click', () => {
+        console.log('asdf');
         if (this.users.find(u => { return u.userId === $('#su-user-id').value })) {
             removeBlue('#su-user-id');
             addRed('#su-user-id');

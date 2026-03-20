@@ -85,6 +85,7 @@
     border: 1px solid #d9d9d9;
     border-radius: 20px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .ct-lecture-img {
@@ -129,4 +130,13 @@
     color: #fff;
     border-radius: 20px;
     padding: 5px 10px;
+}
+
+.ct-no-results {
+    color: rgba(47, 65, 86, 0.60);
+    font-size: 48px;
+    font-weight: 400;
+    text-align: center;
+    width: 100%;
+    margin-top: 10%;
 }
