@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/src/css/reset.css">
-    <link rel="stylesheet" href="/src/css/lectureEnroll.css">
+    <link rel="stylesheet" href="/src/css/lecture/lectureEnroll.css">
 </head>
 
 <body>
     <div class="top-container">
         <main class="le-side-margin">
             <section id="le-title">강의 수정</section>
-            <p id="le-preview">새로운 강의를 등록하고 커리큘럼을 구성하세요</p>
+            <p id="le-preview">기존 강의를 수정하세요.</p>
             <form name="le-content-form">
                 <article class="le-enroll-container">
                     <article class="le-data-container">
@@ -21,8 +21,8 @@
                         <div>
                             <div class="le-img-top">
                                 <label class="le-input-title">강의 썸네일 사진*</label><br>
-                                <select class="le-category">
-                                    <option id="le-category-def" hidden selected required>카테고리 ▼</option>
+                                <select class="le-category" required>
+                                    <option value="" hidden selected>카테고리 ▼</option>
                                     <option class="le-category-list" value="HTML">HTML</option>
                                     <option class="le-category-list" value="CSS">CSS</option>
                                     <option class="le-category-list" value="JavaScript">JavaScript</option>
@@ -33,7 +33,7 @@
                             <div class="le-img-container">
                                 <img class="le-content-img">
                                 <label for="le-content-img" id="le-img-input">+</label>
-                                <input id="le-content-img" type="file" hidden required accept="image/*">
+                                <input id="le-content-img" type="file" hidden accept="image/*">
                             </div>
                         </div>
                         <div class="le-content-data">
@@ -45,7 +45,7 @@
                                 <div class="le-level-container">
                                     <label class="le-input-title">난이도*</label><br>
                                     <select class="le-content-level" required>
-                                        <option id="le-level-def" value="def" hidden selected>▼</option>
+                                        <option value="" hidden selected>▼</option>
                                         <option class="le-level-list" value="basic">입문</option>
                                         <option class="le-level-list" value="basic">쉬움</option>
                                         <option class="le-level-list" value="basic">보통</option>
@@ -81,48 +81,53 @@
                     <article class="le-curry-container">
                         <p class="le-form-title">커리큘럼</p>
                         <div class="le-form-container">
-                            <div class="le-curry-big">
-                                <label class="le-input-title" for="le-content-curry">대제목1*</label><br>
-                                <input type="text" name="le-content-prewview" id="le-curry-title" required>
-                            </div>
-                            <div class="le-curry-small" id="le-curry-small1">
-                                <p class="le-input-title">강의 동영상</p>
-                                <div class="le-small-container" id="le-small-container1">
-                                    <div class="le-text-container">
-                                        <label class="le-input-title" for="le-lesson-title">소제목 1-1*</label><br>
-                                        <input type="text" name="le-lesson-title" class="le-lesson-title" required>
-                                    </div>
-                                    <div class="le-lesson-img">
-                                        <label class="le-input-title">동영상 파일*</label><br>
-                                        <label for="le-lesson-img1" class="le-lesson-input">첨부</label>
-                                        <input id="le-lesson-img1" name="le-lesson-img1" type="file" required>
+                            <div class="le-add-big">
+                                <div class="le-curry-big">
+                                    <label class="le-input-title" for="le-content-curry1">대제목1*</label><br>
+                                    <input type="text" name="le-content-curry" class="le-content-curry"
+                                        id="le-content-curry1" required>
+                                </div>
+                                <div class="le-curry-small" id="le-curry-small1">
+                                    <p class="le-input-title">강의 동영상</p>
+                                    <div class="le-small-container" id="le-small-container1">
+                                        <div class="le-text-container">
+                                            <label class="le-input-title" for="le-lesson-title1-1">소제목 1-1*</label><br>
+                                            <input type="text" name="le-lesson-title1-1" class="le-lesson-title"
+                                                id="le-lesson-title1-1" required>
+                                        </div>
+                                        <div class="le-lesson-img">
+                                            <label class="le-input-title">동영상 파일*</label><br>
+                                            <label for="le-lesson-img1-1" class="le-lesson-input">첨부</label>
+                                            <input class="le-img-data" name="le-lesson-img1-1" id="le-lesson-img1-1" type="file" required>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="le-curry-small" id="le-curry-small2">
-                                <p class="le-input-title">강의 동영상</p>
-                                <div class="le-small-container" id="le-small-container2">
-                                    <div class="le-text-container">
-                                        <label class="le-input-title" for="le-lesson-title">소제목 1-2*</label><br>
-                                        <input type="text" name="le-lesson-title" class="le-lesson-title" required>
-                                    </div>
-                                    <div class="le-lesson-img">
-                                        <label class="le-input-title">동영상 파일*</label><br>
-                                        <label for="le-lesson-img2" class="le-lesson-input">첨부</label>
-                                        <input id="le-lesson-img2" name="le-lesson-img2" type="file" required>
+                                <div class="le-curry-small" id="le-curry-small2">
+                                    <p class="le-input-title">강의 동영상</p>
+                                    <div class="le-small-container" id="le-small-container2">
+                                        <div class="le-text-container">
+                                            <label class="le-input-title" for="le-lesson-title1-2">소제목 1-2*</label><br>
+                                            <input type="text" name="le-lesson-title1-2" class="le-lesson-title"
+                                                id="le-lesson-title1-2" required>
+                                        </div>
+                                        <div class="le-lesson-img">
+                                            <label class="le-input-title">동영상 파일*</label><br>
+                                            <label for="le-lesson-img1-2" class="le-lesson-input">첨부</label>
+                                            <input class="le-img-data" name="le-lesson-img1-2" id="le-lesson-img1-2" type="file" required>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="le-add-title le-add-small" id="le-add-small">+ 소제목 추가</div>
                             </div>
-                            <div class="le-add-title" id="le-add-small">+ 소제목 추가</div>
                             <div class="le-add-title" id="le-add-big">+ 대제목 추가</div>
                     </article>
                 </article>
                 <div class="le-btn-container">
-                    <button class="le-cancel modal-open-two-btn"
-                        data-url="../../components/contentDetail.html"
-                        data-message="수정을 그만두시겠습니까?">취소</button>
+                    <button type="button" class="le-cancel modal-open-two-btn"
+                        data-url="../lectureContentTotal/lectureContentTotal.html"
+                        data-message="강의 수정을 그만두시겠습니까?">취소</button>
                     <input type="submit" name="le-enroll" value="수정하기" class="le-enroll modal-open-two-btn"
-                    data-message="수정하시겠습니까?"></input>
+                        data-message="수정하시겠습니까?"></input>
                 </div>
             </form>
     </div>
@@ -132,8 +137,8 @@
     <div class="active-modal"></div>
     <script src="/src/js/components/includeHeader.js"></script>
     <script src="/src/js/components/includeNav.js"></script>
-    <script src="/src/js/components/modalTwoButton.js"></script>
-    <script src="/src/js/lectureEnroll.js"></script>
+    <script type="module" src="/src/js/components/modalTwoButton.js"></script>
+    <script src="/src/js/lecture/lectureEnroll.js"></script>
 </body>
 
 </html>
