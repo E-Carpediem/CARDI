@@ -75,6 +75,9 @@
     font-weight: 400;
     z-index: 1000;
 }
+#le-img-input:hover {
+    color: #283749;
+}
 
 .le-img-top {
     display: flex;
