@@ -16,7 +16,7 @@
                 <label for="su-user-id">아이디</label>
                 <div class="su-id-check-ct">
                     <input placeholder="아이디 입력" type="text" id="su-user-id" maxlength="8" minlength="4"
-                        style="ime-mode:inactive;"><button type="button">중복확인</button>
+                        style="ime-mode:inactive;"><button type="button" class="su-same-check-btn">중복확인</button>
                 </div>
                 <p id="su-user-id-p">4~8자로 입력해주세요</p>
 
@@ -42,12 +42,12 @@
 
                 <label for="su-user-email">이메일</label>
                 <input placeholder="이메일 입력" id="su-user-email" type="email">
-
+                <p id="su-user-email-p">이메일을 작성해주세요.</p>
 
                 <label>성별</label>
                 <div class="su-check-ct">
-                    <input type="radio" id="su-male" name="gender" checked><label for="su-male">남성</label>
-                    <input type="radio" id="su-female" name="gender"><label for="su-female">여성</label>
+                    <input type="radio" id="su-male" name="gender" value="male" checked><label for="su-male">남성</label>
+                    <input type="radio" id="su-female" name="gender" value="female"><label for="su-female">여성</label>
                 </div>
 
                 <label for="su-user-birth">생년월일</label>
@@ -82,6 +82,7 @@
 
         </main>
     </div>
+    <div class="active-modal"></div>
     <script src="/src/js/components/includeHeader.js"></script>
     <script src="../../src/js/account/signUp2.js"></script>
 </body>

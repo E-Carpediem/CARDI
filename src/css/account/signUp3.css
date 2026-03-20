@@ -28,10 +28,23 @@
 
 .su-qualification-ct {
     margin: 11px 0 54px 0;
+    display: flex;
+    align-items: center;
 }
 
 .su-qualification-ct>label {
     display: inline-block;
+}
+
+.su-qualification-ct>p {
+    margin: 0 15px;
+
+    color: #2F4156;
+    font-family: "Pretendard Variable";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
 }
 
 .su-profile-ct>div {
@@ -40,4 +53,8 @@
     gap: 59px;
     margin-bottom: 28px;
     margin-top: 10px;
+}
+
+.su-selected-file {
+    word-break: break-all;
 }

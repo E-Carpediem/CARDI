@@ -1,0 +1,256 @@
+.s-inf-ct {
+    display: flex;
+    gap: 50px;
+    padding: 0px 50px;
+    /* margin-bottom: 50px; */
+}
+
+.s-total-sales-ct,
+.s-month-sales-ct,
+.s-payment-number-cases-ct,
+.s-purchasing-member-ct {
+    display: flex;
+    flex-direction: column;
+
+    width: 25%;
+    height: 200px;
+
+    border-radius: 20px;
+    border: 3px solid rgba(200, 217, 230, 0.40);
+    background: #FFF;
+
+    padding: 30px;
+
+    gap: 5px;
+}
+
+.s-total-sales-middle,
+.s-month-sales-middle,
+.s-payment-number-middle,
+.s-purchasing-member-middle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.s-total-sales-left,
+.s-month-sales-left,
+.s-payment-number-left,
+.s-purchasing-member-left {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    gap: 20px;
+    align-items: center;
+
+}
+
+.s-total-sales-left>p,
+.s-month-sales-left>p,
+.s-payment-number-left>p,
+.s-purchasing-member-left>p {
+    color: #2F4156;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.s-total-sales-right,
+.s-month-sales-right,
+.s-payment-number-right,
+.s-purchasing-member-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.s-total-sales-right>p:first-child,
+.s-month-sales-right>p:first-child,
+.s-payment-number-right>p:first-child,
+.s-purchasing-member-right>p:first-child {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    background: #DCFCE7;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #16A34A;
+    font-family: "Pretendard Variable";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+
+    padding: 10px;
+}
+
+.s-total-sales-right>p:last-child,
+.s-payment-number-right>p:last-child,
+.s-purchasing-member-right>p:last-child {
+    color: #567C8D;
+    font-family: "Pretendard Variable";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 5px;
+}
+
+.s-total-sales-price,
+.s-month-sales-price,
+.s-payment-number-price,
+.s-purchasing-member-price {
+    color: #2F4156;
+    font-family: "Pretendard Variable";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.s-sub-inf-ct {
+    display: flex;
+    gap: 50px;
+    padding: 50px;
+}
+
+.s-payment-history-ct,
+.s-lectures-sales-ranking-ct {
+    height: 500px;
+    border-radius: 20px;
+    border: 3px solid rgba(200, 217, 230, 0.40);
+    background: #FFF;
+    padding: 40px;
+}
+
+.s-payment-history-ct {
+    width: 60%;
+}
+
+.s-lectures-sales-ranking-ct {
+    width: 40%;
+}
+
+.s-payment-history-title,
+.s-lectures-sales-ranking-title {
+    color: #2F4156;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+
+    margin-bottom: 30px;
+}
+
+.s-payment-top-title-ct {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 40px;
+
+    border-top: 1px solid rgba(47, 65, 86, 0.25);
+    border-bottom: 1px solid rgba(47, 65, 86, 0.25);
+    background: #F5F5F5;
+
+    color: #567C8D;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    padding-left: 15px;
+}
+
+.s-payment-top-title-ct>p:nth-child(n),
+.s-payment-content-ct>p:nth-child(n) {
+    width: 20%;
+    /* padding : 5px; */
+}
+
+.s-payment-top-title-ct>p:nth-child(2),
+.s-payment-content-ct>p:nth-child(2) {
+    width: 40%;
+}
+
+.s-payment-content-ct>p:nth-child(2) {
+    padding: 5px 0px;
+}
+
+.s-payment-content-ct {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(47, 65, 86, 0.25);
+    padding-left: 15px;
+    color: #2F4156;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    gap: 20px;
+}
+
+.s-lectures-sales-ranking-middle-ct {
+    display :flex;
+    flex-direction: column;
+    gap : 20px;
+}
+
+.s-lectures-sales-ranking {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.s-lectures-ranking {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+
+    color: #2F4156;
+    font-family: "Pretendard Variable";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.number1 {
+    background: #2F4156;
+    color: #FFF;
+}
+
+.number2 {
+    background: #C8D9E6;
+}
+
+.number3 {
+    background: #F5EFEB;
+}
+
+.number4 {
+    background: #F5F5F5;
+}
+
+.number5 {
+    background: #F5F5F5;
+}
+
+.s-lectures-ranking-content {
+    color: #2F4156;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.s-lectures-ranking-price {
+    color: #567C8D;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
