@@ -22,8 +22,6 @@
 .c-home-ct, .c-student-ct, .c-shopping-ct, .c-users-ct,
 .c-contents-ct, .c-price-ct {
     height : 60px;
-    background : #2F4156;
-    
     display : flex;
     gap : 6px;
     align-items: center;
