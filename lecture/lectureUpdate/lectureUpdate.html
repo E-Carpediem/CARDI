@@ -13,7 +13,7 @@
     <div class="top-container">
         <main class="le-side-margin">
             <section id="le-title">강의 수정</section>
-            <p id="le-preview">새로운 강의를 등록하고 커리큘럼을 구성하세요</p>
+            <p id="le-preview">기존 강의를 수정하세요.</p>
             <form name="le-content-form">
                 <article class="le-enroll-container">
                     <article class="le-data-container">
@@ -84,20 +84,21 @@
                             <div class="le-add-big">
                                 <div class="le-curry-big">
                                     <label class="le-input-title" for="le-content-curry1">대제목1*</label><br>
-                                    <input type="text" name="le-content-curry" class="le-content-curry" id="le-content-curry1" required>
+                                    <input type="text" name="le-content-curry" class="le-content-curry"
+                                        id="le-content-curry1" required>
                                 </div>
                                 <div class="le-curry-small" id="le-curry-small1">
                                     <p class="le-input-title">강의 동영상</p>
                                     <div class="le-small-container" id="le-small-container1">
                                         <div class="le-text-container">
-                                            <label class="le-input-title" for="le-lesson-title1">소제목 1-1*</label><br>
-                                            <input type="text" name="le-lesson-title1" class="le-lesson-title"
-                                                id="le-lesson-title1" required>
+                                            <label class="le-input-title" for="le-lesson-title1-1">소제목 1-1*</label><br>
+                                            <input type="text" name="le-lesson-title1-1" class="le-lesson-title"
+                                                id="le-lesson-title1-1" required>
                                         </div>
                                         <div class="le-lesson-img">
                                             <label class="le-input-title">동영상 파일*</label><br>
-                                            <label for="le-lesson-img1" class="le-lesson-input">첨부</label>
-                                            <input class="le-img-data" name="le-lesson-img1" type="file" required>
+                                            <label for="le-lesson-img1-1" class="le-lesson-input">첨부</label>
+                                            <input class="le-img-data" name="le-lesson-img1-1" id="le-lesson-img1-1" type="file" required>
                                         </div>
                                     </div>
                                 </div>
@@ -105,14 +106,14 @@
                                     <p class="le-input-title">강의 동영상</p>
                                     <div class="le-small-container" id="le-small-container2">
                                         <div class="le-text-container">
-                                            <label class="le-input-title" for="le-lesson-title2">소제목 1-2*</label><br>
-                                            <input type="text" name="le-lesson-title2" class="le-lesson-title"
-                                                id="le-lesson-title2" required>
+                                            <label class="le-input-title" for="le-lesson-title1-2">소제목 1-2*</label><br>
+                                            <input type="text" name="le-lesson-title1-2" class="le-lesson-title"
+                                                id="le-lesson-title1-2" required>
                                         </div>
                                         <div class="le-lesson-img">
                                             <label class="le-input-title">동영상 파일*</label><br>
-                                            <label for="le-lesson-img2" class="le-lesson-input">첨부</label>
-                                            <input class="le-img-data" name="le-lesson-img2" type="file" required>
+                                            <label for="le-lesson-img1-2" class="le-lesson-input">첨부</label>
+                                            <input class="le-img-data" name="le-lesson-img1-2" id="le-lesson-img1-2" type="file" required>
                                         </div>
                                     </div>
                                 </div>
@@ -136,7 +137,7 @@
     <div class="active-modal"></div>
     <script src="/src/js/components/includeHeader.js"></script>
     <script src="/src/js/components/includeNav.js"></script>
-    <script src="/src/js/components/modalTwoButton.js"></script>
+    <script type="module" src="/src/js/components/modalTwoButton.js"></script>
     <script src="/src/js/lecture/lectureEnroll.js"></script>
 </body>
 
