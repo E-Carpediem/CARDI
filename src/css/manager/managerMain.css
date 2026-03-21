@@ -33,7 +33,8 @@
     line-height: normal;
 }
 
-.mm-inf-count {
+.mm-inf-content-number, .mm-inf-user-number,
+.mm-inf-student-number, .mm-inf-lecture-number {
     color: #2F4156;
     font-size: 40px;
     font-style: normal;
