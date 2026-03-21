@@ -19,21 +19,10 @@
                     <div class="sc-cart-left">
                         <div class="sc-cart-actions">
                             <button class="sc-cart-btn sc-select-all">일괄 선택</button>
-                            <button class="sc-cart-btn sc-delete-all">일괄 삭제</button>
+                            <button class="sc-cart-btn sc-delete-all modal-open-two-btn" data-url="">일괄 삭제</button>
                         </div>
 
-                        <div class="sc-cart-list">
-                            <div class="sc-cart-item">
-                                <input type="checkbox" class="sc-cart-check" />
-                                <div class="sc-cart-thumb"></div>
-                                <div class="sc-cart-info">
-                                    <h2 class="sc-cart-item-title">강의 제목</h2>
-                                    <p class="sc-cart-item-meta">강사명 | nn분 nn초</p>
-                                    <p class="sc-cart-item-price">가격: nn,nnn 원</p>
-                                </div>
-                                <button class="sc-cart-btn move">강의로 이동</button>
-                            </div>
-                        </div>
+                        <div class="sc-cart-list" id="sc-cart-list"></div>
                     </div>
 
 
@@ -61,7 +50,7 @@
                 <script src="/src/js/components/includeHeader.js"></script>
                 <script src="/src/js/components/includeNav.js"></script>
                 <script src="/src/js/components/modalTwoButton.js"></script>
-                <script src="./shoppingCart.js"></script>
+                <script src="/src/js/student/shoppingCart.js"></script>
 </body>
 
 </html>
