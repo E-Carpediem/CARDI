@@ -30,29 +30,14 @@
                         <sectiion class="cm-search-filter-ct">
                             <button class="cm-no-reply-btn">미답변</button>
                             <button class="cm-reply-btn">답변</button>
-                            <div class="cm-search-div">
+                            <form class="cm-search-div">
                                 <input type="text" placeholder="검색어를 입력해주세요">
-                                <img src="../../src/assets/img/searchComunity.svg">
-                            </div>
+                                <button><img src="../../src/assets/img/searchComunity.svg"></button>
+                            </form>
                         </sectiion>
-                        <section class="cm-comunity-question">
-                            <div class="cm-comunity-filter cm-reply">답변</div>
-                            <h3>질문 제목</h3>
-                            <div class="cm-name-date">
-                                <p>작성자</p>
-                                <p>일시</p>
-                            </div>
-                        </section>
-                        <section class="cm-comunity-question">
-                            <div class="cm-comunity-filter cm-no-reply">미답변</div>
-
-                            <h3>질문 제목</h3>
-                            <div class="cm-name-date">
-                                <p>작성자</p>
-                                <p>일시</p>
-                            </div>
-
-                        </section>
+                        <article class="cm-community-questions-ct">
+                            <!-- 질문 들어올 자리 -->
+                        </article>
                     </article>
                 </article>
                 <article class="cd-content-box">
@@ -79,6 +64,7 @@
     <script type="module" src="../../src/js/components/includeNav.js"></script>
     <script type="module" src="../../src/js/components/modalOneButton.js"></script>
     <script type="module" src="../../src/js/components/modalTwoButton.js"></script>
+    <script type="module" src="../../src/js/components/community/community.js"></script>
 </body>
 
 </html>

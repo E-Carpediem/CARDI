@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../src/css/reset.css">
+    <link rel="stylesheet" href="../../src/css/components/communityRegist.css">
+</head>
+
+<body>
+    <div class="top-container">
+        <main class="cm-main-ct">
+            <section class="cm-left-ct">
+                <div class="cm-top-ct">
+                    <button><img src="../../src/assets/img/community_backBtn.svg"></button>
+                    <p>커뮤니티</p>
+                </div>
+                <article class="cm-title-ct">
+                    <input placeholder="질문 제목을 작성해주세요.">
+                    <div>
+                        <p>작성자</p>
+                        <p>작성 일시</p>
+                    </div>
+                </article>
+                <article class="cm-content-ct">
+                    <textarea placeholder="질문 내용을 작성해주세요."></textarea>
+                    <p>1000/1</p>
+                </article>
+                <button>등록하기</button>
+            </section>
+            <section class="cm-right-ct">
+                <h3>강의 제목</h3>
+                <section id="cd-lecturer-name">강사명: </section>
+                <section id="cd-use-time">이용 기간: 무제한</section>
+                <section id="cd-content-time">강의 시간: </section>
+                <section id="cd-content-level">난이도: </section>
+            </section>
+        </main>
+    </div>
+
+    <div class="active-modal"></div>
+    <script type="module" src="../../src/js/components/includeHeader.js"></script>
+    <script type="module" src="../../src/js/components/includeNav.js"></script>
+    <script type="module" src="../../src/js/components/modalOneButton.js"></script>
+    <script type="module" src="../../src/js/components/modalTwoButton.js"></script>
+</body>
+
+</html>
