@@ -21,6 +21,7 @@
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 20px;
+    margin-right: 50px;
 }
 
 .lct-search-icon {
@@ -80,7 +81,7 @@
     border: 1px solid #d9d9d9;
     border-radius: 20px;
     overflow: hidden;
-
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -101,6 +102,7 @@
     border: 1px solid #d9d9d9;
     border-radius: 20px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .lct-lecture-img {
@@ -145,4 +147,109 @@
     color: #fff;
     border-radius: 20px;
     padding: 5px 10px;
+}
+
+
+@media (max-width: 1024px) {
+
+    .lct-lecture-title {
+        font-size: 36px;
+    }
+
+    .lct-lecture-list {
+        gap: 24px;
+        justify-content: center;
+    }
+
+    .lct-lecture-card {
+        width: 45%;
+        min-width: 260px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .lct-lecture-container {
+        margin: 0 20px;
+    }
+
+    .lct-lecture-title {
+        font-size: 28px;
+    }
+
+    .lct-search-box {
+        padding: 8px;
+    }
+
+    l .lct-category-list {
+        gap: 10px;
+    }
+
+    .lct-category-btn {
+        font-size: 14px;
+        padding: 8px 14px;
+    }
+
+    .lct-lecture-list {
+        gap: 20px;
+    }
+
+    l .lct-lecture-card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .lct-lecture-card-title {
+        font-size: 18px;
+    }
+
+    .lct-lecture-preview {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .lct-lecture-container {
+        margin: 0 12px;
+    }
+
+    .lct-lecture-title {
+        font-size: 22px;
+    }
+
+    .lct-search-input {
+        font-size: 14px;
+    }
+
+    .lct-lecture-img {
+        height: 140px;
+    }
+
+    .lct-lecture-info {
+        padding: 10px;
+    }
+
+    .lct-lecture-card-title {
+        font-size: 16px;
+    }
+
+    .lct-lecture-preview {
+        font-size: 13px;
+    }
+
+    .lct-lecturer-name {
+        font-size: 14px;
+        right: 15px;
+        bottom: 8px;
+    }
+
+    .lct-lecture-category {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .lct-no-results {
+        font-size: 24px;
+    }
 }

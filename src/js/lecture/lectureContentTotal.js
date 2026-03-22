@@ -1,12 +1,80 @@
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
-const $lectureCards = $$('.lct-lecture-card');
 const $categoryBtns = $$('.lct-category-btn');
 const $categoryList = $('.lct-category-list');
 const $searchInput = $('.lct-search-input');
+const $lectureList = $('.lct-lecture-list');
+const $newLectureBtn = $('.lct-new-lecture');
 
+// 로그인 유저 가져오기 (테스트용)
+const userList = JSON.parse(localStorage.getItem('userList')) || [];
+const currentUserId = localStorage.getItem('currentUserId');
 
+// 테스트용: 없으면 강사 강제 세팅
+let currentUser = userList.find(u => u.id == currentUserId);
+
+if (!currentUser) {
+    currentUser = {
+        role: 'lecturer',
+        userId: 'lct1',
+        userName: '김강사'
+    };
+}
+
+// 강사 아니면 차단
+if (currentUser.role !== 'lecturer') {
+    window.location.replace('/');
+}
+
+// 강의 데이터
+function getLectureList() {
+    return JSON.parse(localStorage.getItem('lectureList')) || [];
+}
+
+// 내 강의만 필터링
+function getMyLectures() {
+    const lectureList = getLectureList();
+    return lectureList.filter(lec => lec.userId === currentUser.userId);
+}
+
+// 강의 렌더링
+function renderLectures() {
+    const lectureList = getMyLectures();
+
+    // 기존 카드 제거 (+ 버튼 제외)
+    $lectureList.querySelectorAll('.lct-lecture-card').forEach(el => el.remove());
+
+    lectureList.forEach(item => {
+        const card = document.createElement('div');
+        card.classList.add('lct-lecture-card');
+
+        card.innerHTML = `
+            <div class="lct-lecture-img" style="background-image:url(${item.contentImg})"></div>
+            <div class="lct-lecture-info">
+                <h2 class="lct-lecture-card-title">${item.contentTitle}</h2>
+                <p class="lct-lecture-preview">${item.contentPreview}</p>
+                <span class="lct-lecturer-name">${currentUser.userName}</span>
+                <span class="lct-lecture-category">${item.category}</span>
+            </div>
+        `;
+
+        // 클릭 시 상세 페이지 이동
+        card.addEventListener('click', () => {
+            window.location.href = '/components/contentDetail.html';
+        });
+
+        // card.addEventListener('click', () => {
+        //     window.location.href = `/components/contentDetail.html?contentId=${item.contentId}`;
+        // });
+
+        $lectureList.appendChild(card);
+    });
+
+    filterCards();
+}
+
+// 쿼리 파라미터 가져오기
 function getQueryParams() {
     const params = new URLSearchParams(window.location.search);
     return {
@@ -15,11 +83,12 @@ function getQueryParams() {
     };
 }
 
-// 카드 필터링 함수
+// 카드 필터링
 function filterCards() {
     const { category, keyword } = getQueryParams();
+    const cards = $$('.lct-lecture-card');
 
-    $lectureCards.forEach(card => {
+    cards.forEach(card => {
         const title = card.querySelector('.lct-lecture-card-title').textContent.toLowerCase();
         const cardCategory = card.querySelector('.lct-lecture-category').textContent.trim();
 
@@ -56,7 +125,7 @@ $searchInput.addEventListener('keydown', (event) => {
     }
 });
 
-//카테고리 버튼 클릭
+// 카테고리 버튼 클릭
 $categoryBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         const category = btn.textContent.trim();
@@ -74,8 +143,16 @@ $categoryList.addEventListener('wheel', (event) => {
     $categoryList.scrollLeft += event.deltaY;
 });
 
+// 강의 등록 이동
+$newLectureBtn.addEventListener('click', () => {
+    window.location.href = '/lecture/lectureEnroll/lectureEnroll.html';
+});
+
 // 페이지 초기화
 window.addEventListener('DOMContentLoaded', () => {
+
+    renderLectures();
+
     // 검색창 초기화
     $searchInput.value = '';
 
@@ -89,14 +166,16 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 모든 카드 표시
-    $lectureCards.forEach(card => {
-        card.style.display = 'block';
-    });
-
     // URL 쿼리스트링 제거
     const params = new URLSearchParams(window.location.search);
     params.delete('category');
     params.delete('keyword');
     window.history.replaceState({}, '', window.location.pathname);
+});
+
+// 다른 페이지에서 강의 추가 시 자동 반영
+window.addEventListener('storage', (e) => {
+    if (e.key === 'lectureList') {
+        renderLectures();
+    }
 });

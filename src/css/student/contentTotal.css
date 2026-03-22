@@ -26,6 +26,7 @@
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 20px;
+    margin-right: 50px;
 }
 
 .ct-search-icon {
@@ -139,4 +140,108 @@
     text-align: center;
     width: 100%;
     margin-top: 10%;
+}
+
+@media (max-width: 1024px) {
+
+    .ct-lecture-title {
+        font-size: 36px;
+    }
+
+    .ct-lecture-list {
+        gap: 24px;
+        justify-content: center;
+    }
+
+    .ct-lecture-card {
+        width: 45%;
+        min-width: 260px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .ct-lecture-container {
+        margin: 0 20px;
+    }
+
+    .ct-lecture-title {
+        font-size: 28px;
+    }
+
+    .ct-search-box {
+        padding: 8px;
+    }
+
+    .ct-category-list {
+        gap: 10px;
+    }
+
+    .ct-category-btn {
+        font-size: 14px;
+        padding: 8px 14px;
+    }
+
+    .ct-lecture-list {
+        gap: 20px;
+    }
+
+    .ct-lecture-card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .ct-lecture-card-title {
+        font-size: 18px;
+    }
+
+    .ct-lecture-preview {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .ct-lecture-container {
+        margin: 0 12px;
+    }
+
+    .ct-lecture-title {
+        font-size: 22px;
+    }
+
+    .ct-search-input {
+        font-size: 14px;
+    }
+
+    .ct-lecture-img {
+        height: 140px;
+    }
+
+    .ct-lecture-info {
+        padding: 10px;
+    }
+
+    .ct-lecture-card-title {
+        font-size: 16px;
+    }
+
+    .ct-lecture-preview {
+        font-size: 13px;
+    }
+
+    .ct-lecturer-name {
+        font-size: 14px;
+        right: 15px;
+        bottom: 8px;
+    }
+
+    .ct-lecture-category {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .ct-no-results {
+        font-size: 24px;
+    }
 }
