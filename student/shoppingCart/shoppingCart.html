@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/css/student/shoppingCart.css">
     <link rel="stylesheet" href="/src/css/reset.css">
+    <link rel="stylesheet" href="/src/css/components/modal.css">
     <title>CARDI</title>
 </head>
 
@@ -19,38 +20,36 @@
                     <div class="sc-cart-left">
                         <div class="sc-cart-actions">
                             <button class="sc-cart-btn sc-select-all">일괄 선택</button>
-                            <button class="sc-cart-btn sc-delete-all modal-open-two-btn" data-url="">일괄 삭제</button>
+                            <button class="sc-cart-btn sc-delete-all">일괄 삭제</button>
                         </div>
 
                         <div class="sc-cart-list" id="sc-cart-list"></div>
                     </div>
 
-
                     <div class="sc-cart-summary">
-                        <p class="sc-cart-total-count">총 강의 수 : n개</p>
-                        <div class="sc-selected-item">
-
-                        </div>
+                        <p class="sc-cart-total-count">총 강의 수 : 0개</p>
+                        <div class="sc-selected-item"></div>
                         <div class="sc-cart-summary-bottom">
-                            <p class="sc-cart-selected-count">선택된 강의 : n개</p>
-                            <p class="sc-cart-total-price">총 가격: nnn,nnn 원</p>
+                            <p class="sc-cart-selected-count">선택된 강의 : 0개</p>
+                            <p class="sc-cart-total-price">총 가격: 0 원</p>
                             <div class="sc-cart-summary-actions">
-                                <button class="sc-cart-btn delete modal-open-two-btn" data-url="">삭제하기</button>
-                                <button class="sc-cart-btn apply modal-open-two-btn"
-                                    data-url="../contentTotal/contentTotal.html" data-message="
-                                신청하시겠습니까?<br>
-                                신청하기 버튼을 누르면 신청이 완료됩니다.">신청하기</button>
+                                <button class="sc-cart-btn delete">삭제하기</button>
+                                <button class="sc-cart-btn apply" data-url="../contentTotal/contentTotal.html"
+                                    data-message="신청하시겠습니까?<br>신청하기 버튼을 누르면 신청이 완료됩니다.">
+                                    신청하기
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-
                 <div class="active-modal"></div>
+
                 <script src="/src/js/components/includeHeader.js"></script>
                 <script src="/src/js/components/includeNav.js"></script>
-                <script src="/src/js/components/modalTwoButton.js"></script>
                 <script src="/src/js/student/shoppingCart.js"></script>
+            </div>
+        </div>
 </body>
 
 </html>
