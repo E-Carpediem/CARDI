@@ -2,7 +2,7 @@ const $ = (selector, parent = document) => parent.querySelector(selector);
 const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
 
 const form = $("#lecture-form");
-const formContainer = $(".le-form-container");
+const formCurry = $(".le-form-curry");
 const activeModal = $(".active-modal");
 const cancelBtn = $("#le-cancel-btn");
 const thumbnailInput = $("#le-content-img");
@@ -23,15 +23,15 @@ const store = {
     }
 };
 // 숫자만 입력가능하게 하는 함수
-function allowOnlyNumbers(inputElement) {
+function inputNumber(inputElement) {
     inputElement.addEventListener("input", () => {
         inputElement.value = inputElement.value.replace(/[^0-9]/g, "");
     });
 }
 
-// 가격, 강의 총 시간 적용
-allowOnlyNumbers(priceInput);
-allowOnlyNumbers(timeInput);
+// 가격, 강의 총 시간에 적용
+inputNumber(priceInput);
+inputNumber(timeInput);
 
 
 // 강의 썸네일 미리보기 적용
@@ -43,8 +43,8 @@ if (thumbnailInput) {
 
         const reader = new FileReader();
 
-        reader.onload = (event) => {
-            thumbnailPreview.src = event.target.result;
+        reader.onload = (e) => {
+            thumbnailPreview.src = e.target.result;
             thumbnailLabel.textContent = "";
         };
 
@@ -127,7 +127,7 @@ function createBigHTML(bigIndex) {
 }
 
 // 대제목,소제목 추가
-formContainer.addEventListener("click", (e) => {
+formCurry.addEventListener("click", (e) => {
     if (e.target.id === "le-add-big") {
         const nextBigIndex = getNextBigIndex();
         e.target.insertAdjacentHTML("beforebegin", createBigHTML(nextBigIndex));
@@ -137,6 +137,7 @@ formContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("le-add-small")) {
         const currentGroup = e.target.closest(".le-add-big");
         const bigInput = $(".le-content-curry", currentGroup);
+        console.log(bigInput);
         const bigIndex = bigInput.id.replace("le-content-curry", "");
         const nextSmallIndex = getNextSmallIndex(currentGroup);
 
@@ -217,9 +218,10 @@ function openTwoButtonModal(message, onConfirm, onCancel) {
     });
 }
 
-// 첫 번째 미입력 input 위치 찾는 함수
-function getAllRequiredFields() {
-    const baseFields = [
+// 동적으로 추가된 input 값까지 모두 읽어 배열로 반환하는 함수
+function getAllInputs() {
+    // 기본 강의 정보 input 값
+    const contentData = [
         $("#le-category"),
         $("#le-content-title"),
         $("#le-content-level"),
@@ -230,96 +232,99 @@ function getAllRequiredFields() {
         $("#le-content-simple")
     ];
 
-    const curriculumBigFields = [...$$(".le-content-curry")];
-    const curriculumSmallFields = [...$$(".le-lesson-title")];
-    const curriculumFileFields = [...$$(".le-img-data")];
+    // 동적으로 추가되는 커리큘럼 쪽 input 값들
+    const curryBigTitles = [...$$(".le-content-curry")];
+    const currySmallTitles = [...$$(".le-lesson-title")];
+    const curryFiles = [...$$(".le-img-data")];
 
+    // null 값이 있으면 error가 나는 것을 방지
     return [
-        ...baseFields,
-        ...curriculumBigFields,
-        ...curriculumSmallFields,
-        ...curriculumFileFields
+        ...contentData,
+        ...curryBigTitles,
+        ...currySmallTitles,
+        ...curryFiles
     ].filter(Boolean);
 }
 
-function getFirstInvalidField() {
-    const requiredFields = getAllRequiredFields();
+// 미입력 input 값들 중 가장 위 input 값을 가져오는 함수 - 나중에 포커스를 위함.
+function getFirstEmptyInput() {
+    const allInputs = getAllInputs();
 
-    for (let field of requiredFields) {
-        if (field.tagName === "SELECT") {
-            if (!field.value) return field;
+    for (let input of allInputs) {
+        if (input.tagName === "SELECT") {
+            if (!input.value) return input;
             continue;
         }
 
-        if (field.type === "file") {
-            if (!field.files || field.files.length === 0) return field;
+        if (input.type === "file") {
+            if (!input.files || input.files.length === 0) return input;
             continue;
         }
 
-        if (!field.value.trim()) return field;
+        if (!input.value.trim()) return input;
     }
 
     return null;
 }
 
-// 미입력 경고 표시
-function showErrors() {
-    const fields = getAllRequiredFields();
+// 미입력 경고 라인 함수
+function showErrorLine() {
+    const allInputs = getAllInputs();
     
-    fields.forEach((field) => {
+    allInputs.forEach((input) => {
         
         // SELECT
-        if (field.tagName === "SELECT") {
-            if (!field.value) {
-                field.classList.add("error");
+        if (input.tagName === "SELECT") {
+            if (!input.value) {
+                input.classList.add("error");
             }
             return;
         }
         
         // FILE
-        if (field.type === "file") {
-            if (!field.files || field.files.length === 0) {
-                field.classList.add("error");
+        if (input.type === "file") {
+            if (!input.files || input.files.length === 0) {
+                input.classList.add("error");
             }
             return;
         }
         
         // 일반 input
-        if (!field.value.trim()) {
-            field.classList.add("error");
+        if (!input.value.trim()) {
+            input.classList.add("error");
         }
     });
 }
 
-// 입력 시 경고 표시 제거
-function removeErrorOnInput() {
-    const fields = getAllRequiredFields();
+// 입력 시 경고 라인 제거 함수
+function removeErrorLine() {
+    const allInputs = getAllInputs();
     
-    fields.forEach((field) => {
+    allInputs.forEach((input) => {
         
-        field.addEventListener("input", () => {
-            field.classList.remove("error");
+        input.addEventListener("input", () => {
+            input.classList.remove("error");
         });
         
-        field.addEventListener("change", () => {
-            field.classList.remove("error");
+        input.addEventListener("change", () => {
+            input.classList.remove("error");
         });
     });
 }
-removeErrorOnInput();
+// 상시 호출
+removeErrorLine();
 
 // 포커스 함수
-function focusField(field) {
-    if (!field) return;
+function focusInput(input) {
+    if (!input) return;
 
     // 먼저 화면 위치 이동
-    field.scrollIntoView({
+    input.scrollIntoView({
         behavior: "smooth",
         block: "center"
     });
 
-    // 바로 포커스
-    field.focus();
+    input.focus();
 }
 
 // 썸네일/선택 상태 초기화
@@ -329,7 +334,7 @@ function resetThumbnailUI() {
     levelSelect.classList.remove("selected");
 }
 
-// 커리큘럼 데이터 수집
+// 커리큘럼 데이터 수집 함수
 function collectCurryData() {
     const groups = $$(".le-add-big");
 
@@ -355,6 +360,7 @@ function collectCurryData() {
     });
 }
 
+// 강의의 고유 id 값을 순서대로 계산하는 함수
 function getContentId() {
     const list = store.getLocalStorage("lectureContentList", []);
 
@@ -381,7 +387,7 @@ function collectLectureData() {
         contentPrice: Number(priceInput.value),
         contentPreview: $("#le-content-preview").value.trim(),
         contentSimple: $("#le-content-simple").value.trim(),
-        // 🔥 배열로 변환 (줄바꿈 기준)
+        // 배열로 변환 (줄바꿈 기준)
         contentAfter: $("#le-content-after").value
             .split("\n")
             .map((item, index) => `${index + 1}. ${item.trim()}`)
@@ -406,13 +412,13 @@ function saveLectureData() {
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const firstInvalidField = getFirstInvalidField();
+    const firstEmptyInput = getFirstEmptyInput();
 
     // 필수값이 비어있으면 입력 요구 모달 표시
-    if (firstInvalidField) {
-        showErrors();
+    if (firstEmptyInput) {
+        showErrorLine();
         openOneButtonModal("필수 정보를 입력해주세요.", () => {
-            focusField(firstInvalidField);
+            focusInput(firstEmptyInput);
         });
         return;
     }
@@ -438,9 +444,9 @@ cancelBtn.addEventListener("click", () => {
     openTwoButtonModal(
         "강의 등록을 그만두시겠습니까?",
         () => {
+
             form.reset();
             resetThumbnailUI();
-
             // 강의 등록 취소 후 목록 페이지로 이동
             window.location.href = "../lectureContentTotal/lectureContentTotal.html";
         },
