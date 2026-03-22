@@ -74,6 +74,18 @@ function closeModal(modal) {
 //         "userEmail": "test6@example.com",
 //         "gender": "male",
 //         "birth": "2026-03-16",
+//         "signDate": "2026-03-16",
+//         "subscriptionStatus": true,
+//         "appliedLecture": [
+//             {
+//                 "contentId": "content1",
+//                 "appliedDate": "2026-03-21"
+//             },
+//             {
+//                 "contentId": "content2",
+//                 "appliedDate": "2026-03-21"
+//             }
+//         ]
 //     },
 //     {
 //         "role": "lecturer",
@@ -87,6 +99,8 @@ function closeModal(modal) {
 //         "userEmail": "test6@example.com",
 //         "gender": "male",
 //         "birth": "2026-03-16",
+//         "signDate": "2026-03-16",
+//         "membershipStatus": true,
 //         "userDocument": [
 //             "파일경로",
 //             "파일경로"
@@ -103,6 +117,18 @@ function closeModal(modal) {
 //         "userEmail": "test6@example.com",
 //         "gender": "male",
 //         "birth": "2026-03-16",
+//         "signDate": "2026-03-16",
+//         "subscriptionStatus": true,
+//         "appliedLecture": [
+//             {
+//                 "contentId": "content1",
+//                 "appliedDate": "2026-03-21"
+//             },
+//             {
+//                 "contentId": "content2",
+//                 "appliedDate": "2026-03-21"
+//             }
+//         ]
 //     }
 // ]
 
@@ -117,8 +143,12 @@ $('.l-login-main>form').addEventListener('submit', (e) => {
         activeModal(() => { closeModal($('.modal')); $('#su-login-id').focus(); }, '아이디와 비밀번호를 입력해주세요.');
     } else if (userInfo) {
         if (userInfo.password === $('#su-login-pwd').value) {
-            $('#l-signup-auto').checked ? myInfo.setLocalStorage('myInfo', userInfo) : myInfo.setSessionStorage('myInfo', userInfo);
-            activeModal(() => movePage('https://www.naver.com'), '로그인에 성공하였습니다.');
+            if (userInfo.role === 'lecturer' && !userInfo.approval_status) {
+                activeModal(() => closeModal($('.modal')), '관리자 승인을 기다려주세요.');
+            } else {
+                $('#l-signup-auto').checked ? myInfo.setLocalStorage('myInfo', userInfo) : myInfo.setSessionStorage('myInfo', userInfo);
+                activeModal(() => movePage('https://www.naver.com'), '로그인에 성공하였습니다.');
+            }
         } else {
             activeModal(() => { closeModal($('.modal')); $('#su-login-id').focus(); }, '아이디와 비밀번호가 일치하지 않습니다.');
         }

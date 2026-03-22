@@ -351,6 +351,8 @@ function SignUp() {
             inputResult ? activeModal(() => closeModal($('.modal')), '정보를 다시 확인해주세요.') : activeModal(() => closeModal($('.modal')), '약관 동의를 진행해주세요');
 
         } else {
+
+            const currentDate = new Date().toLocaleDateString().replaceAll('. ', '-').replace('.', '');
             const signUpInfo = {
                 "role": "student",
                 "id": this.users.length + 1,
@@ -362,13 +364,20 @@ function SignUp() {
                 "userEmail": $('#su-user-email').value,
                 "gender": $('input[name="gender"]:checked').value,
                 "birth": $('#su-user-birth').value,
+                "signDate": currentDate,
+
             }
 
             if ($('#su-lecture-info') !== null) {
                 signUpInfo.role = "lecturer";
                 signUpInfo.userProfile = $('#su-lecture-img').files[0];
-                signUpInfo.userDocument = $('#su-lecture-info').files;
+                signUpInfo.userDocument = [...$('#su-lecture-info').files];
+                signUpInfo.membershipStatus = false;
+                signUpInfo.approval_status = true;
 
+            } else {
+                signUpInfo.subscriptionStatus = false;
+                signUpInfo.appliedLecture = [];
             }
             this.users.push(signUpInfo)
             console.log(this.users);
