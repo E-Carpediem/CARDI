@@ -26,7 +26,7 @@
     text-align: center;
 }
 
-.tm-main-category > p:first-child {
+.tm-main-category>p:first-child {
     border: 0px solid #2F4156;
     border-bottom-width: 4px;
 }
@@ -49,6 +49,7 @@
     width: 100%;
     align-items: center;
     margin-bottom: 25px;
+    position: relative;
 }
 
 .tm-search-input-ct {
@@ -81,7 +82,7 @@
 
 .tm-search-array-btn,
 .tm-search-filter-btn {
-    width: 10%;
+    width: 80px;
     height: 40px;
     border-radius: 10px;
     border: 1px solid #2F4156;
@@ -91,7 +92,11 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+    position: relative;
+    z-index: 5;
 }
+
+
 
 .tm-content-ct {
     display: flex;
@@ -133,7 +138,8 @@
 }
 
 .tm-content-top-ct>p:nth-child(4) {
-    width: 10%;
+    width: 55px;
+    margin-right: 55px;
 }
 
 .tm-content-top-ct>p:nth-child(5) {
@@ -141,11 +147,11 @@
 }
 
 .tm-content-top-ct>p:nth-child(6) {
-    width: 20%;
+    width: 10%;
 }
 
 .tm-content-top-ct>p:nth-child(7) {
-    width: 10%;
+    width: 15%;
 }
 
 .tm-content-top-ct>p:nth-child(8) {
@@ -153,7 +159,7 @@
 }
 
 .tm-content-top-ct>p:nth-child(9) {
-    width: 10%;
+    width: 55px;
 }
 
 .tm-content {
@@ -178,25 +184,31 @@
 }
 
 .tm-content>p:nth-child(4) {
-    width: 10%;
-    color: #2F4156;
+    width: 55px;
+    height: 25px;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tm-content>p:nth-child(5) {
     width: 20%;
+    margin-left: 55px;
 }
 
 .tm-content>p:nth-child(6) {
-    width: 20%;
+    width: 10%;
 }
 
 .tm-content>p:nth-child(7) {
-    width: 10%;
+    width: 15%;
 }
 
 .tm-content>p:nth-child(8) {
@@ -204,15 +216,39 @@
 }
 
 .tm-content>p:nth-child(9) {
-    width: 10%;
-    color: #567C8D;
+    width: 55px;
+    height: 25px;
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.tm-content-role-student {
+    color: #2F4156;
+    background: #C8D9E6;
+}
 
+.tm-content-role-lecture {
+    color: #567C8D;
+    background: #F5EFED;
+}
+
+.tm-content-memebership-student {
+    color: #2F4156;
+    background: #C8D9E6;
+}
+
+.tm-content-memebership-lecture {
+    color: #567C8D;
+    background: #f5efed;
+}
 
 .tm-bottom-number {
     display: flex;
