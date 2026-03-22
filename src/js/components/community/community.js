@@ -51,6 +51,13 @@ const cmList = [
                 "questionOwner": "작성자3",
                 "questionDate": "26.03.18",
                 "questionState": false
+            },
+            {
+                "questionId": "question03",
+                "questionTitle": "질문제목341",
+                "questionOwner": "작성자3",
+                "questionDate": "26.03.18",
+                "questionState": false
             }
         ],
         "userName": "강사명",
@@ -79,6 +86,19 @@ const element = {
     }
 }
 
+//함수
+const myInfoGet = {
+    getStorage() {
+        if (localStorage.getItem('myInfo')) {
+            return JSON.parse(localStorage.getItem('myInfo'));
+        } else {
+            return JSON.parse(sessionStorage.getItem('myInfo'));
+        }
+    }
+}
+
+
+
 function Community() {
     this.currentCommunity = [];
 
@@ -91,12 +111,31 @@ function Community() {
         communityListMap(this.currentCommunity.communityTotal);
     }
 
+
+
     const rightSideFill = () => {
         $('#price').innerText = `${this.currentCommunity.contentTitle}`;
         $('#cd-lecturer-name').innerText = `강사명: ${this.currentCommunity.userName}`;
         $('#cd-content-time').innerText = `강의 시간: ${this.currentCommunity.contentTime}`;
         $('#cd-content-level').innerText = `난이도: ${this.currentCommunity.contentLevel}`;
+        console.log(myInfoGet.getStorage());
+        if (myInfoGet.getStorage().role === 'lecturer') {
+            $('.cm-button-ct-lecturer').classList.remove('cm-hidden-btn');
+            $('.cm-button-ct-student').classList.add('cm-hidden-btn');
+            $('.cm-button-ct-manager').classList.add('cm-hidden-btn');
+        } else if (myInfoGet.getStorage().role === 'manager') {
+            $('.cm-button-ct-manager').classList.remove('cm-hidden-btn');
+            $('.cm-button-ct-lecturer').classList.add('cm-hidden-btn');
+            $('.cm-button-ct-student').classList.add('cm-hidden-btn');
+        } else {
+            $('.cm-button-ct-student').classList.remove('cm-hidden-btn');
+            $('.cm-button-ct-lecturer').classList.add('cm-hidden-btn');
+            $('.cm-button-ct-manager').classList.add('cm-hidden-btn');
+        }
     }
+
+    let filterCommunity = [];
+    let searchCommunity = [];
 
     const communityListMap = (list) => {
         $('.cm-community-questions-ct').innerHTML = '';
@@ -130,27 +169,63 @@ function Community() {
     }
 
 
+
+    $('.cm-all-reply-btn').addEventListener('click', () => {
+        $('.cm-all-reply-btn').classList.add('btn-border');
+        $('.cm-no-reply-btn').classList.remove('btn-border');
+        $('.cm-reply-btn').classList.remove('btn-border');
+        if (searchCommunity.length === 0) {
+            communityListMap(this.currentCommunity.communityTotal.reverse());
+        } else {
+            communityListMap(searchCommunity.reverse());
+        }
+    })
+
     $('.cm-no-reply-btn').addEventListener('click', () => {
-        let noReplyQuestion = this.currentCommunity.communityTotal.filter(communityQ => {
+        $('.cm-all-reply-btn').classList.remove('btn-border');
+        $('.cm-no-reply-btn').classList.add('btn-border');
+        $('.cm-reply-btn').classList.remove('btn-border');
+        filterCommunity = this.currentCommunity.communityTotal.filter(communityQ => {
             return !communityQ.questionState;
         });
-        communityListMap(noReplyQuestion.reverse());
+        if (searchCommunity.length === 0) {
+            communityListMap(filterCommunity.reverse());
+        } else {
+            filterCommunity = searchCommunity.filter(communityQ => {
+                return !communityQ.questionState;
+            });
+            communityListMap(filterCommunity.reverse());
+        }
     })
 
     $('.cm-reply-btn').addEventListener('click', () => {
-        let replyQuestion = this.currentCommunity.communityTotal.filter(communityQ => {
+        $('.cm-all-reply-btn').classList.remove('btn-border');
+        $('.cm-no-reply-btn').classList.remove('btn-border');
+        $('.cm-reply-btn').classList.add('btn-border');
+        filterCommunity = this.currentCommunity.communityTotal.filter(communityQ => {
             return communityQ.questionState;
         });
-        communityListMap(replyQuestion.reverse());
+        if (searchCommunity.length === 0) {
+            communityListMap(filterCommunity.reverse());
+        } else {
+            filterCommunity = searchCommunity.filter(communityQ => {
+                return communityQ.questionState;
+            });
+            communityListMap(filterCommunity.reverse());
+        }
+
     })
 
     $('.cm-search-div').addEventListener('submit', (e) => {
         e.preventDefault();
-        let searchQuetions = this.currentCommunity.communityTotal.filter(communityQ => {
+        $('.cm-all-reply-btn').classList.add('btn-border');
+        $('.cm-no-reply-btn').classList.remove('btn-border');
+        $('.cm-reply-btn').classList.remove('btn-border');
+        searchCommunity = this.currentCommunity.communityTotal.filter(communityQ => {
             return communityQ.questionTitle.includes($('.cm-search-div>input').value);
-
         });
-        communityListMap(searchQuetions.reverse());
+        communityListMap(searchCommunity.reverse());
+
     })
 
 
