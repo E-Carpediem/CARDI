@@ -9,13 +9,13 @@ const locationEvent = (selector, url) => {
 }
 
 //회원가입 완료-> 로그인
-locationEvent('.su-go-login', '../login/login.html');
+locationEvent('.su-go-login', '../account/login.html');
 
 //로그인-> 회원가입 1
-locationEvent('.l-signup-btn', '../signUp/signUp1.html');
+locationEvent('.l-signup-btn', '../account/signup.html');
 
 //회원가입 1-> 회원가입 학생
-locationEvent('.su-student-btn', '../signUp/signUp2.html');
+locationEvent('.su-student-btn', '../account/signup-student.html');
 
 //회원가입 1-> 회원가입 강사
-locationEvent('.su-lecture-btn', '../signUp/signUp3.html');
+locationEvent('.su-lecture-btn', '../account/signup-lecturer.html');

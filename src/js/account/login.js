@@ -207,7 +207,7 @@ $('.l-login-main>form').addEventListener('submit', (e) => {
                 activeModal(() => closeModal($('.modal')), '관리자 승인을 기다려주세요.');
             } else {
                 $('#l-signup-auto').checked ? myInfo.setLocalStorage('myInfo', userInfo) : myInfo.setSessionStorage('myInfo', userInfo);
-                userInfo.role === 'student' ? mainPageRender = '../../../student/contentTotal/contentTotal.html' : userInfo.role === 'lecturer' ? mainPageRender = '../../../lecture/main/lectureContentTotal.html' : mainPageRender = '../../../manager/main/managerMain.html';
+                userInfo.role === 'student' ? mainPageRender = '/student/index.html' : userInfo.role === 'lecturer' ? mainPageRender = '/lecturer/index.html' : mainPageRender = '/manager/index.html';
                 console.log(mainPageRender)
                 activeModal(() => movePage(mainPageRender), '로그인에 성공하였습니다.');
             }

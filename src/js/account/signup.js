@@ -385,7 +385,7 @@ function SignUp() {
 
             this.users.push(signUpInfo)
             user.setLocalStorage('userList', this.users);
-            activeModal(() => movePage('../signUp/signUp4.html'), '회원가입이 완료되었습니다.');
+            activeModal(() => movePage('../account/signup-complete.html'), '회원가입이 완료되었습니다.');
         }
 
     })

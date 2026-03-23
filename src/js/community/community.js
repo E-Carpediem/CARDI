@@ -168,7 +168,7 @@ function Community() {
             filterDiv.innerText = communityQ.questionState ? '답변' : '미답변';
 
             mainSection.addEventListener('click', () => {
-                window.location.href = `/components/community/communityDetail.html?questionId=${communityQ.questionId}`;
+                window.location.href = `/community/detail.html?questionId=${communityQ.questionId}`;
             })
 
             nameDateDiv.appendChild(nameP);
