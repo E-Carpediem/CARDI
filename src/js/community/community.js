@@ -1,80 +1,76 @@
-// const cmList = [
-//     {
-//         "userId": "lct1",
-//         "contentId": 1,
-//         "contentTitle": "강의 제목1",
-//         "contentImg": "이미지 경로",
-//         "communityTotal": [
-//             {
-//                 "questionId": 1,
-//                 "questionTitle": "질문제목1",
-//                 "questionOwner": "작성자1",
-//                 "questionDate": "26.03.16",
-//                 "questionState": true
-//             },
-//             {
-//                 "questionId": 2,
-//                 "questionTitle": "질문제목2",
-//                 "questionOwner": "작성자2",
-//                 "questionDate": "26.03.16",
-//                 "questionState": false
-//             },
-//             {
-//                 "questionId": 3,
-//                 "questionTitle": "새로운 질문",
-//                 "questionOwner": "작성자3",
-//                 "questionDate": "26.03.16",
-//                 "questionState": false
-//             }
-//         ],
-//         "userName": "정지훈",
-//         "contentTime": "1시간 25분",
-//         "contentLevel": "입문",
+const cmList = [
+    {
+        "userId": "lct1",
+        "contentId": 1,
+        "contentTitle": "강의 제목1",
+        "contentImg": "이미지 경로",
+        "communityTotal": [
+            {
+                "questionId": 1,
+                "questionTitle": "질문제목1",
+                "questionContent": "질문내용111111",
+                "questionOwner": "작성자1",
+                "questionDate": "26.03.16",
+                "questionState": true,
+                "answerContent": "답변내용"
+            },
+            {
+                "questionId": 2,
+                "questionTitle": "질문제목2",
+                "questionContent": "질문내용2222",
+                "questionOwner": "작성자2",
+                "questionDate": "26.03.16",
+                "questionState": false,
+                "answerContent": null
+            },
+            {
+                "questionId": 3,
+                "questionTitle": "질문제목3",
+                "questionContent": "질문내용333333",
+                "questionOwner": "작성자3",
+                "questionDate": "26.03.16",
+                "questionState": true,
+                "answerContent": "답변내용3"
+            },
+        ],
+        "userName": "정지훈",
+        "contentTime": "1시간 25분",
+        "contentLevel": "입문",
 
-//     },
-//     {
-//         "userId": "lct2",
-//         "contentId": 2,
-//         "contentTitle": "강의 제목2",
-//         "contentImg": "이미지 경로",
-//         "communityTotal": [
-//             {
-//                 "questionId": 1,
-//                 "questionTitle": "질문제목1",
-//                 "questionOwner": "작성자1",
-//                 "questionDate": "26.03.16",
-//                 "questionState": true
-//             },
-//             {
-//                 "questionId": 2,
-//                 "questionTitle": "질문제목2",
-//                 "questionOwner": "작성자2",
-//                 "questionDate": "26.03.16",
-//                 "questionState": false
-//             },
-//             {
-//                 "questionId": 3,
-//                 "questionTitle": "질문제목3",
-//                 "questionOwner": "작성자3",
-//                 "questionDate": "26.03.18",
-//                 "questionState": false
-//             },
-//             {
-//                 "questionId": 4,
-//                 "questionTitle": "질문제목341",
-//                 "questionOwner": "작성자3",
-//                 "questionDate": "26.03.18",
-//                 "questionState": false
-//             }
-//         ],
-//         "userName": "강사명",
-//         "contentTime": "1시간 25분",
-//         "contentLevel": "입문",
+    },
+    {
+        "userId": "lct2",
+        "contentId": 2,
+        "contentTitle": "강의 제목2",
+        "contentImg": "이미지 경로",
+        "communityTotal": [
+            {
+                "questionId": 1,
+                "questionTitle": "질문제목1",
+                "questionContent": "질문내용111111",
+                "questionOwner": "작성자1",
+                "questionDate": "26.03.16",
+                "questionState": true,
+                "answerContent": "답변내용"
+            },
+            {
+                "questionId": 2,
+                "questionTitle": "질문제목2",
+                "questionContent": "질문내용2222",
+                "questionOwner": "작성자2",
+                "questionDate": "26.03.16",
+                "questionState": false,
+                "answerContent": null
+            },
+        ],
+        "userName": "강사명",
+        "contentTime": "1시간 25분",
+        "contentLevel": "입문",
 
-//     }
-// ]
+    }
+]
 
-// commu.setLocalStorage('communityList', cmList);
+
 
 const $ = (selector) => document.querySelector(selector)
 
@@ -86,6 +82,8 @@ const commu = {
         return JSON.parse(localStorage.getItem(key))
     }
 }
+
+// commu.setLocalStorage('communityList', cmList);
 
 const element = {
     createElements(element) {
@@ -113,7 +111,7 @@ function Community() {
 
     this.init = () => {
         this.currentCommunity = commu.getLocalStorage('communityList').find((commu) => {
-            return commu.contentId === contentId;
+            return commu.contentId === Number(contentId);
         })
         commu.setLocalStorage('currentCommunity', this.currentCommunity);
         rightSideFill();
@@ -239,6 +237,10 @@ function Community() {
         });
         communityListMap(searchCommunity.reverse());
 
+    })
+
+    $('.cm-question-btn').addEventListener('click', () => {
+        window.location.href = '/community/regist.html';
     })
 
 

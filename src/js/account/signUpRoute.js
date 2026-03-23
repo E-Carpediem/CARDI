@@ -2,7 +2,6 @@ const locationEvent = (selector, url) => {
     const element = document.querySelector(selector);
     if (element) {
         element.addEventListener('click', () => {
-            console.log('s');
             window.location.href = url;
         })
     }

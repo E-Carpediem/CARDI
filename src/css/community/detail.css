@@ -31,8 +31,6 @@
     width: 117px;
     height: 53px;
     border-radius: 20px;
-    background: #C8D9E6;
-    color: #2F4156;
     font-family: Pretendard;
     font-size: 20px;
     font-style: normal;
@@ -41,6 +39,17 @@
     text-align: center;
     line-height: 53px;
 }
+
+.cmd-no-reply-div {
+    background: #C8D9E6;
+    color: #2F4156;
+}
+
+.cmd-reply-div {
+    background: #2F4156;
+    color: #FFF;
+}
+
 
 .cmd-content-user-info {
     display: flex;
