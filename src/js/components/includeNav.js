@@ -21,15 +21,15 @@ fetch("/components/nav.html")
             window.location.href = window.location.origin + `${path}`
         }
 
-        if(!localStorage.getItem('navSelect')) {
-            localStorage.setItem('navSelect', 'home');
-        }
+        // if(!localStorage.getItem('navSelect')) {
+        //     localStorage.setItem('navSelect', 'home');
+        // }
  
         $navmovenav.forEach(item => item.addEventListener('click', (e) => {
             const navCategoryClassification = e.target.dataset;
             console.log(e.target);
             if (navCategoryClassification.manager) {
-                localStorage.setItem('navSelect', navCategoryClassification.manager);
+                // localStorage.setItem('navSelect', navCategoryClassification.manager);
                 if (navCategoryClassification.manager === 'home') {
                     moveNavPath('/manager/main/managerMain.html');
                 } else if (navCategoryClassification.manager === 'users') {
@@ -40,7 +40,7 @@ fetch("/components/nav.html")
                     moveNavPath('/manager/sales/salesManagement.html');
                 }
             } else if (navCategoryClassification.student) {
-                localStorage.setItem('navSelect', navCategoryClassification.student);
+                // localStorage.setItem('navSelect', navCategoryClassification.student);
                 if (navCategoryClassification.student === "home") {
                     moveNavPath('/student/contentTotal/contentTotal.html');
                 } else if (navCategoryClassification.student === "shopping") {
@@ -85,22 +85,22 @@ fetch("/components/nav.html")
         }
 
         // 로컬스토리지 테스트 데이터 삭제 예정
-        const localStorageTest = {
-            role: "manager"
-        }
-        localStorage.setItem('userrole', JSON.stringify(localStorageTest));
-        const test = localStorage.getItem('userrole');
+        // const localStorageTest = {
+        //     role: "manager"
+        // }
+        // localStorage.setItem('userrole', JSON.stringify(localStorageTest));
+        // const test = localStorage.getItem('userrole');
 
-        const roleTest = JSON.parse(test);
-        if (roleTest.role == "student") {
-            roleStudent();
-        } else if (roleTest.role == "manager") {
-            roleManager();
-        } else if (roleTest.role == "lecture") {
-            roleLecture();
-        } else {
-            roleNone();
-        }
+        // const roleTest = JSON.parse(test);
+        // if (roleTest.role == "student") {
+        //     roleStudent();
+        // } else if (roleTest.role == "manager") {
+        //     roleManager();
+        // } else if (roleTest.role == "lecture") {
+        //     roleLecture();
+        // } else {
+        //     roleNone();
+        // }
 
         function roleStudent() {
             $navstudent.style.display = "flex";
