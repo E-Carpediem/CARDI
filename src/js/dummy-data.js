@@ -25,7 +25,7 @@ const userList = [
         "shoppingCart": [
             {
                 "id": 10,
-                "contentId": "content01",
+                "contentId": 1,
                 "contentTitle": "React 완전 정복",
                 "contentImg": "이미지 경로",
                 "contentPrice": 15000,
@@ -58,7 +58,7 @@ const userList = [
         "shoppingCart": [
             {
                 "id": 11,
-                "contentId": "content03",
+                "contentId": 3,
                 "contentTitle": "Vue.js 기초부터 실전까지",
                 "contentImg": "이미지 경로",
                 "contentPrice": 20000,
@@ -113,7 +113,7 @@ const userList = [
         "shoppingCart": [
             {
                 "id": 12,
-                "contentId": "content02",
+                "contentId": 2,
                 "contentTitle": "TypeScript 핵심 강의",
                 "contentImg": "이미지 경로",
                 "contentPrice": 18000,
@@ -165,7 +165,7 @@ const userList = [
         "shoppingCart": [
             {
                 "id": 13,
-                "contentId": "content06",
+                "contentId": 6,
                 "contentTitle": "Python 데이터 분석 입문",
                 "contentImg": "이미지 경로",
                 "contentPrice": 25000,
@@ -219,7 +219,7 @@ const userList = [
         "shoppingCart": [
             {
                 "id": 14,
-                "contentId": "content04",
+                "contentId": 4,
                 "contentTitle": "알고리즘 문제 풀이",
                 "contentImg": "이미지 경로",
                 "contentPrice": 12000,
@@ -275,7 +275,7 @@ const userList = [
         "shoppingCart": [
             {
                 "id": 15,
-                "contentId": "content08",
+                "contentId": 8,
                 "contentTitle": "Node.js 백엔드 개발",
                 "contentImg": "이미지 경로",
                 "contentPrice": 22000,
@@ -457,7 +457,7 @@ localStorage.setItem("userList", JSON.stringify(userList));
 const lectureList = [
   {
     "id": 1,
-    "contentId": "content01",
+    "contentId": 1,
     "contentImg": "이미지 경로",
     "contentTitle": "HTML 기초 완성",
     "contentLevel": "입문",
@@ -503,7 +503,7 @@ const lectureList = [
   },
   {
     "id": 2,
-    "contentId": "content02",
+    "contentId": 2,
     "contentImg": "이미지 경로",
     "contentTitle": "CSS 레이아웃 마스터",
     "contentLevel": "쉬움",
@@ -549,7 +549,7 @@ const lectureList = [
   },
   {
     "id": 3,
-    "contentId": "content03",
+    "contentId": 3,
     "contentImg": "이미지 경로",
     "contentTitle": "JavaScript 입문",
     "contentLevel": "입문",
@@ -595,7 +595,7 @@ const lectureList = [
   },
   {
     "id": 4,
-    "contentId": "content04",
+    "contentId": 4,
     "contentImg": "이미지 경로",
     "contentTitle": "Python 데이터 분석 입문",
     "contentLevel": "쉬움",
@@ -641,7 +641,7 @@ const lectureList = [
   },
   {
     "id": 5,
-    "contentId": "content05",
+    "contentId": 5,
     "contentImg": "이미지 경로",
     "contentTitle": "C++ 프로그래밍 기초",
     "contentLevel": "보통",
@@ -687,7 +687,7 @@ const lectureList = [
   },
   {
     "id": 6,
-    "contentId": "content06",
+    "contentId": 6,
     "contentImg": "이미지 경로",
     "contentTitle": "CSS 애니메이션과 트랜지션",
     "contentLevel": "보통",
@@ -733,7 +733,7 @@ const lectureList = [
   },
   {
     "id": 7,
-    "contentId": "content07",
+    "contentId": 7,
     "contentImg": "이미지 경로",
     "contentTitle": "JavaScript 비동기 완전 정복",
     "contentLevel": "어려움",
@@ -779,7 +779,7 @@ const lectureList = [
   },
   {
     "id": 8,
-    "contentId": "content08",
+    "contentId": 8,
     "contentImg": "이미지 경로",
     "contentTitle": "Python 웹 크롤링",
     "contentLevel": "보통",
@@ -825,7 +825,7 @@ const lectureList = [
   },
   {
     "id": 9,
-    "contentId": "content09",
+    "contentId": 9,
     "contentImg": "이미지 경로",
     "contentTitle": "HTML 시맨틱과 SEO",
     "contentLevel": "쉬움",
@@ -871,7 +871,7 @@ const lectureList = [
   },
   {
     "id": 10,
-    "contentId": "content10",
+    "contentId": 10,
     "contentImg": "이미지 경로",
     "contentTitle": "C++ 자료구조와 알고리즘",
     "contentLevel": "어려움",
@@ -917,7 +917,7 @@ const lectureList = [
   },
   {
     "id": 11,
-    "contentId": "content11",
+    "contentId": 11,
     "contentImg": "이미지 경로",
     "contentTitle": "JavaScript DOM 조작 실전",
     "contentLevel": "쉬움",
@@ -963,7 +963,7 @@ const lectureList = [
   },
   {
     "id": 12,
-    "contentId": "content12",
+    "contentId": 12,
     "contentImg": "이미지 경로",
     "contentTitle": "Python 머신러닝 입문",
     "contentLevel": "어려움",
@@ -1009,7 +1009,7 @@ const lectureList = [
   },
   {
     "id": 13,
-    "contentId": "content13",
+    "contentId": 13,
     "contentImg": "이미지 경로",
     "contentTitle": "HTML 폼과 유효성 검사",
     "contentLevel": "입문",
@@ -1055,7 +1055,7 @@ const lectureList = [
   },
   {
     "id": 14,
-    "contentId": "content14",
+    "contentId": 14,
     "contentImg": "이미지 경로",
     "contentTitle": "CSS Tailwind 실전",
     "contentLevel": "쉬움",
@@ -1101,7 +1101,7 @@ const lectureList = [
   },
   {
     "id": 15,
-    "contentId": "content15",
+    "contentId": 15,
     "contentImg": "이미지 경로",
     "contentTitle": "JavaScript ES6+ 핵심 문법",
     "contentLevel": "보통",
@@ -1147,7 +1147,7 @@ const lectureList = [
   },
   {
     "id": 16,
-    "contentId": "content16",
+    "contentId": 16,
     "contentImg": "이미지 경로",
     "contentTitle": "Python 자동화 스크립트",
     "contentLevel": "보통",
@@ -1193,7 +1193,7 @@ const lectureList = [
   },
   {
     "id": 17,
-    "contentId": "content17",
+    "contentId": 17,
     "contentImg": "이미지 경로",
     "contentTitle": "C++ 포인터와 메모리 관리",
     "contentLevel": "어려움",
@@ -1239,7 +1239,7 @@ const lectureList = [
   },
   {
     "id": 18,
-    "contentId": "content18",
+    "contentId": 18,
     "contentImg": "이미지 경로",
     "contentTitle": "CSS 반응형 웹 디자인",
     "contentLevel": "보통",
@@ -1285,7 +1285,7 @@ const lectureList = [
   },
   {
     "id": 19,
-    "contentId": "content19",
+    "contentId": 19,
     "contentImg": "이미지 경로",
     "contentTitle": "JavaScript 함수형 프로그래밍",
     "contentLevel": "어려움",
@@ -1331,7 +1331,7 @@ const lectureList = [
   },
   {
     "id": 20,
-    "contentId": "content20",
+    "contentId": 20,
     "contentImg": "이미지 경로",
     "contentTitle": "Python Flask 웹 개발",
     "contentLevel": "보통",
