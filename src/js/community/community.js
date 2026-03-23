@@ -111,6 +111,8 @@ function Community() {
 
     this.init = () => {
         this.currentCommunity = commu.getLocalStorage('communityList').find((commu) => {
+            console.log(commu.contentId)
+            console.log(contentId);
             return commu.contentId === Number(contentId);
         })
         commu.setLocalStorage('currentCommunity', this.currentCommunity);
@@ -121,11 +123,13 @@ function Community() {
 
 
     const rightSideFill = () => {
+        console.log(this.currentCommunity)
         $('#price').innerText = `${this.currentCommunity.contentTitle}`;
         $('#cd-lecturer-name').innerText = `강사명: ${this.currentCommunity.userName}`;
         $('#cd-content-time').innerText = `강의 시간: ${this.currentCommunity.contentTime}`;
         $('#cd-content-level').innerText = `난이도: ${this.currentCommunity.contentLevel}`;
         console.log(myInfoGet.getStorage());
+        console.log(myInfoGet.getStorage().role);
         if (myInfoGet.getStorage().role === 'lecturer') {
             $('.cm-button-ct-lecturer').classList.remove('cm-hidden-btn');
             $('.cm-button-ct-student').classList.add('cm-hidden-btn');
@@ -241,6 +245,11 @@ function Community() {
 
     $('.cm-question-btn').addEventListener('click', () => {
         window.location.href = '/community/regist.html';
+    })
+
+    $('.cd-nav-title').addEventListener('click', () => {
+        window.location.href = `/components/content-detail.html?contentId=${this.currentCommunity.contentId}`;
+
     })
 
 
