@@ -30,7 +30,7 @@ const userList = [
                 "contentImg": "이미지 경로",
                 "contentPrice": 15000,
                 "userName": "김민준",
-                "contentTime": "2시간 10분",
+                "contentTime": 130,
                 "contentTotal": 8,
                 "contentSelect": 3,
                 "contentTotalPrice": 45000
@@ -63,7 +63,7 @@ const userList = [
                 "contentImg": "이미지 경로",
                 "contentPrice": 20000,
                 "userName": "이수진",
-                "contentTime": "3시간 05분",
+                "contentTime": 5,
                 "contentTotal": 12,
                 "contentSelect": 6,
                 "contentTotalPrice": 120000
@@ -118,7 +118,7 @@ const userList = [
                 "contentImg": "이미지 경로",
                 "contentPrice": 18000,
                 "userName": "박동현",
-                "contentTime": "1시간 50분",
+                "contentTime": 10,
                 "contentTotal": 10,
                 "contentSelect": 4,
                 "contentTotalPrice": 72000
@@ -170,7 +170,7 @@ const userList = [
                 "contentImg": "이미지 경로",
                 "contentPrice": 25000,
                 "userName": "최서영",
-                "contentTime": "4시간 30분",
+                "contentTime": 10,
                 "contentTotal": 15,
                 "contentSelect": 7,
                 "contentTotalPrice": 175000
@@ -224,7 +224,7 @@ const userList = [
                 "contentImg": "이미지 경로",
                 "contentPrice": 12000,
                 "userName": "한지수",
-                "contentTime": "2시간 45분",
+                "contentTime": 30,
                 "contentTotal": 9,
                 "contentSelect": 2,
                 "contentTotalPrice": 24000
@@ -280,7 +280,7 @@ const userList = [
                 "contentImg": "이미지 경로",
                 "contentPrice": 22000,
                 "userName": "조민혁",
-                "contentTime": "3시간 20분",
+                "contentTime": 340,
                 "contentTotal": 11,
                 "contentSelect": 5,
                 "contentTotalPrice": 110000
@@ -461,7 +461,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "HTML 기초 완성",
     "contentLevel": "입문",
-    "contentTime": "1시간 20분",
+    "contentTime": 2,
     "contentAfter": [
       "HTML 기본 구조 이해",
       "태그 종류와 사용법",
@@ -507,7 +507,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "CSS 레이아웃 마스터",
     "contentLevel": "쉬움",
-    "contentTime": "2시간 10분",
+    "contentTime": 3,
     "contentAfter": [
       "CSS 선택자 완벽 이해",
       "박스 모델 활용",
@@ -553,7 +553,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "JavaScript 입문",
     "contentLevel": "입문",
-    "contentTime": "3시간 05분",
+    "contentTime": 4,
     "contentAfter": [
       "변수와 자료형 이해",
       "조건문과 반복문",
@@ -599,7 +599,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "Python 데이터 분석 입문",
     "contentLevel": "쉬움",
-    "contentTime": "4시간 30분",
+    "contentTime": 5,
     "contentAfter": [
       "Python 환경 설정",
       "기본 문법 익히기",
@@ -645,7 +645,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "C++ 프로그래밍 기초",
     "contentLevel": "보통",
-    "contentTime": "3시간 50분",
+    "contentTime": 6,
     "contentAfter": [
       "C++ 개발 환경 구성",
       "변수와 포인터 이해",
@@ -691,7 +691,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "CSS 애니메이션과 트랜지션",
     "contentLevel": "보통",
-    "contentTime": "1시간 55분",
+    "contentTime": 2,
     "contentAfter": [
       "transition 속성 이해",
       "transform 다루기",
@@ -737,7 +737,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "JavaScript 비동기 완전 정복",
     "contentLevel": "어려움",
-    "contentTime": "2시간 40분",
+    "contentTime": 4,
     "contentAfter": [
       "동기와 비동기 차이",
       "콜백 함수 이해",
@@ -783,7 +783,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "Python 웹 크롤링",
     "contentLevel": "보통",
-    "contentTime": "2시간 25분",
+    "contentTime": 7,
     "contentAfter": [
       "웹 크롤링 개념 이해",
       "requests 라이브러리",
@@ -829,7 +829,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "HTML 시맨틱과 SEO",
     "contentLevel": "쉬움",
-    "contentTime": "1시간 35분",
+    "contentTime": 2,
     "contentAfter": [
       "시맨틱 태그 총정리",
       "SEO 기본 개념",
@@ -875,7 +875,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "C++ 자료구조와 알고리즘",
     "contentLevel": "어려움",
-    "contentTime": "5시간 10분",
+    "contentTime": 7,
     "contentAfter": [
       "시간복잡도 분석",
       "스택과 큐 구현",
@@ -921,7 +921,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "JavaScript DOM 조작 실전",
     "contentLevel": "쉬움",
-    "contentTime": "2시간 00분",
+    "contentTime": 7,
     "contentAfter": [
       "DOM 트리 구조 이해",
       "요소 선택 방법",
@@ -967,7 +967,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "Python 머신러닝 입문",
     "contentLevel": "어려움",
-    "contentTime": "6시간 20분",
+    "contentTime": 8,
     "contentAfter": [
       "머신러닝 개념 이해",
       "scikit-learn 설치",
@@ -1013,7 +1013,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "HTML 폼과 유효성 검사",
     "contentLevel": "입문",
-    "contentTime": "1시간 10분",
+    "contentTime": 3,
     "contentAfter": [
       "폼 태그 기본 구조",
       "input 타입 정리",
@@ -1059,7 +1059,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "CSS Tailwind 실전",
     "contentLevel": "쉬움",
-    "contentTime": "2시간 30분",
+    "contentTime": 4,
     "contentAfter": [
       "Tailwind 설치 및 설정",
       "유틸리티 클래스 이해",
@@ -1105,7 +1105,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "JavaScript ES6+ 핵심 문법",
     "contentLevel": "보통",
-    "contentTime": "2시간 50분",
+    "contentTime": 7,
     "contentAfter": [
       "let과 const 이해",
       "화살표 함수 활용",
@@ -1151,7 +1151,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "Python 자동화 스크립트",
     "contentLevel": "보통",
-    "contentTime": "3시간 15분",
+    "contentTime": 7,
     "contentAfter": [
       "os 모듈 활용",
       "파일 자동 정리",
@@ -1197,7 +1197,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "C++ 포인터와 메모리 관리",
     "contentLevel": "어려움",
-    "contentTime": "3시간 40분",
+    "contentTime": 8,
     "contentAfter": [
       "포인터 개념 이해",
       "참조자 활용법",
@@ -1243,7 +1243,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "CSS 반응형 웹 디자인",
     "contentLevel": "보통",
-    "contentTime": "2시간 45분",
+    "contentTime": 3,
     "contentAfter": [
       "반응형 개념 이해",
       "뷰포트 메타 태그",
@@ -1289,7 +1289,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "JavaScript 함수형 프로그래밍",
     "contentLevel": "어려움",
-    "contentTime": "3시간 25분",
+    "contentTime": 4,
     "contentAfter": [
       "순수 함수 개념",
       "불변성 유지하기",
@@ -1335,7 +1335,7 @@ const lectureList = [
     "contentImg": "이미지 경로",
     "contentTitle": "Python Flask 웹 개발",
     "contentLevel": "보통",
-    "contentTime": "4시간 00분",
+    "contentTime": 7,
     "contentAfter": [
       "Flask 환경 설정",
       "라우팅 구성하기",
