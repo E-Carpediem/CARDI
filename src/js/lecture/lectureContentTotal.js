@@ -7,17 +7,32 @@ const $searchInput = $('.lct-search-input');
 const $lectureList = $('.lct-lecture-list');
 const $newLectureBtn = $('.lct-new-lecture');
 
-// 로그인 유저 가져오기 (테스트용)
-const userList = JSON.parse(localStorage.getItem('userList')) || [];
-const currentUserId = localStorage.getItem('currentUserId');
+// 현재 로그인 정보 불러오는 함수
+const myInfoGet = {
+    getStorage() {
+        if (localStorage.getItem('myInfo')) {
+            return JSON.parse(localStorage.getItem('myInfo'));
+        } else {
+            return JSON.parse(sessionStorage.getItem('myInfo'));
+        }
+    }
+}
 
-// 테스트용: 없으면 강사 강제 세팅
-let currentUser = userList.find(u => u.id == currentUserId);
+myInfoGet.getStorage();//정보 불러오기
+console.log('?', myInfoGet.getStorage());
+
+// 강의 리스트 불러오는 함수
+function getLectureList() {
+    return JSON.parse(localStorage.getItem("lectureList")) || [];
+}
+
+const lectureList = getLectureList();
+let currentUser = myInfoGet.find(m => m.id == lectureList.id);
 
 if (!currentUser) {
     currentUser = {
         role: 'lecturer',
-        userId: 'lct1',
+        id: 'lct1',
         userName: '김강사'
     };
 }
@@ -35,7 +50,17 @@ function getLectureList() {
 // 내 강의만 필터링
 function getMyLectures() {
     const lectureList = getLectureList();
-    return lectureList.filter(lec => lec.userId === currentUser.userId);
+    return lectureList.filter(lec => lec.id === currentUser.id);
+}
+
+// 사용자 입력값에서 HTML 미적용
+function escapeHTML(value) {
+    return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
 }
 
 // 강의 렌더링
@@ -52,9 +77,9 @@ function renderLectures() {
         card.innerHTML = `
             <div class="lct-lecture-img" style="background-image:url(${item.contentImg})"></div>
             <div class="lct-lecture-info">
-                <h2 class="lct-lecture-card-title">${item.contentTitle}</h2>
-                <p class="lct-lecture-preview">${item.contentPreview}</p>
-                <span class="lct-lecturer-name">${item.userName}</span>
+                <h2 class="lct-lecture-card-title">${escapeHTML(item.contentTitle)}</h2>
+                <p class="lct-lecture-preview">${escapeHTML(item.contentPreview)}</p>
+                <span class="lct-lecturer-name">${escapeHTML(item.userName)}</span>
                 <span class="lct-lecture-category">${item.category}</span>
             </div>
         `;

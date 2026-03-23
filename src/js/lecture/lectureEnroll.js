@@ -22,6 +22,20 @@ const store = {
         return data ? JSON.parse(data) : fallback;
     }
 };
+
+//내 정보 받아오기 함수
+const myInfoGet = {
+    getStorage() {
+        if (localStorage.getItem('myInfo')) {
+            return JSON.parse(localStorage.getItem('myInfo'));
+        } else {
+            return JSON.parse(sessionStorage.getItem('myInfo'));
+        }
+    }
+}
+
+myInfoGet.getStorage();//정보 불러오기
+
 // 숫자만 입력가능하게 하는 함수
 function inputNumber(inputElement) {
     inputElement.addEventListener("input", () => {
@@ -71,29 +85,29 @@ function getNextSmallIndex(groupElement) {
 
 // 소제목 HTML 생성
 function createSmallHTML(bigIndex, smallIndex) {
-    const lessonNumber = `${bigIndex}-${smallIndex}`;
+    const lessonIndex = `${bigIndex}-${smallIndex}`;
 
     return `
         <div class="le-curry-small">
             <p class="le-input-title">강의 동영상</p>
             <div class="le-small-container">
                 <div class="le-text-container">
-                    <label class="le-input-title" for="le-lesson-title-${lessonNumber}">소제목 ${lessonNumber}*</label><br>
+                    <label class="le-input-title" for="le-lesson-title-${lessonIndex}">소제목 ${lessonIndex}*</label><br>
                     <input
                         type="text"
-                        name="le-lesson-title-${lessonNumber}"
+                        name="le-lesson-title-${lessonIndex}"
                         class="le-lesson-title"
-                        id="le-lesson-title-${lessonNumber}"
+                        id="le-lesson-title-${lessonIndex}"
                         required
                     >
                 </div>
                 <div class="le-lesson-img">
                     <label class="le-input-title">동영상 파일*</label><br>
-                    <label for="le-lesson-img-${lessonNumber}" class="le-lesson-input">첨부</label>
+                    <label for="le-lesson-img-${lessonIndex}" class="le-lesson-input">첨부</label>
                     <input
                         class="le-img-data"
-                        id="le-lesson-img-${lessonNumber}"
-                        name="le-lesson-img-${lessonNumber}"
+                        id="le-lesson-img-${lessonIndex}"
+                        name="le-lesson-img-${lessonIndex}"
                         type="file"
                         required
                     >
@@ -377,8 +391,10 @@ function getContentId() {
 
 // 폼 전체 데이터 수집
 function collectLectureData() {
+    // 등록 날짜
+    const today = new Date().toISOString().split('T')[0];
     return {
-        userId: "lct1",
+        id: "lct1",
         contentId: getContentId(), // 고유값
         contentImg: thumbnailPreview.getAttribute("src") || "",
         contentTitle: $("#le-content-title").value.trim(),
@@ -390,12 +406,16 @@ function collectLectureData() {
         // 배열로 변환 (줄바꿈 기준)
         contentAfter: $("#le-content-after").value
             .split("\n")
-            .map((item, index) => `${item.trim()}`)
+            .map((item) => `${item.trim()}`)
             .filter(Boolean),
 
         contentCurry: collectCurryData(),
         category: $("#le-category").value,
-        userName: "강사명" // 임시 (나중에 로그인 연동)
+        userName: "강사명", // 임시 (나중에 로그인 연동)
+        lessonNumber: 155,
+        classNumber: 100,
+        registerDate: today
+
     };
 }
 

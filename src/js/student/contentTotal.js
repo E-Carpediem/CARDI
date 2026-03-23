@@ -14,28 +14,14 @@ function setLectureList(list) {
     localStorage.setItem('lectureList', JSON.stringify(list));
 }
 
-// 테스트 데이터
-function initLectureData() {
-    const list = getLectureList();
-
-    if (!list.length) {
-        const cTtestData = [];
-
-        const categories = ['HTML', 'CSS', 'JavaScript', 'Python'];
-
-        for (let i = 1; i <= 20; i++) {
-            cTtestData.push({
-                userId: 'lct' + ((i % 3) + 1),
-                contentId: 'content' + i,
-                contentTitle: `강의 제목 ${i}`,
-                contentPreview: `강의 설명 ${i}`,
-                contentImg: '/src/assets/img/test.jpg',
-                category: categories[i % categories.length]
-            });
-        }
-
-        setLectureList(cTtestData);
-    }
+// 사용자 입력값에서 HTML 미적용
+function escapeHTML(value) {
+    return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
 }
 
 // 강의 렌더링
@@ -50,9 +36,9 @@ function renderLectures() {
         card.innerHTML = `
             <div class="ct-lecture-img" style="background-image:url(${item.contentImg})"></div>
             <div class="ct-lecture-info">
-                <h2 class="ct-lecture-card-title">${item.contentTitle}</h2>
-                <p class="ct-lecture-preview">${item.contentPreview}</p>
-                <span class="ct-lecturer-name">${item.userId}</span>
+                <h2 class="ct-lecture-card-title">${escapeHTML(item.contentTitle)}</h2>
+                <p class="ct-lecture-preview">${escapeHTML(item.contentPreview)}</p>
+                <span class="ct-lecturer-name">${escapeHTML(item.userId)}</span>
                 <span class="ct-lecture-category">${item.category}</span>
             </div>
         `;
