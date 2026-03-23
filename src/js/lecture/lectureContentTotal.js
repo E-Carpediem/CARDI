@@ -54,21 +54,21 @@ function renderLectures() {
             <div class="lct-lecture-info">
                 <h2 class="lct-lecture-card-title">${item.contentTitle}</h2>
                 <p class="lct-lecture-preview">${item.contentPreview}</p>
-                <span class="lct-lecturer-name">${currentUser.userName}</span>
+                <span class="lct-lecturer-name">${item.userName}</span>
                 <span class="lct-lecture-category">${item.category}</span>
             </div>
         `;
 
-        // 클릭 시 상세 페이지 이동
-        card.addEventListener('click', () => {
-            window.location.href = '/components/contentDetail.html';
-        });
-
+        // // 클릭 시 상세 페이지 이동
         // card.addEventListener('click', () => {
-        //     window.location.href = `/components/contentDetail.html?contentId=${item.contentId}`;
+        //     window.location.href = '/components/contentDetail.html';
         // });
 
-        $lectureList.appendChild(card);
+        card.addEventListener('click', () => {
+            window.location.href = `/components/contentDetail.html?contentId=${item.contentId}`;
+        });
+
+        $('.lct-new-lecture').insertAdjacentElement('afterend', card);
     });
 
     filterCards();

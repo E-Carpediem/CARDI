@@ -50,7 +50,9 @@
     color: #2f4156;
     margin-bottom: 25px;
 }
-
+#cd-nav-curry:hover, #cd-nav-community:hover, #cd-nav-main {
+    cursor: pointer;
+}
 
 .cd-long-line {
     width: 100%;

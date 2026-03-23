@@ -57,16 +57,16 @@ function renderLectures() {
             </div>
         `;
 
-        // 클릭 시 상세 페이지 이동
-        card.addEventListener('click', () => {
-            window.location.href = '/components/contentDetail.html';
-        });
-
+        // // 클릭 시 상세 페이지 이동
         // card.addEventListener('click', () => {
-        //     window.location.href = `/components/contentDetail.html?contentId=${item.contentId}`;
+        //     window.location.href = '/components/contentDetail.html';
         // });
 
-        $lectureList.appendChild(card);
+        card.addEventListener('click', () => {
+            window.location.href = `/components/contentDetail.html?contentId=${item.contentId}`;
+        });
+
+        $('.ct-lecture-list').insertAdjacentElement('afterbegin', card);
     });
 
     filterCards();

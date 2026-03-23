@@ -1,18 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+const $ = (selector, parent = document) => parent.querySelector(selector);
+const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../src/css/reset.css">
-    <link rel="stylesheet" href="../src/css/components/contentDetail.css">
-</head>
+// localStorage 저장/조회용 객체
+const store = {
+    setLocalStorage(key, value) {
+        localStorage.setItem(key, JSON.stringify(value));
+    },
+    getLocalStorage(key, fallback = null) {
+        const data = localStorage.getItem(key);
+        return data ? JSON.parse(data) : fallback;
+    }
+};
 
-<body>
-    <div class="top-container">
-        <main class="cd-side-margin">
-            <article class="cd-lecture-img">사진</article>
+// 미니 nav 에서 커리큘럼 클릭 시 커리큘럼쪽으로 자동 스크롤
+$('#cd-nav-curry').addEventListener('click', () => {
+    $('#cd-curry-container').scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+})
+
+// 미니 nav 에서 커뮤니티 클릭 시 커뮤니티 창으로 이동
+$('#cd-nav-community').addEventListener('click', () => {
+    window.location.href = '/components/community/comunity.html';
+});
+
+function getLectureList() {
+    return JSON.parse(localStorage.getItem('lectureList')) || [];
+}
+
+function renderLectureData() {
+    const params = new URLSearchParams(window.location.search);
+    const contentId = params.get("contentId");
+    const lectureList = getLectureList();
+    const lectureData = lectureList.find(item => item.contentId === contentId);
+    console.log('?', lectureData);
+    console.log(lectureData.contentTitle);
+
+    $('.cd-side-margin').innerHTML = `
+            <article class="cd-lecture-img"></article>
             <article class="cd-main-container">
                 <article class="cd-main-content">
                     <article class="cd-main-nav">
@@ -24,22 +50,22 @@
                         <section class="cd-short-line" id="cd-short-line1"></section>
                         <section class="cd-short-line" id="cd-short-line2"></section>
                     </article>
-                    <section id="cd-content-title">강의 제목</section>
-                    <p id="cd-content-preview">이 텍스트는 강의 한줄 설명입니다.</p>
+                    <section id="cd-content-title">${lectureData.contentTitle}</section>
+                    <p id="cd-content-preview">${lectureData.contentPreview}</p>
                     <article id="cd-category">HTML</article>
                     <article id="cd-after-container">
                         <section class="cd-content-index" id="cd-content-after">수강 후에는...</section>
                         <article class="cd-content-container" id="cd-after-container1">
                             <section class="cd-number" id="cd-after-number1">1</section>
-                            <section class="cd-content" id="cd-after-content1">누구나 따라할 수 있도록 알려주는 강의</section>
+                            <section class="cd-content" id="cd-after-content1">${lectureData.contentAfter[0]}</section>
                         </article>
                         <article class="cd-content-container" id="cd-after-container2">
                             <section class="cd-number" id="cd-after-number2">2</section>
-                            <section class="cd-content" id="cd-after-content2">간단하게 누구나 따라할 수 있도록 알려주는 강의</section>
+                            <section class="cd-content" id="cd-after-content2">${lectureData.contentAfter[1]}</section>
                         </article>
                         <article class="cd-content-container" id="cd-after-container3">
                             <section class="cd-number" id="cd-after-number3">3</section>
-                            <section class="cd-content" id="cd-after-content3">쉽고 간단하게 누구나 따라할 수 있도록 알려주는 강의</section>
+                            <section class="cd-content" id="cd-after-content3">${lectureData.contentAfter[2]}</section>
                         </article>
                     </article>
                     <article id="cd-simple-container">
@@ -97,15 +123,10 @@
                     data-url="/lecture/lectureContentTotal/LectureContentTotal.html">삭제하기</button>
                 </article>
             </article>
-        </main>
-    </div>
+        `;
+}
+renderLectureData();
 
-    <div class="active-modal"></div>
-    <script type="module" src="../src/js/components/includeHeader.js"></script>
-    <script type="module" src="../src/js/components/includeNav.js"></script>
-    <script type="module" src="../src/js/components/modalOneButton.js"></script>
-    <script type="module" src="../src/js/components/modalTwoButton.js"></script>
-    <script type="module" src="/src/js/components/contentDetail/contentDetail.js"></script>
-</body>
-
-</html>
+// card.addEventListener('click', () => {
+//     window.location.href = `/components/contentDetail.html?contentId=${item.contentId}`;
+// });
