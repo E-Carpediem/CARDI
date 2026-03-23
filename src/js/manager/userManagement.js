@@ -9,20 +9,20 @@ function managermoveNavPath(path) {
 }
 
 
-// $userManagementCategory[0].addEventListener('click', () => {
-//     managermoveNavPath('/manager/totalMember/userTotalCheck.html');
-// }
-// )
+$userManagementCategory[0].addEventListener('click', () => {
+    managermoveNavPath('/manager/user-total.html');
+}
+)
 
-// $userManagementCategory[1].addEventListener('click', () => {
-//     managermoveNavPath('/manager/totalMember/studentTotalCheck.html')
-// }
-// )
+$userManagementCategory[1].addEventListener('click', () => {
+    managermoveNavPath('/manager/student-total.html')
+}
+)
 
-// $userManagementCategory[2].addEventListener('click', () => {
-//     managermoveNavPath('/manager/totalMember/lectureTotalCheck.html')
-// }
-// )
+$userManagementCategory[2].addEventListener('click', () => {
+    managermoveNavPath('/manager/lecturer-total.html')
+}
+)
 
 $managerArray.addEventListener("click", () => {
     $managerArrayCt.style.display === "none" 

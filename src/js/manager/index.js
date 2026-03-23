@@ -1,91 +1,92 @@
-// const getManager = JSON.parse(localStorage.getItem('testInfo'));
-// const totalUser = document.querySelector('.mm-inf-user-number');
-// const totalStudent = document.querySelector('.mm-inf-student-number');
-// const totallecture = document.querySelector('.mm-inf-lecture-number');
-// const totalcontent = document.querySelector('.mm-inf-content-number');
-// const recentSignUpUser = document.querySelector('.mm-recent-user-title');
-// const popularLecture = document.querySelector('.mm-popular-lecture-title');
+const getUserList = JSON.parse(localStorage.getItem('userList'));
+const getLectureList = JSON.parse(localStorage.getItem('lectureList'));
+const totalUser = document.querySelector('.mm-inf-user-number');
+const totalStudent = document.querySelector('.mm-inf-student-number');
+const totallecture = document.querySelector('.mm-inf-lecture-number');
+const totalcontent = document.querySelector('.mm-inf-content-number');
+const recentSignUpUser = document.querySelector('.mm-recent-user-title');
+const $popularLecture = document.querySelector('.mm-popular-lecture-title');
+
+const recentUser = getUserList.filter((sub) => {
+    return sub.role != "manager"
+})
+
+// 전체 회원 수
+let totalSum = 0;
+for (let i = 0; i < getUserList.length; i++) {
+    if (getUserList[i].role === 'student' || getUserList[i].role === 'lecturer') {
+        totalSum += 1;
+        totalUser.innerText = `${totalSum}`;
+    }
+}
+
+//  수강생 수
+let studentSum = 0;
+for (let i = 0; i < getUserList.length; i++) {
+    if (getUserList[i].role === 'student') {
+        studentSum = studentSum + 1;
+        totalStudent.innerText = `${studentSum}`;
+    }
+}
 
 
-// // 전체 회원 수
-// let totalSum = 0;
-// for (let i = 0; i < getManager.length; i++) {
-//     if (getManager[i].role === 'student' || getManager[i].role === 'lecture') {
-//         totalSum += 1;
-//         totalUser.innerText = `${totalSum}`;
+let lectureSum = 0;
+for (let i = 0; i < getUserList.length; i++) {
+    if (getUserList[i].role === 'lecturer') {
+        lectureSum = lectureSum + 1;
+        totallecture.innerText = `${lectureSum}`;
+    }
+}
 
-//     }
-// }
+let contentSum = 0;
+for (let i = 0; i < getLectureList.length; i++) {
+    if (!getLectureList[i].classNumber == "") {
+        contentSum = contentSum + getLectureList[i].classNumber;
+        totalcontent.innerText = `${contentSum}`;
+    }
+}
 
-// //  수강생 수
-// let studentSum = 0;
-// for (let i = 0; i < getManager.length; i++) {
-//     if (getManager[i].role === 'student') {
-//         studentSum = studentSum + 1;
-//         totalStudent.innerText = `${studentSum}`;
-//     }
-// }
+let recentUserSum = 0;
+function managerRecentUser(arrayList) {
 
+    const pageMaxArray = arrayList.length < 7 ? arrayList.length : 7;
+    for (let i = pageMaxArray-1; i >= 0; i--) {
+        recentSignUpUser.insertAdjacentHTML("afterend", `
+            <div class="mm-recent-user-content-ct">        
+                <div>
+                    <div class="mm-recent-user-content"> ${arrayList[i].userName}</div>
+                    <div class="mm-recent-user-email"> ${arrayList[i].userEmail}</div>
+                </div>
+                <p class="mm-recent-user-date">${arrayList[i].signDate}</p>
+            </div>
+            <hr>`
+        );
+        console.log(arrayList[i].signDate);
+    }
+}
 
-// let lectureSum = 0;
-// for (let i = 0; i < getManager.length; i++) {
-//     if (getManager[i].role === 'lecture') {
-//         lectureSum = lectureSum + 1;
-//         totallecture.innerText = `${lectureSum}`;
-//     }
-// }
+function managerPopularLecture(arrayList) {
+    const pageMaxArray = arrayList.length < 9 ? arrayList.length : 9;
+    for (let i = pageMaxArray-1; i >= 0; i--) {
+        $popularLecture.insertAdjacentHTML("afterend", `
+                <div class="mm-popular-content-ct">
+                    <div class="mm-popular-content-title"> ${arrayList[i].contentTitle}</div>
+                    <div class="mm-popular-content-personnel"> ${arrayList[i].lessonNumber}명 수강중</div>
+                </div>
+                <hr class="mm-popular-hr">`
+        );
 
-// let contentSum = 0;
-// for (let i = 0; i < getManager.length; i++) {
-//     if (!getManager[i].contentID == "") {
-//         contentSum = contentSum + 1;
-//         totalcontent.innerText = `${contentSum}`;
-//     }
-// }
+    }
+}
 
-// let recentUserSum = 0;
-// for (let i = getManager.length - 1; i > 0; i--) {
+const currentUserArray = [...recentUser].sort((a, b) =>
+    b.signDate.localeCompare(a.signDate)
+);
 
-//     const recentSignUpUser2 = document.querySelector('.mm-recent-user-content-ct');
-//     if (recentUserSum <= 7) {
-//         // if (recentUserSum == 0) {
-//             recentSignUpUser.insertAdjacentHTML("afterend", `
-//             <div class="mm-recent-user-content-ct">        
-//                 <div>
-//                     <div class="mm-recent-user-content"> ${getManager[i].userName}</div>
-//                     <div class="mm-recent-user-email"> ${getManager[i].userEmail}</div>
-//                 </div>
-//                 <p class="mm-recent-user-date">${getManager[i].signDate}</p>
-//             </div>
-//             <hr>`
-//             );
-//         // } else {
-//         //     recentSignUpUser2.insertAdjacentHTML("afterend", `
-//         //     <div class="mm-recent-user-content-ct">        
-//         //         <div>
-//         //             <div class="mm-recent-user-content"> ${getManager[i].userName}</div>
-//         //             <div class="mm-recent-user-email"> ${getManager[i].userEmail}</div>
-//         //         </div>
-//         //         <p class="mm-recent-user-date">${getManager[i].signDate}</p>
-//         //     </div>
-//         //     <hr>`
-//         //     );
-//         }
-//         recentUserSum += 1;
-//     }
+const popularLectureArray = [...getLectureList].sort((a, b) =>
+    b.lessonNumber - a.lessonNumber
+);
 
-
-// let popularLectureSUm = 0;
-// for (let i = getManager.length - 1; i > 0; i--) {
-//     if (popularLectureSUm <= 8) {
-//             popularLecture.insertAdjacentHTML("afterend", `
-//                 <div class="mm-popular-content-ct">
-//                     <div class="mm-popular-content-title"> ${getManager[i].contentTitle}</div>
-//                     <div class="mm-popular-content-personnel"> ${getManager[i].studentNumber}명 수강중</div>
-//                 </div>
-//                 <hr class="mm-popular-hr">`
-//             );
-//         }
-//         popularLectureSUm += 1;
-//     }
+managerPopularLecture(popularLectureArray);
+managerRecentUser(currentUserArray);
 
