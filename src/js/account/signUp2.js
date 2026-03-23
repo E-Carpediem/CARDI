@@ -16,7 +16,7 @@ function SignUp() {
     this.users = [];
 
     this.init = () => {
-        this.users = user.getLocalStorage('userList');
+        user.getLocalStorage('userList') ? this.users = user.getLocalStorage('userList') : this.user = []
     }
 
     const inputId = ['#su-user-id', '#su-user-pwd', '#su-user-pwdcheck', '#su-user-name', '#su-user-age', '#su-user-pone', '#su-user-email', '#su-user-birth'];
@@ -355,7 +355,7 @@ function SignUp() {
             const currentDate = new Date().toLocaleDateString().replaceAll('. ', '-').replace('.', '');
             const signUpInfo = {
                 "role": "student",
-                "id": this.users.length + 1,
+                "id": this.users?.length ? this.users.length + 1 : 1,
                 "userId": $('#su-user-id').value,
                 "password": $('#su-user-pwd').value,
                 "userName": $('#su-user-name').value,
@@ -373,16 +373,18 @@ function SignUp() {
                 signUpInfo.userProfile = $('#su-lecture-img').files[0];
                 signUpInfo.userDocument = [...$('#su-lecture-info').files];
                 signUpInfo.membershipStatus = false;
-                signUpInfo.approval_status = true;
-
+                signUpInfo.approvalStatus = true;
+                signUpInfo.membershipSignDate = '';
             } else {
                 signUpInfo.subscriptionStatus = false;
                 signUpInfo.appliedLecture = [];
+                signUpInfo.shoppingCart = [];
+                signUpInfo.subscriptionSignDate = '';
+                signUpInfo.classCount = 0;
             }
+
             this.users.push(signUpInfo)
-            console.log(this.users);
             user.setLocalStorage('userList', this.users);
-            console.log(user.getLocalStorage('userList'));
             activeModal(() => movePage('../signUp/signUp4.html'), '회원가입이 완료되었습니다.');
         }
 

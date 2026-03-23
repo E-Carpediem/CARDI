@@ -78,14 +78,42 @@ function closeModal(modal) {
 //         "subscriptionStatus": true,
 //         "appliedLecture": [
 //             {
-//                 "contentId": "content1",
+//                 "contentId": 1,
 //                 "appliedDate": "2026-03-21"
 //             },
 //             {
-//                 "contentId": "content2",
+//                 "contentId": 3,
 //                 "appliedDate": "2026-03-21"
 //             }
-//         ]
+//         ],
+//         "shoppingCart": [
+//             {
+//                 "id": 32,
+//                 "contentId": 1,
+//                 "contentTitle": "강의 제목",
+//                 "contentImg": "이미지 경로",
+//                 "contentPrice": 10000,
+//                 "userName": "강사명",
+//                 "contentTime": "1시간 25분",
+//                 "contentTotal": 10,
+//                 "contentSelect": 5,
+//                 "contentTotalPrice": 200000
+//             },
+//             {
+//                 "id": 1,
+//                 "contentId": 2,
+//                 "contentTitle": "강의 제목",
+//                 "contentImg": "이미지 경로",
+//                 "contentPrice": 10000,
+//                 "userName": "강사명",
+//                 "contentTime": "1시간 25분",
+//                 "contentTotal": 10,
+//                 "contentSelect": 5,
+//                 "contentTotalPrice": 200000
+//             }
+//         ],
+//         "subscriptionSignDate": "2026-03-21",
+//         "classCount": 5
 //     },
 //     {
 //         "role": "lecturer",
@@ -105,8 +133,8 @@ function closeModal(modal) {
 //             "파일경로",
 //             "파일경로"
 //         ],
-//         "approval_status": true
-
+//         "approvalStatus": true,
+//         "membershipSignDate": "2026-03-14"
 //     },
 //     {
 //         "role": "student",
@@ -123,14 +151,42 @@ function closeModal(modal) {
 //         "subscriptionStatus": true,
 //         "appliedLecture": [
 //             {
-//                 "contentId": "content1",
+//                 "contentId": 5,
 //                 "appliedDate": "2026-03-21"
 //             },
 //             {
-//                 "contentId": "content2",
+//                 "contentId": 4,
 //                 "appliedDate": "2026-03-21"
 //             }
-//         ]
+//         ],
+//         "shoppingCart": [
+//             {
+//                 "id": 32,
+//                 "contentId": 8,
+//                 "contentTitle": "강의 제목",
+//                 "contentImg": "이미지 경로",
+//                 "contentPrice": 10000,
+//                 "userName": "강사명",
+//                 "contentTime": "1시간 25분",
+//                 "contentTotal": 10,
+//                 "contentSelect": 5,
+//                 "contentTotalPrice": 200000
+//             },
+//             {
+//                 "id": 1,
+//                 "contentId": 3,
+//                 "contentTitle": "강의 제목",
+//                 "contentImg": "이미지 경로",
+//                 "contentPrice": 10000,
+//                 "userName": "강사명",
+//                 "contentTime": "1시간 25분",
+//                 "contentTotal": 10,
+//                 "contentSelect": 5,
+//                 "contentTotalPrice": 200000
+//             }
+//         ],
+//         "subscriptionSignDate": "2026-03-21",
+//         "classCount": 5
 //     }
 // ]
 
@@ -147,7 +203,7 @@ $('.l-login-main>form').addEventListener('submit', (e) => {
         activeModal(() => { closeModal($('.modal')); $('#su-login-id').focus(); }, '아이디와 비밀번호를 입력해주세요.');
     } else if (userInfo) {
         if (userInfo.password === $('#su-login-pwd').value) {
-            if (userInfo.role === 'lecturer' && !userInfo.approval_status) {
+            if (userInfo.role === 'lecturer' && !userInfo.approvalStatus) {
                 activeModal(() => closeModal($('.modal')), '관리자 승인을 기다려주세요.');
             } else {
                 $('#l-signup-auto').checked ? myInfo.setLocalStorage('myInfo', userInfo) : myInfo.setSessionStorage('myInfo', userInfo);
