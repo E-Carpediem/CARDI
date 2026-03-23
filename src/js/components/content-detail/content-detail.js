@@ -23,7 +23,9 @@ const myInfoGet = {
     }
 }
 
-const getUserList = store.getLocalStorage('userList');
+// userList 불러와서 변수에 저장
+const userList = store.getLocalStorage("userList", []);
+console.log(userList);
 
 const myInfo = myInfoGet.getStorage();//정보 불러오기
 
@@ -228,13 +230,73 @@ function renderLectureData() {
             "삭제하시겠습니까?<br>삭제 후엔 되돌릴 수 없습니다.",
             () => {
                 const lectureList = getLectureList();
+                const userList = store.getLocalStorage("userList", []);
 
+                // lectureList 에서 contentId가 현재 강의의 contentId와 같은 content의 index 찾기
                 const index = lectureList.findIndex(
                     item => item.contentId === lectureData.contentId
                 );
+                // 해당 index 부터 1개의 content 삭제 즉, 해당 강의 삭제
                 lectureList.splice(index, 1);
 
+                // 모든 유저를 순회하여, appliedLecture에 해당 강의와 contentid 가 같은 content 도 삭제
+                userList.forEach(user => {
+                    if (Array.isArray(user.appliedLecture)) {
+                        const appliedIndex = user.appliedLecture.findIndex(
+                            item => Number(item.contentId) === targetContentId
+                        );
+
+                        if (appliedIndex !== -1) {
+                            user.appliedLecture.splice(appliedIndex, 1);
+                        }
+                    }
+
+                    // 장바구니 내에서도 삭제
+                    if (Array.isArray(user.shoppingCart)) {
+                        const cartIndex = user.shoppingCart.findIndex(
+                            item => Number(item.contentId) === targetContentId
+                        );
+
+                        if (cartIndex !== -1) {
+                            user.shoppingCart.splice(cartIndex, 1);
+                        }
+                    }
+                });
+
                 setLectureList(lectureList);
+                store.setLocalStorage("userList", userList);
+
+                const storageKey = sessionStorage.getItem("myInfo");
+                const currentMyInfo = myInfoGet.getStorage();
+
+                if (currentMyInfo) {
+                    if (Array.isArray(currentMyInfo.appliedLecture)) {
+                        const myAppliedIndex = currentMyInfo.appliedLecture.findIndex(
+                            item => Number(item.contentId) === targetContentId
+                        );
+
+                        if (myAppliedIndex !== -1) {
+                            currentMyInfo.appliedLecture.splice(myAppliedIndex, 1);
+                        }
+                    }
+
+                    if (Array.isArray(currentMyInfo.shoppingCart)) {
+                        const myCartIndex = currentMyInfo.shoppingCart.findIndex(
+                            item => Number(item.contentId) === targetContentId
+                        );
+
+                        if (myCartIndex !== -1) {
+                            currentMyInfo.shoppingCart.splice(myCartIndex, 1);
+                        }
+                    }
+
+                    if (storageKey === "localStorage") {
+                        localStorage.setItem("myInfo", JSON.stringify(currentMyInfo));
+                    } else {
+                        sessionStorage.setItem("myInfo", JSON.stringify(currentMyInfo));
+                    }
+                }
+
                 window.location.href = "/lecturer/index.html";
             }
         );
@@ -253,6 +315,7 @@ function student() {
     const contentId = params.get("contentId");
     const lectureList = getLectureList();
     const lectureData = lectureList.find(item => item.contentId === Number(contentId));
+    const userIndex = userList.findIndex(user => user.id === myInfo.id);
 
     if (myInfo.role === "student") {
         $('#cd-btn-color1').textContent = "장바구니";
@@ -313,19 +376,37 @@ function student() {
                         item => Number(item.contentId) === Number(content.contentId)
                     );
 
+                    const applied = myInfo.appliedLecture.some(
+                        item => item.contentId === content.contentId
+                    );
+                    console.log(applied);
+
                     if (exists) {
                         alert("이미 장바구니에 담긴 강의입니다.");
                         return;
                     }
 
+                    if (applied) {
+                        alert("이미 신청한 강의입니다.");
+                        return;
+                    }
+
                     myInfo.shoppingCart.push(content);
                     sessionStorage.setItem("myInfo", JSON.stringify(myInfo));
+
+                    if (userIndex !== -1) {
+                        userList[userIndex].shoppingCart.push(content);
+                    }
+
+                    localStorage.setItem("userList", JSON.stringify(userList));
                 }
             );
         }
 
         // 신청하기 함수
         function handleApply(lectureData) {
+            // 등록 날짜
+            const today = new Date().toISOString().split('T')[0];
             openTwoButtonModal(
                 "신청하시겠습니까?",
                 () => {
@@ -334,17 +415,51 @@ function student() {
                         item => item.contentId === lectureData.contentId
                     );
 
-                    const exists = myInfo.shoppingCart.some(
-                        item => Number(item.contentId) === Number(content.contentId)
+                    const applied = myInfo.appliedLecture.some(
+                        item => item.contentId === content.contentId
                     );
 
-                    if (exists) {
+                    if (applied) {
                         alert("이미 신청한 강의입니다.");
                         return;
                     }
 
-                    myInfo.shoppingCart.push(content);
+                    // appliedLecture에 들어갈 값
+                    const appliedLectureUpdate = {
+                        contentId: content.contentId,
+                        appliedDate: today,
+                        completeContents: 0
+                    }
+
+                    // 강의를 신청하면 sessionStorage 에 신청한 강의의 appliedLecture 값 추가
+                    myInfo.appliedLecture.push(appliedLectureUpdate);
+
+                    // sessionStorage 장바구니에 해당 강의가 있으면 장바구니에서 제거
+                    const cartIndex = myInfo.shoppingCart.findIndex(
+                        item => item.contentId === content.contentId
+                    );
+
+                    if (cartIndex !== -1) {
+                        myInfo.shoppingCart.splice(cartIndex, 1);
+                    }
+
+                    // sessionStorage 에 반영
                     sessionStorage.setItem("myInfo", JSON.stringify(myInfo));
+
+                    // localStorage -> userList 에 신청 강의 추가 및 장바구니에 해당 강의가 있으면 삭제
+                    if (userIndex !== -1) {
+                        userList[userIndex].appliedLecture.push(appliedLectureUpdate);
+                        const userCartIndex = userList[userIndex].shoppingCart.findIndex(
+                            item => item.contentId === content.contentId
+                        );
+
+                        if (userCartIndex !== -1) {
+                            userList[userIndex].shoppingCart.splice(userCartIndex, 1);
+                        }
+                    }
+
+                    // localStorage 에 반영
+                    localStorage.setItem("userList", JSON.stringify(userList));
                 }
             );
         }
@@ -356,4 +471,3 @@ function student() {
 }
 
 student();
-

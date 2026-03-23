@@ -19,8 +19,8 @@ const userList = [
         "signDate": "2026-01-10",
         "subscriptionStatus": true,
         "appliedLecture": [
-            { "contentId": "content1", "appliedDate": "2026-01-15", "completeContents": 32 },
-            { "contentId": "content2", "appliedDate": "2026-01-20", "completeContents": 15 }
+            { "contentId": 1, "appliedDate": "2026-01-15", "completeContents": 32 },
+            { "contentId": 2, "appliedDate": "2026-01-20", "completeContents": 15 }
         ],
         "shoppingCart": [
             {
@@ -53,7 +53,7 @@ const userList = [
         "signDate": "2026-01-15",
         "subscriptionStatus": false,
         "appliedLecture": [
-            { "contentId": "content3", "appliedDate": "2026-02-01", "completeContents": 7 }
+            { "contentId": 3, "appliedDate": "2026-02-01", "completeContents": 7 }
         ],
         "shoppingCart": [
             {
@@ -86,9 +86,9 @@ const userList = [
         "signDate": "2026-01-20",
         "subscriptionStatus": true,
         "appliedLecture": [
-            { "contentId": "content1", "appliedDate": "2026-01-22", "completeContents": 50 },
-            { "contentId": "content4", "appliedDate": "2026-01-25", "completeContents": 28 },
-            { "contentId": "content5", "appliedDate": "2026-02-01", "completeContents": 10 }
+            { "contentId": 1, "appliedDate": "2026-01-22", "completeContents": 50 },
+            { "contentId": 4, "appliedDate": "2026-01-25", "completeContents": 28 },
+            { "contentId": 5, "appliedDate": "2026-02-01", "completeContents": 10 }
         ],
         "shoppingCart": [],
         "subscriptionSignDate": "2026-01-20",
@@ -108,7 +108,7 @@ const userList = [
         "signDate": "2026-02-03",
         "subscriptionStatus": false,
         "appliedLecture": [
-            { "contentId": "content2", "appliedDate": "2026-02-05", "completeContents": 21 }
+            { "contentId": 2, "appliedDate": "2026-02-05", "completeContents": 21 }
         ],
         "shoppingCart": [
             {
@@ -141,8 +141,8 @@ const userList = [
         "signDate": "2026-02-10",
         "subscriptionStatus": true,
         "appliedLecture": [
-            { "contentId": "content5", "appliedDate": "2026-02-12", "completeContents": 44 },
-            { "contentId": "content6", "appliedDate": "2026-02-15", "completeContents": 3 }
+            { "contentId": 5, "appliedDate": "2026-02-12", "completeContents": 44 },
+            { "contentId": 6, "appliedDate": "2026-02-15", "completeContents": 3 }
         ],
         "shoppingCart": [],
         "subscriptionSignDate": "2026-02-10",
@@ -193,8 +193,8 @@ const userList = [
         "signDate": "2026-02-25",
         "subscriptionStatus": true,
         "appliedLecture": [
-            { "contentId": "content3", "appliedDate": "2026-03-01", "completeContents": 19 },
-            { "contentId": "content7", "appliedDate": "2026-03-05", "completeContents": 36 }
+            { "contentId": 3, "appliedDate": "2026-03-01", "completeContents": 19 },
+            { "contentId": 7, "appliedDate": "2026-03-05", "completeContents": 36 }
         ],
         "shoppingCart": [],
         "subscriptionSignDate": "2026-02-25",
@@ -214,7 +214,7 @@ const userList = [
         "signDate": "2026-03-02",
         "subscriptionStatus": false,
         "appliedLecture": [
-            { "contentId": "content4", "appliedDate": "2026-03-04", "completeContents": 12 }
+            { "contentId": 4, "appliedDate": "2026-03-04", "completeContents": 12 }
         ],
         "shoppingCart": [
             {
@@ -247,7 +247,7 @@ const userList = [
         "signDate": "2026-03-10",
         "subscriptionStatus": false,
         "appliedLecture": [
-            { "contentId": "content1", "appliedDate": "2026-03-11", "completeContents": 5 }
+            { "contentId": 1, "appliedDate": "2026-03-11", "completeContents": 5 }
         ],
         "shoppingCart": [],
         "subscriptionSignDate": null,
@@ -267,10 +267,10 @@ const userList = [
         "signDate": "2026-03-15",
         "subscriptionStatus": true,
         "appliedLecture": [
-            { "contentId": "content2", "appliedDate": "2026-03-16", "completeContents": 48 },
-            { "contentId": "content5", "appliedDate": "2026-03-17", "completeContents": 25 },
-            { "contentId": "content7", "appliedDate": "2026-03-18", "completeContents": 9 },
-            { "contentId": "content8", "appliedDate": "2026-03-19", "completeContents": 1 }
+            { "contentId": 2, "appliedDate": "2026-03-16", "completeContents": 48 },
+            { "contentId": 5, "appliedDate": "2026-03-17", "completeContents": 25 },
+            { "contentId": 7, "appliedDate": "2026-03-18", "completeContents": 9 },
+            { "contentId": 8, "appliedDate": "2026-03-19", "completeContents": 1 }
         ],
         "shoppingCart": [
             {
