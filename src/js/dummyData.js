@@ -452,6 +452,7 @@ const userList = [
         "membershipSignDate": null
     }
 ]
+localStorage.setItem("userList", JSON.stringify(userList));
 
 const lectureList = [
   {
@@ -1375,3 +1376,5 @@ const lectureList = [
     "registerDate": "2026-03-18"
   }
 ]
+
+localStorage.setItem("lectureList", JSON.stringify(lectureList));
