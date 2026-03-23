@@ -141,15 +141,9 @@ function bindItemEvents(item) {
     // 이동 버튼 클릭 시
     moveBtn.addEventListener('click', e => {
         e.stopPropagation();
-        window.location.href = '/components/contentDetail.html';
+        const contentId = item.dataset.id;
+        window.location.href = `/components/content-detail.html?contentId=${contentId}`;
     });
-
-    // // 이동 버튼 클릭 시 (해당 카드의 contentId)
-    // moveBtn.addEventListener('click', e => {
-    //     e.stopPropagation();
-    //     const contentId = item.dataset.id;
-    //     window.location.href = `/components/contentDetail.html?contentId=${contentId}`;
-    // });
 }
 
 //렌더링 함수
@@ -292,7 +286,6 @@ $applyBtn.addEventListener('click', () => {
 });
 
 
-initTestData();     //로컬 스토리지 테스트용 코드
 renderCart();
 
 window.addEventListener('storage', (e) => {

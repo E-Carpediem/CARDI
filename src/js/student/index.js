@@ -1,56 +1,17 @@
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
-const $categoryBtns = $$('.lct-category-btn');
-const $categoryList = $('.lct-category-list');
-const $searchInput = $('.lct-search-input');
-const $lectureList = $('.lct-lecture-list');
-const $newLectureBtn = $('.lct-new-lecture');
+const $lectureCards = $$('.ct-lecture-card');
+const $categoryBtns = $$('.ct-category-btn');
+const $categoryList = $('.ct-category-list');
+const $searchInput = $('.ct-search-input');
 
-// 현재 로그인 정보 불러오는 함수
-const myInfoGet = {
-    getStorage() {
-        if (localStorage.getItem('myInfo')) {
-            return JSON.parse(localStorage.getItem('myInfo'));
-        } else {
-            return JSON.parse(sessionStorage.getItem('myInfo'));
-        }
-    }
-}
-
-myInfoGet.getStorage();//정보 불러오기
-console.log('?', myInfoGet.getStorage());
-
-// 강의 리스트 불러오는 함수
-function getLectureList() {
-    return JSON.parse(localStorage.getItem("lectureList")) || [];
-}
-
-const lectureList = getLectureList();
-let currentUser = myInfoGet.find(m => m.id == lectureList.id);
-
-if (!currentUser) {
-    currentUser = {
-        role: 'lecturer',
-        id: 'lct1',
-        userName: '김강사'
-    };
-}
-
-// 강사 아니면 차단
-if (currentUser.role !== 'lecturer') {
-    window.location.replace('/');
-}
-
-// 강의 데이터
 function getLectureList() {
     return JSON.parse(localStorage.getItem('lectureList')) || [];
 }
 
-// 내 강의만 필터링
-function getMyLectures() {
-    const lectureList = getLectureList();
-    return lectureList.filter(lec => lec.id === currentUser.id);
+function setLectureList(list) {
+    localStorage.setItem('lectureList', JSON.stringify(list));
 }
 
 // 사용자 입력값에서 HTML 미적용
@@ -65,41 +26,33 @@ function escapeHTML(value) {
 
 // 강의 렌더링
 function renderLectures() {
-    const lectureList = getMyLectures();
-
-    // 기존 카드 제거 (+ 버튼 제외)
-    $lectureList.querySelectorAll('.lct-lecture-card').forEach(el => el.remove());
+    const lectureList = getLectureList();
+    const $lectureList = $('.ct-lecture-list');
 
     lectureList.forEach(item => {
         const card = document.createElement('div');
-        card.classList.add('lct-lecture-card');
+        card.classList.add('ct-lecture-card');
 
         card.innerHTML = `
-            <div class="lct-lecture-img" style="background-image:url(${item.contentImg})"></div>
-            <div class="lct-lecture-info">
-                <h2 class="lct-lecture-card-title">${escapeHTML(item.contentTitle)}</h2>
-                <p class="lct-lecture-preview">${escapeHTML(item.contentPreview)}</p>
-                <span class="lct-lecturer-name">${escapeHTML(item.userName)}</span>
-                <span class="lct-lecture-category">${item.category}</span>
+            <div class="ct-lecture-img" style="background-image:url(${item.contentImg})"></div>
+            <div class="ct-lecture-info">
+                <h2 class="ct-lecture-card-title">${escapeHTML(item.contentTitle)}</h2>
+                <p class="ct-lecture-preview">${escapeHTML(item.contentPreview)}</p>
+                <span class="ct-lecturer-name">${escapeHTML(item.userId)}</span>
+                <span class="ct-lecture-category">${item.category}</span>
             </div>
         `;
 
-        // // 클릭 시 상세 페이지 이동
-        // card.addEventListener('click', () => {
-        //     window.location.href = '/components/contentDetail.html';
-        // });
-
         card.addEventListener('click', () => {
-            window.location.href = `/components/contentDetail.html?contentId=${item.contentId}`;
+            window.location.href = `/components/content-detail.html?contentId=${item.contentId}`;
         });
 
-        $('.lct-new-lecture').insertAdjacentElement('afterend', card);
+        $('.ct-lecture-list').insertAdjacentElement('afterbegin', card);
     });
 
     filterCards();
 }
 
-// 쿼리 파라미터 가져오기
 function getQueryParams() {
     const params = new URLSearchParams(window.location.search);
     return {
@@ -111,17 +64,27 @@ function getQueryParams() {
 // 카드 필터링
 function filterCards() {
     const { category, keyword } = getQueryParams();
-    const cards = $$('.lct-lecture-card');
+    const cards = $$('.ct-lecture-card');
+    let visibleCount = 0;
 
     cards.forEach(card => {
-        const title = card.querySelector('.lct-lecture-card-title').textContent.toLowerCase();
-        const cardCategory = card.querySelector('.lct-lecture-category').textContent.trim();
+        const title = card.querySelector('.ct-lecture-card-title').textContent.toLowerCase();
+        const cardCategory = card.querySelector('.ct-lecture-category').textContent.trim();
 
         const matchKeyword = keyword === '' || title.includes(keyword);
         const matchCategory = category === '전체' || cardCategory === category;
 
-        card.style.display = (matchKeyword && matchCategory) ? 'block' : 'none';
+        if (matchKeyword && matchCategory) {
+            card.style.display = 'block';
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
+        }
     });
+
+    // '일치하는 강의가 없습니다.'
+    const $noResults = $('.ct-no-results');
+    $noResults.style.display = visibleCount === 0 ? 'block' : 'none';
 }
 
 // URL 업데이트 및 필터링
@@ -144,13 +107,12 @@ function updateQueryParams(newParams) {
 // 검색창 Enter 이벤트
 $searchInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
-        event.preventDefault();
         const keyword = $searchInput.value.trim();
         updateQueryParams({ keyword });
     }
 });
 
-// 카테고리 버튼 클릭
+//카테고리 버튼 클릭
 $categoryBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         const category = btn.textContent.trim();
@@ -168,17 +130,12 @@ $categoryList.addEventListener('wheel', (event) => {
     $categoryList.scrollLeft += event.deltaY;
 });
 
-// 강의 등록 이동
-$newLectureBtn.addEventListener('click', () => {
-    window.location.href = '/lecture/lectureEnroll/lectureEnroll.html';
-});
-
 // 페이지 초기화
 window.addEventListener('DOMContentLoaded', () => {
 
+    initLectureData();
     renderLectures();
 
-    // 검색창 초기화
     $searchInput.value = '';
 
     // 모든 카테고리 버튼에서 active 제거
@@ -191,13 +148,9 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // URL 쿼리스트링 제거
-    const params = new URLSearchParams(window.location.search);
-    params.delete('category');
-    params.delete('keyword');
+    // URL 초기화
     window.history.replaceState({}, '', window.location.pathname);
 });
-
 // 다른 페이지에서 강의 추가 시 자동 반영
 window.addEventListener('storage', (e) => {
     if (e.key === 'lectureList') {
