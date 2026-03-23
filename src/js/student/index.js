@@ -6,6 +6,20 @@ const $categoryBtns = $$('.ct-category-btn');
 const $categoryList = $('.ct-category-list');
 const $searchInput = $('.ct-search-input');
 
+// 현재 로그인 정보 불러오는 함수
+const myInfoGet = {
+    getStorage() {
+        if (localStorage.getItem('myInfo')) {
+            return JSON.parse(localStorage.getItem('myInfo'));
+        } else {
+            return JSON.parse(sessionStorage.getItem('myInfo'));
+        }
+    }
+}
+
+const myInfo = myInfoGet.getStorage();//정보 불러오기
+console.log(myInfo);
+
 function getLectureList() {
     return JSON.parse(localStorage.getItem('lectureList')) || [];
 }
@@ -27,7 +41,6 @@ function escapeHTML(value) {
 // 강의 렌더링
 function renderLectures() {
     const lectureList = getLectureList();
-    const $lectureList = $('.ct-lecture-list');
 
     lectureList.forEach(item => {
         const card = document.createElement('div');
@@ -133,7 +146,6 @@ $categoryList.addEventListener('wheel', (event) => {
 // 페이지 초기화
 window.addEventListener('DOMContentLoaded', () => {
 
-    initLectureData();
     renderLectures();
 
     $searchInput.value = '';

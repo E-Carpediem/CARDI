@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../src/css/reset.css">
-    <link rel="stylesheet" href="../src/css/components/contentDetail.css">
+    <link rel="stylesheet" href="../src/css/components/content-detail.css">
 </head>
 
 <body>
@@ -88,13 +88,8 @@
                         <section id="cd-content-time">강의 시간: </section>
                         <section id="cd-content-level">난이도: </section>
                     </article>
-                    <button class="cd-btn modal-open-two-btn" id="cd-btn-color1"
-                    data-url="/lecture/lectureUpdate/lectureUpdate.html"
-                    data-message="
-                    수정하시겠습니까?<br>
-                    확인 버튼을 누르면 강의 수정 페이지로 이동합니다.">수정하기</button>
-                    <button class="cd-btn modal-open-two-btn" id="cd-btn-color2" 
-                    data-url="/lecture/lectureContentTotal/LectureContentTotal.html">삭제하기</button>
+                    <button class="cd-btn" id="cd-btn-color1">수정하기</button>
+                    <button class="cd-btn" id="cd-btn-color2">삭제하기</button>
                 </article>
             </article>
         </main>
@@ -103,9 +98,9 @@
     <div class="active-modal"></div>
     <script type="module" src="../src/js/components/includeHeader.js"></script>
     <script type="module" src="../src/js/components/includeNav.js"></script>
-    <script type="module" src="../src/js/components/modalOneButton.js"></script>
-    <script type="module" src="../src/js/components/modalTwoButton.js"></script>
-    <script type="module" src="/src/js/components/contentDetail/contentDetail.js"></script>
+    <!-- <script type="module" src="../src/js/components/modalOneButton.js"></script>
+    <script type="module" src="../src/js/components/modalTwoButton.js"></script> -->
+    <script type="module" src="/src/js/components/content-detail/content-detail.js"></script>
 </body>
 
 </html>

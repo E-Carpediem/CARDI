@@ -18,8 +18,7 @@ const myInfoGet = {
     }
 }
 
-myInfoGet.getStorage();//정보 불러오기
-console.log('?', myInfoGet.getStorage());
+const myInfo = myInfoGet.getStorage();//정보 불러오기
 
 // 강의 리스트 불러오는 함수
 function getLectureList() {
@@ -27,30 +26,10 @@ function getLectureList() {
 }
 
 const lectureList = getLectureList();
-let currentUser = myInfoGet.find(m => m.id == lectureList.id);
-
-if (!currentUser) {
-    currentUser = {
-        role: 'lecturer',
-        id: 'lct1',
-        userName: '김강사'
-    };
-}
-
-// 강사 아니면 차단
-if (currentUser.role !== 'lecturer') {
-    window.location.replace('/');
-}
-
-// 강의 데이터
-function getLectureList() {
-    return JSON.parse(localStorage.getItem('lectureList')) || [];
-}
-
+let currentUser = myInfo.id;
 // 내 강의만 필터링
 function getMyLectures() {
-    const lectureList = getLectureList();
-    return lectureList.filter(lec => lec.id === currentUser.id);
+    return lectureList.filter(lec => lec.id === currentUser);
 }
 
 // 사용자 입력값에서 HTML 미적용
@@ -85,7 +64,7 @@ function renderLectures() {
         `;
 
         card.addEventListener('click', () => {
-            window.location.href = `/components/contentDetail.html?contentId=${item.contentId}`;
+            window.location.href = `/components/content-detail.html?contentId=${item.contentId}`;
         });
 
         $('.lct-new-lecture').insertAdjacentElement('afterend', card);
@@ -165,7 +144,7 @@ $categoryList.addEventListener('wheel', (event) => {
 
 // 강의 등록 이동
 $newLectureBtn.addEventListener('click', () => {
-    window.location.href = '/lecture/lectureEnroll/lectureEnroll.html';
+    window.location.href = '/lecturer/lecture-regist.html';
 });
 
 // 페이지 초기화

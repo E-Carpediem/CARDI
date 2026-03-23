@@ -23,7 +23,7 @@ const store = {
     }
 };
 
-//내 정보 받아오기 함수
+// 현재 로그인 정보 불러오는 함수
 const myInfoGet = {
     getStorage() {
         if (localStorage.getItem('myInfo')) {
@@ -34,7 +34,17 @@ const myInfoGet = {
     }
 }
 
-myInfoGet.getStorage();//정보 불러오기
+const myInfo = myInfoGet.getStorage();//정보 불러오기
+
+// 강의 리스트 불러오는 함수
+function getLectureList() {
+    return JSON.parse(localStorage.getItem("lectureList")) || [];
+}
+
+const lectureList = getLectureList();
+let currentUserId = myInfo.id;
+let currentUserName = myInfo.userName;
+console.log(currentUserName);
 
 // 숫자만 입력가능하게 하는 함수
 function inputNumber(inputElement) {
@@ -386,7 +396,7 @@ function getContentId() {
 
     const max = Math.max(...numbers);
 
-    return `${max + 1}`;
+    return max + 1;
 }
 
 // 폼 전체 데이터 수집
@@ -394,7 +404,7 @@ function collectLectureData() {
     // 등록 날짜
     const today = new Date().toISOString().split('T')[0];
     return {
-        id: "lct1",
+        id: currentUserId,
         contentId: getContentId(), // 고유값
         contentImg: thumbnailPreview.getAttribute("src") || "",
         contentTitle: $("#le-content-title").value.trim(),
@@ -411,7 +421,7 @@ function collectLectureData() {
 
         contentCurry: collectCurryData(),
         category: $("#le-category").value,
-        userName: "강사명", // 임시 (나중에 로그인 연동)
+        userName: currentUserName,
         lessonNumber: 155,
         classNumber: 100,
         registerDate: today
@@ -451,7 +461,7 @@ form.addEventListener("submit", (e) => {
             saveLectureData();
             form.reset();
             resetThumbnailUI();
-            window.location.href = "/lecture/main/lectureContentTotal.html";
+            window.location.href = "/lecturer/index.html";
         },
         () => {
             // 취소 버튼 클릭 시 모달창 사라지고, 작성 중인 폼 유지
@@ -468,7 +478,7 @@ cancelBtn.addEventListener("click", () => {
             form.reset();
             resetThumbnailUI();
             // 강의 등록 취소 후 목록 페이지로 이동
-            window.location.href = "../lectureContentTotal/lectureContentTotal.html";
+            window.location.href = "/lecturer/index.html";
         },
         () => {
             // 취소 모달에서 취소 버튼 클릭 시 모달창 사라지고, 작성 중인 폼 유지
