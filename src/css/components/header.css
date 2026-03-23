@@ -44,6 +44,14 @@
     line-height: 24px;
 }
 
+.c-logo-unlogin>p:nth-child(1):hover {
+    cursor: pointer;
+}
+
+.c-logo-unlogin>p:nth-child(3):hover {
+    cursor: pointer;
+}
+
 .c-logo-right>img:hover {
     cursor: pointer;
 }
@@ -51,7 +59,6 @@
 .c-logo-right-content {
     width: 80px;
     height: 32px;
-    background: #C8D9E6;
     border-radius: 5px;
 
     display: flex;
@@ -61,7 +68,6 @@
     font-family: 'Pretendard';
     font-size: 12px;
     font-weight: 900;
-    color: #567C8D;
 }
 
 .c-profile-active-ct {
@@ -122,6 +128,25 @@
     font-style: normal;
     font-weight: 500;
     line-height: 24px;
+}
+
+.c-profile-logout-ct>p,
+.c-profile-logout-ct>img,
+.c-profile-my-profile-ct>img,
+.c-profile-my-profile-ct>p {
+    cursor: pointer;
+}
+
+.c-profile-student-sub,
+.c-profile-lecture-sub {
+    background: #C8D9E6;
+    color: #567C8D;
+}
+
+.c-profile-student-unSub,
+.c-profile-lecture-unSub {
+    background: #F5EFED;
+    color: #567C8D;
 }
 
 .c-profile-my-profile-ct {
