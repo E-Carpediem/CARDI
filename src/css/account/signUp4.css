@@ -1,7 +1,20 @@
 @import '../reset.css';
 
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.top-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
 .su-main-ct {
-    margin: 130px auto 0 auto;
+    margin: 0 auto 0 auto;
     text-align: center;
 
 }
@@ -30,15 +43,19 @@
 
 
 .su-main-ct>div {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     background-color: #2F4156;
     margin: auto;
-    margin-bottom: 133px;
+    margin-bottom: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.su-main-ct>div>img {
+    zoom: 0.8;
 }
 
 .su-main-ct>button {
@@ -58,11 +75,10 @@
 @media screen and (min-width: 480px) {
     .su-main-ct {
         width: 600px;
-        height: 825px;
     }
 }
 
-@media screen and (max-width: 1439px) {
+@media screen and (max-width: 1800px) {
     .su-main-ct>h2 {
         font-size: 40px;
         line-height: 60px;
@@ -75,13 +91,13 @@
     }
 
     .su-main-ct>div {
-        width: 200px;
-        height: 200px;
-        margin-bottom: 110px;
+        width: 150px;
+        height: 150px;
+        margin-bottom: 85px;
     }
 
     .su-main-ct>div>img {
-        zoom: 0.8;
+        zoom: 0.6;
     }
 
     .su-main-ct>button {

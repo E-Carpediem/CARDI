@@ -1,7 +1,20 @@
 @import '../reset.css';
 
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.top-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
 .l-login-main {
-    margin: 111px auto 100px auto;
+    margin: 0 auto 0 auto;
     width: 640px;
     height: 685px;
     border: 1px solid #2F4156;
@@ -94,7 +107,7 @@
     accent-color: #2F4156;
 }
 
-@media screen and (max-width: 1439px) {
+@media screen and (max-width: 1800px) {
     .l-login-main {
         width: 512px;
         height: 548px;

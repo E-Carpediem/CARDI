@@ -104,7 +104,9 @@ function closeModal(modal) {
 //         "userDocument": [
 //             "파일경로",
 //             "파일경로"
-//         ]
+//         ],
+//         "approval_status": true
+
 //     },
 //     {
 //         "role": "student",
@@ -135,6 +137,8 @@ function closeModal(modal) {
 
 // user.setLocalStorage('userList', userList);
 
+let mainPageRender = '';
+
 //로그인 함수
 $('.l-login-main>form').addEventListener('submit', (e) => {
     e.preventDefault();
@@ -147,7 +151,9 @@ $('.l-login-main>form').addEventListener('submit', (e) => {
                 activeModal(() => closeModal($('.modal')), '관리자 승인을 기다려주세요.');
             } else {
                 $('#l-signup-auto').checked ? myInfo.setLocalStorage('myInfo', userInfo) : myInfo.setSessionStorage('myInfo', userInfo);
-                activeModal(() => movePage('https://www.naver.com'), '로그인에 성공하였습니다.');
+                userInfo.role === 'student' ? mainPageRender = '../../../student/contentTotal/contentTotal.html' : userInfo.role === 'lecturer' ? mainPageRender = '../../../lecture/main/lectureContentTotal.html' : mainPageRender = '../../../manager/main/managerMain.html';
+                console.log(mainPageRender)
+                activeModal(() => movePage(mainPageRender), '로그인에 성공하였습니다.');
             }
         } else {
             activeModal(() => { closeModal($('.modal')); $('#su-login-id').focus(); }, '아이디와 비밀번호가 일치하지 않습니다.');

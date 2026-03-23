@@ -1,8 +1,22 @@
 @import '../reset.css';
 
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.top-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+
 .su-signup-main {
     width: 900px;
-    margin: 127px auto 100px auto;
+    margin: 0 auto 0 auto;
     text-align: center;
 }
 
@@ -124,11 +138,11 @@
 }
 
 
-@media screen and (max-width: 1439px) {
+@media screen and (max-width: 1800px) {
 
     .su-signup-main {
         width: 720px;
-        margin: 101px auto 100px auto;
+        margin: 0 auto 0 auto;
         text-align: center;
     }
 
