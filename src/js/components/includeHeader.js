@@ -91,6 +91,7 @@ fetch("/components/header.html")
         $headerLogout.addEventListener("click", () => {
             localStorage.removeItem('myInfo');
             sessionStorage.removeItem('myInfo');
+            localStorage.removeItem('navSelect');
             headerMoveNavPath('/account/login.html');
         })
 

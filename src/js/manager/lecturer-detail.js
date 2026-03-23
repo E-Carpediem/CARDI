@@ -1,19 +1,27 @@
-const contentsListData = JSON.parse(localStorage.getItem('contentsList'));
+const contentsListData = JSON.parse(localStorage.getItem('lectureList'));
+const contentsUserListData = JSON.parse(localStorage.getItem('userList'));
 
+const getParams = new URLSearchParams(window.location.search);
+const lecturerId = getParams.get('id') - 1;
+
+const lectureList = contentsListData.filter((sub) => sub.id === lecturerId);
+console.log(lectureList)
 const $totalContents = document.querySelector(".tmm-lector-content-top-ct");
 const $lectureInf = document.querySelector(".tmm-lecture-inf");
+const $lectureInfProfile = document.querySelector(".tmm-lecture-inf-profile");
 
 function userTotalManagement(arrayList) {
-    $totalContents.insertAdjacentHTML('afterend',
+    document.querySelectorAll('.tmm-lecture-inf-content').forEach(el => el.remove());
+    $lectureInfProfile.insertAdjacentHTML("beforebegin",
         `<div class="tmm-lecture-inf-content">
-            <p> 승인 </p>
+            <p> ${contentsUserListData[lecturerId].approvalStatus === true ? "승인" : "미승인"}</p>
             <p> 강사정보 </p>
-            <p> 강사명 : ${arrayList[6].instructorName} </p>
-            <p> 가입 일자 : 2026.03.14 </p>
-            <p> 전화번호 : 010-1234-5678 </p>
-            <p> 이메일 : honggd@example.com </p>
+            <p> 강사명 : ${contentsUserListData[lecturerId].userName} </p>
+            <p> 가입 일자 : ${contentsUserListData[lecturerId].signDate}</p>
+            <p> 전화번호 : ${contentsUserListData[lecturerId].phoneNumber}</p>
+            <p> 이메일 : ${contentsUserListData[lecturerId].userEmail}</p>
         </div>`)
-    
+
 
     document.querySelectorAll('.tmm-lector-content').forEach(el => el.remove());
     const pageMaxArray = arrayList.length < 10 ? arrayList.length : 10;
@@ -25,10 +33,10 @@ function userTotalManagement(arrayList) {
         $totalContents.insertAdjacentHTML('afterend',
             `<div class="tmm-lector-content">
         <p> ${i + 1} </p>
-        <p> ${arrayList[i].contentId} </p>
+        <p> ${arrayList[i].id} </p>
         <p> ${arrayList[i].contentTitle} </p>
-        <p> ${arrayList[i].studentNumber}명 </p>
-        <p> ${arrayList[i].lessonsNumber}개 </p>
+        <p> ${arrayList[i].classNumber}명 </p>
+        <p> ${arrayList[i].lessonNumber}개 </p>
         <p> ${arrayList[i].registerDate} </p>
         <p data-id="${arrayList[i].contentId}"> 삭제하기 </p>
     </div>`)
@@ -39,7 +47,7 @@ function userTotalManagement(arrayList) {
 
 }
 
-userTotalManagement(contentsListData);
+userTotalManagement(lectureList);
 const $ArraySignDate = document.querySelector('.m-array>p:nth-of-type(1)');
 const $ArraySort = document.querySelector('.m-array>p:nth-of-type(2)');
 
@@ -59,7 +67,7 @@ $ArraySort.addEventListener('click', () => {
 
 
 function lectureContentsDelete() {
-    const $btns = document.querySelectorAll(".tc-content > p:nth-child(8)");
+    const $btns = document.querySelectorAll(".tmm-lector-content > p:nth-child(7)");
     const defaultMessage = `
     삭제하시겠습니까?<br>
     삭제 후엔 되돌릴 수 없습니다.
@@ -95,7 +103,6 @@ function lectureContentsDelete() {
             });
 
             $modal.querySelector('.modal-check').addEventListener('click', (e) => {
-                console.log(selectContentId);
                 deleteContents(selectContentId);
                 $modal.style.display = 'none';
             });
@@ -113,11 +120,31 @@ function lectureContentsDelete() {
     }
 }
 
-function deleteContents() {
-    const targetIndex = contentsListData.findIndex(item => {
-        return item.contentId;
-    });
-    let a = contentsListData.splice(targetIndex, 1);
-    localStorage.setItem('contentsList', JSON.stringify(contentsListData));
-    userTotalManagement(contentsListData);
+function deleteContents(contentId) {
+    console.log('삭제 요청 contentId:', contentId); 
+    const targetIndex = contentsListData.findIndex(item => String(item.contentId) === contentId);
+    contentsListData.splice(targetIndex, 1);
+    localStorage.setItem('lectureList', JSON.stringify(contentsListData));
+    const LectureList = contentsListData.filter(sub => sub.id === lecturerId);
+    userTotalManagement(LectureList);
 }
+
+
+const $managerArray = document.querySelector('.manager-array-common');
+const $managerFilter = document.querySelector('.manager-fileter-common');
+const $managerArrayCt = document.querySelector('.m-array');
+const $managerFilterCt = document.querySelector('.m-fileter');
+
+
+
+$managerArray.addEventListener("click", () => {
+    $managerArrayCt.style.display === "none"
+        ? $managerArrayCt.style.display = "flex"
+        : $managerArrayCt.style.display = "none"
+})
+
+$managerFilter.addEventListener("click", () => {
+    $managerFilterCt.style.display === "none"
+        ? $managerFilterCt.style.display = "flex"
+        : $managerFilterCt.style.display = "none"
+})
