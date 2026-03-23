@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../src/css/reset.css">
+    <link rel="stylesheet" href="../../src/css/components/communityRegist.css">
+    <link rel="stylesheet" href="../../src/css/components/communityDetail.css">
+</head>
+
+<body>
+    <div class="top-container">
+        <main class="cm-main-ct">
+            <section class="cm-left-ct">
+                <div class="cm-top-ct">
+                    <button><img src="../../src/assets/img/community_backBtn.svg"></button>
+                    <p>커뮤니티</p>
+                </div>
+                <article class="cmd-content-ct">
+                    <div class="cmd-content-title-ct">
+                        <h3>질문 제목</h3>
+                        <img src="../../src/assets/img/community-dot-btn.svg">
+                        <div>답변</div>
+                    </div>
+                    <div class="cmd-content-user-info">
+                        <p>작성자</p>
+                        <p>작성 일시</p>
+                    </div>
+                    <p class="cmd-question-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, ullam
+                        sapiente commodi deleniti itaque eligendi rem. Ab rem at nobis aliquid provident consectetur
+                        explicabo. Omnis obcaecati dolorum vitae inventore rem. Lorem ipsum dolor sit, amet consectetur
+                        adipisicing elit. Consequatur ducimus eligendi neque error repudiandae iste, aperiam cumque
+                        rerum velit quidem atque, sed eaque laborum molestias suscipit voluptatibus sapiente veritatis
+                        officiis!
+                        Veniam placeat rerum eius esse vero suscipit natus culpa? Praesentium molestiae et aliquam
+                        molestias fuga nisi, recusandae eaque, laborum corrupti, ratione velit dolores a unde amet
+                        architecto iste. Similique, minus!
+                        Enim explicabo delectus dolore perferendis temporibus expedita laborum obcaecati debitis dolores
+                        facere doloribus, quisquam illum omnis ut soluta culpa maxime distinctio eius rerum voluptatum
+                        deserunt sequi minus. Voluptatem, inventore quasi?</p>
+                </article>
+                <article class="cmd-reply-ct">
+                    <p>답변</p>
+                    <div>
+                        <div class="cmd-reply-lecture-info-ct">
+                            <p class="cmd-reply-lecturer-name">정지훈 강사</p>
+                            <img src="../../src/assets/img/community-dot-btn.svg">
+                        </div>
+                        <p class="cmd-reply-content">아직 답변이 없습니다. </p>
+                    </div>
+                </article>
+                <article class="cmd-reply-ct" hidden>
+                    <p>답변 작성하기</p>
+                    <div>
+                        <textarea placeholder="답변을 작성해주세요."></textarea>
+                        <button><img src="../../src/assets/img/commuhity-send-btn.svg"></button>
+                    </div>
+                </article>
+                <article class="cmd-reply-ct" hidden>
+                    <p>답변 수정하기</p>
+                    <div>
+                        <textarea></textarea>
+                        <button><img src="../../src/assets/img/commuhity-send-btn.svg"></button>
+                    </div>
+                </article>
+            </section>
+            <section class="cm-right-ct">
+                <img>
+                <h3>강의 제목</h3>
+                <p id="cm-lecturer-name">강사명: </p>
+                <p id="cm-use-time">이용 기간: 무제한</p>
+                <p id="cm-content-time">강의 시간: </p>
+                <p id="cm-content-level">난이도: </p>
+                <button>신청하기</button>
+            </section>
+        </main>
+    </div>
+
+    <div class="active-modal"></div>
+    <script type="module" src="../../src/js/components/includeHeader.js"></script>
+    <script type="module" src="../../src/js/components/includeNav.js"></script>
+    <script type="module" src="../../src/js/components/modalOneButton.js"></script>
+    <script type="module" src="../../src/js/components/modalTwoButton.js"></script>
+</body>
+
+</html>
