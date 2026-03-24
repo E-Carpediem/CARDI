@@ -156,7 +156,7 @@ function Community() {
         console.log(this.currentCommunity)
         $('#price').innerText = `${this.currentCommunity.contentTitle}`;
         $('#cd-lecturer-name').innerText = `강사명: ${this.currentCommunity.userName}`;
-        $('#cd-content-time').innerText = `강의 시간: ${this.currentCommunity.contentTime}`;
+        $('#cd-content-time').innerText = `강의 시간: ${this.currentCommunity.contentTime}시간`;
         $('#cd-content-level').innerText = `난이도: ${this.currentCommunity.contentLevel}`;
         console.log(myInfoGet.getStorage());
         console.log(myInfoGet.getStorage().role);
@@ -427,7 +427,7 @@ function Community() {
 
     //수강생 조회 버튼 이벤트
     $('.cm-lecture-student-info').addEventListener('click', () => {
-        // window.location.href =
+        window.location.href = `/lecturer/students-detail.html?contentId=${contentId}`
     })
 
     // 수정  삭제 버튼 이벤트

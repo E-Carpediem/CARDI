@@ -54,7 +54,7 @@ function renderLectures() {
             <div class="ct-lecture-info">
                 <h2 class="ct-lecture-card-title">${escapeHTML(item.contentTitle)}</h2>
                 <p class="ct-lecture-preview">${escapeHTML(item.contentPreview)}</p>
-                <span class="ct-lecturer-name">${escapeHTML(item.userId)}</span>
+                <span class="ct-lecturer-name">${escapeHTML(item.userName)}</span>
                 <span class="ct-lecture-category">${item.category}</span>
             </div>
         `;
