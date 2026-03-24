@@ -38,6 +38,7 @@ function getCurrentUser() {
         JSON.parse(sessionStorage.getItem("myInfo"));
 
     const userList = JSON.parse(localStorage.getItem("userList")) || [];
+    const userIndex = userList.findIndex(user => user.id === myInfo.id);
 
     const currentUser = userList[userIndex];
 
@@ -346,12 +347,12 @@ function student(lectureData) {
                 );
 
                 if (exists) {
-                    alert("이미 장바구니에 담긴 강의입니다.");
+                    openOneButtonModal("이미 장바구니에 담긴 강의입니다.");
                     return;
                 }
 
                 if (applied) {
-                    alert("이미 신청한 강의입니다.");
+                    openOneButtonModal("이미 신청한 강의입니다.");
                     return;
                 }
 
@@ -385,7 +386,7 @@ function student(lectureData) {
                 );
 
                 if (applied) {
-                    alert("이미 신청한 강의입니다.");
+                    openOneButtonModal("이미 신청한 강의입니다.");
                     return;
                 }
 
