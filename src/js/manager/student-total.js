@@ -20,7 +20,7 @@ function studentTotalManagement(arrayList) {
         <p> ${arrayList[i].userName} </p>
         <p> ${arrayList[i].role === "student" ? "수강생" : "강사"} </p>
         <p> ${arrayList[i].phoneNumber} </p>
-        <p> ${arrayList[i].classCount} </p>
+        <p> ${arrayList[i].classCount}건 </p>
         <p> ${arrayList[i].signDate} </p>
         <p> ${arrayList[i].subscriptionSignDate === null ? "-" : arrayList[i].subscriptionSignDate}  </p>
         <p> ${arrayList[i].subscriptionStatus === true ? "구독중" : "미구독"} </p>

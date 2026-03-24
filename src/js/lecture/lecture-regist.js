@@ -17,9 +17,8 @@ const store = {
     setLocalStorage(key, value) {
         localStorage.setItem(key, JSON.stringify(value));
     },
-    getLocalStorage(key, fallback = null) {
-        const data = localStorage.getItem(key);
-        return data ? JSON.parse(data) : fallback;
+    getLocalStorage(key) {
+        return JSON.parse(localStorage.getItem(key));
     }
 };
 
@@ -59,29 +58,24 @@ inputNumber(timeInput);
 
 
 // 강의 썸네일 미리보기 적용
-if (thumbnailInput) {
-    thumbnailInput.addEventListener("change", (e) => {
-        const file = e.target.files[0];
+thumbnailInput.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
 
-        if (!file) return;
+    reader.onload = (e) => {
+        thumbnailPreview.src = e.target.result;
+        thumbnailLabel.textContent = "";
+    };
 
-        const reader = new FileReader();
+    reader.readAsDataURL(file);
+});
 
-        reader.onload = (e) => {
-            thumbnailPreview.src = e.target.result;
-            thumbnailLabel.textContent = "";
-        };
-
-        reader.readAsDataURL(file);
-    });
-}
 
 // 난이도 선택 시 선택 스타일 클래스 추가
-if (levelSelect) {
-    levelSelect.addEventListener("change", () => {
-        levelSelect.classList.add("selected");
-    });
-}
+levelSelect.addEventListener("change", () => {
+    levelSelect.classList.add("selected");
+});
+
 
 // 대제목 인덱스 부여
 function getNextBigIndex() {
@@ -267,7 +261,7 @@ function getAllInputs() {
         ...curryBigTitles,
         ...currySmallTitles,
         ...curryFiles
-    ].filter(Boolean);
+    ];
 }
 
 // 미입력 input 값들 중 가장 위 input 값을 가져오는 함수 - 나중에 포커스를 위함.
@@ -294,9 +288,9 @@ function getFirstEmptyInput() {
 // 미입력 경고 라인 함수
 function showErrorLine() {
     const allInputs = getAllInputs();
-    
+
     allInputs.forEach((input) => {
-        
+
         // SELECT
         if (input.tagName === "SELECT") {
             if (!input.value) {
@@ -304,7 +298,7 @@ function showErrorLine() {
             }
             return;
         }
-        
+
         // FILE
         if (input.type === "file") {
             if (!input.files || input.files.length === 0) {
@@ -312,7 +306,7 @@ function showErrorLine() {
             }
             return;
         }
-        
+
         // 일반 input
         if (!input.value.trim()) {
             input.classList.add("error");
@@ -323,13 +317,13 @@ function showErrorLine() {
 // 입력 시 경고 라인 제거 함수
 function removeErrorLine() {
     const allInputs = getAllInputs();
-    
+
     allInputs.forEach((input) => {
-        
+
         input.addEventListener("input", () => {
             input.classList.remove("error");
         });
-        
+
         input.addEventListener("change", () => {
             input.classList.remove("error");
         });
@@ -340,7 +334,6 @@ removeErrorLine();
 
 // 포커스 함수
 function focusInput(input) {
-    if (!input) return;
 
     // 먼저 화면 위치 이동
     input.scrollIntoView({
@@ -373,7 +366,7 @@ function collectCurryData() {
 
             return {
                 lessonsTitle: lessonTitle,
-                lessonsvideo: fileInput?.files[0]?.name || ""
+                lessonsvideo: fileInput.files[0].name
             };
         });
 
@@ -406,7 +399,7 @@ function collectLectureData() {
     return {
         id: currentUserId,
         contentId: getContentId(), // 고유값
-        contentImg: thumbnailPreview.getAttribute("src") || "",
+        contentImg: thumbnailPreview.getAttribute("src"),
         contentTitle: $("#le-content-title").value.trim(),
         contentLevel: $("#le-content-level").value,
         contentTime: Number(timeInput.value),
@@ -416,8 +409,7 @@ function collectLectureData() {
         // 배열로 변환 (줄바꿈 기준)
         contentAfter: $("#le-content-after").value
             .split("\n")
-            .map((item) => `${item.trim()}`)
-            .filter(Boolean),
+            .map((item) => `${item.trim()}`),
 
         contentCurry: collectCurryData(),
         category: $("#le-category").value,

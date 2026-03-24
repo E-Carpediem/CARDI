@@ -4,15 +4,12 @@ const userListLecture = JSON.parse(localStorage.getItem('lectureList'));
 
 const $totalUser = document.querySelector(".tm-content-top-ct");
 const userListData = userList.filter((sub) => sub.role != "manager");
-
-const lectureCount = (id) =>
-    userListLecture.filter(sub=> sub.id === id).length;
-
+const lectureCount = (id) =>userListLecture.filter(sub=> sub.id === id).length;
 const arraySub = userList.filter((sub) => sub.subscriptionStatus === false);
+const arrayUnSub = userList.filter((sub) => sub.subscriptionStatus === true);
 const arrayMembership = userList.filter((sub) => sub.membershipStatus === true);
 const arrayUnMembership = userList.filter((sub) => sub.membershipStatus === false);
 const arraySignDate = userList.filter((sub) => sub.membershipStatus === false);
-
 
 function userTotalManagement(arrayList) {
     document.querySelectorAll('.tm-content').forEach(el => el.remove());

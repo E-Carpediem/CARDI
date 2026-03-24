@@ -456,7 +456,7 @@ localStorage.setItem("userList", JSON.stringify(userList));
 
 const lectureList = [
   {
-    "id": 1,
+    "id": 12,
     "contentId": 1,
     "contentImg": "이미지 경로",
     "contentTitle": "HTML 기초 완성",
@@ -502,376 +502,8 @@ const lectureList = [
     "registerDate": "2026-01-05"
   },
   {
-    "id": 2,
+    "id": 12,
     "contentId": 2,
-    "contentImg": "이미지 경로",
-    "contentTitle": "CSS 레이아웃 마스터",
-    "contentLevel": "쉬움",
-    "contentTime": 3,
-    "contentAfter": [
-      "CSS 선택자 완벽 이해",
-      "박스 모델 활용",
-      "Flexbox 레이아웃",
-      "Grid 시스템 구성",
-      "반응형 디자인 적용",
-      "애니메이션 효과",
-      "변수와 커스텀 속성",
-      "미디어 쿼리 작성",
-      "다크모드 구현",
-      "실전 UI 제작"
-    ],
-    "contentPreview": "Flexbox와 Grid로 자유자재로 레이아웃을 구성하는 강의입니다.",
-    "contentSimple": "CSS의 핵심인 Flexbox와 Grid를 깊이 있게 학습합니다. 반응형 웹 디자인과 애니메이션 효과까지 다루어 실무에서 바로 활용 가능한 UI를 제작할 수 있습니다.",
-    "contentCurry": [
-      {
-        "title": "CSS 기초",
-        "lessons": [
-          { "lessonsTitle": "선택자와 우선순위", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "박스 모델", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "색상과 폰트", "lessonsvideo": "파일경로" }
-        ]
-      },
-      {
-        "title": "레이아웃",
-        "lessons": [
-          { "lessonsTitle": "Flexbox 완전 정복", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "Grid 레이아웃", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "반응형 디자인", "lessonsvideo": "파일경로" }
-        ]
-      }
-    ],
-    "contentPrice": 15000,
-    "lessonNumber": 95,
-    "classNumber": 80,
-    "category": "CSS",
-    "userName": "이수진",
-    "registerDate": "2026-01-08"
-  },
-  {
-    "id": 3,
-    "contentId": 3,
-    "contentImg": "이미지 경로",
-    "contentTitle": "JavaScript 입문",
-    "contentLevel": "입문",
-    "contentTime": 4,
-    "contentAfter": [
-      "변수와 자료형 이해",
-      "조건문과 반복문",
-      "함수 작성하기",
-      "배열과 객체 활용",
-      "DOM 조작 기초",
-      "이벤트 처리",
-      "ES6 문법 익히기",
-      "비동기 처리 이해",
-      "fetch API 사용",
-      "미니 프로젝트 완성"
-    ],
-    "contentPreview": "JavaScript의 기초 개념을 실습과 함께 빠르게 익히는 강의입니다.",
-    "contentSimple": "프로그래밍 입문자를 위한 JavaScript 기초 강의입니다. 변수, 함수, DOM 조작부터 ES6 최신 문법까지 단계별로 학습하며 간단한 웹 애플리케이션을 완성합니다.",
-    "contentCurry": [
-      {
-        "title": "JS 기초 문법",
-        "lessons": [
-          { "lessonsTitle": "변수와 자료형", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "조건문과 반복문", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "함수 작성법", "lessonsvideo": "파일경로" }
-        ]
-      },
-      {
-        "title": "DOM과 이벤트",
-        "lessons": [
-          { "lessonsTitle": "DOM 조작 기초", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "이벤트 리스너", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "fetch API", "lessonsvideo": "파일경로" }
-        ]
-      }
-    ],
-    "contentPrice": 20000,
-    "lessonNumber": 78,
-    "classNumber": 65,
-    "category": "JavaScript",
-    "userName": "박동현",
-    "registerDate": "2026-01-12"
-  },
-  {
-    "id": 4,
-    "contentId": 4,
-    "contentImg": "이미지 경로",
-    "contentTitle": "Python 데이터 분석 입문",
-    "contentLevel": "쉬움",
-    "contentTime": 5,
-    "contentAfter": [
-      "Python 환경 설정",
-      "기본 문법 익히기",
-      "리스트와 딕셔너리",
-      "파일 입출력 처리",
-      "NumPy 기초 활용",
-      "Pandas 데이터 처리",
-      "데이터 시각화",
-      "통계 기초 적용",
-      "데이터 정제하기",
-      "분석 리포트 작성"
-    ],
-    "contentPreview": "Python으로 데이터를 분석하는 기초 능력을 키우는 강의입니다.",
-    "contentSimple": "Python 기본 문법부터 NumPy, Pandas를 활용한 데이터 처리까지 학습합니다. 실제 데이터셋을 사용한 실습으로 데이터 분석 역량을 빠르게 쌓을 수 있습니다.",
-    "contentCurry": [
-      {
-        "title": "Python 기초",
-        "lessons": [
-          { "lessonsTitle": "환경 설정 및 설치", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "기본 문법과 자료형", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "함수와 모듈", "lessonsvideo": "파일경로" }
-        ]
-      },
-      {
-        "title": "데이터 분석",
-        "lessons": [
-          { "lessonsTitle": "NumPy 활용", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "Pandas 데이터 처리", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "Matplotlib 시각화", "lessonsvideo": "파일경로" }
-        ]
-      }
-    ],
-    "contentPrice": 25000,
-    "lessonNumber": 92,
-    "classNumber": 88,
-    "category": "Python",
-    "userName": "최서영",
-    "registerDate": "2026-01-15"
-  },
-  {
-    "id": 5,
-    "contentId": 5,
-    "contentImg": "이미지 경로",
-    "contentTitle": "C++ 프로그래밍 기초",
-    "contentLevel": "보통",
-    "contentTime": 6,
-    "contentAfter": [
-      "C++ 개발 환경 구성",
-      "변수와 포인터 이해",
-      "조건문과 반복문",
-      "함수와 재귀 호출",
-      "배열과 문자열 처리",
-      "구조체와 클래스",
-      "상속과 다형성",
-      "파일 입출력 처리",
-      "STL 컨테이너 활용",
-      "알고리즘 구현 실습"
-    ],
-    "contentPreview": "C++의 핵심 개념을 실습과 함께 체계적으로 배우는 강의입니다.",
-    "contentSimple": "C++ 문법의 기초부터 객체지향 프로그래밍, STL까지 다룹니다. 포인터와 메모리 관리 등 C++만의 특징을 이해하고 알고리즘 문제 풀이에 응용하는 능력을 기릅니다.",
-    "contentCurry": [
-      {
-        "title": "C++ 기초 문법",
-        "lessons": [
-          { "lessonsTitle": "변수와 포인터", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "함수와 재귀", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "배열과 문자열", "lessonsvideo": "파일경로" }
-        ]
-      },
-      {
-        "title": "객체지향 프로그래밍",
-        "lessons": [
-          { "lessonsTitle": "클래스와 객체", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "상속과 다형성", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "STL 컨테이너", "lessonsvideo": "파일경로" }
-        ]
-      }
-    ],
-    "contentPrice": 22000,
-    "lessonNumber": 83,
-    "classNumber": 70,
-    "category": "C+",
-    "userName": "한지수",
-    "registerDate": "2026-01-20"
-  },
-  {
-    "id": 6,
-    "contentId": 6,
-    "contentImg": "이미지 경로",
-    "contentTitle": "CSS 애니메이션과 트랜지션",
-    "contentLevel": "보통",
-    "contentTime": 2,
-    "contentAfter": [
-      "transition 속성 이해",
-      "transform 다루기",
-      "keyframe 애니메이션",
-      "타이밍 함수 활용",
-      "hover 효과 제작",
-      "로딩 스피너 만들기",
-      "슬라이드 애니메이션",
-      "스크롤 효과 구현",
-      "성능 최적화 방법",
-      "실전 인터랙션 UI"
-    ],
-    "contentPreview": "CSS만으로 생동감 있는 애니메이션을 구현하는 강의입니다.",
-    "contentSimple": "transition, transform, keyframe을 활용해 다양한 애니메이션 효과를 만드는 방법을 배웁니다. 실무에서 자주 쓰이는 로딩, 슬라이드, hover 인터랙션 UI를 직접 제작합니다.",
-    "contentCurry": [
-      {
-        "title": "트랜지션과 변환",
-        "lessons": [
-          { "lessonsTitle": "transition 속성", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "transform 효과", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "hover 인터랙션", "lessonsvideo": "파일경로" }
-        ]
-      },
-      {
-        "title": "애니메이션 심화",
-        "lessons": [
-          { "lessonsTitle": "keyframe 작성법", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "로딩 스피너 제작", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "스크롤 애니메이션", "lessonsvideo": "파일경로" }
-        ]
-      }
-    ],
-    "contentPrice": 18000,
-    "lessonNumber": 66,
-    "classNumber": 62,
-    "category": "CSS",
-    "userName": "조민혁",
-    "registerDate": "2026-01-25"
-  },
-  {
-    "id": 7,
-    "contentId": 7,
-    "contentImg": "이미지 경로",
-    "contentTitle": "JavaScript 비동기 완전 정복",
-    "contentLevel": "어려움",
-    "contentTime": 4,
-    "contentAfter": [
-      "동기와 비동기 차이",
-      "콜백 함수 이해",
-      "Promise 개념 학습",
-      "async/await 문법",
-      "에러 핸들링 처리",
-      "fetch API 심화",
-      "axios 라이브러리",
-      "병렬 요청 처리",
-      "타임아웃 설정",
-      "실전 API 연동"
-    ],
-    "contentPreview": "Promise부터 async/await까지 비동기 처리를 완벽히 이해하는 강의입니다.",
-    "contentSimple": "JavaScript 비동기 처리의 핵심 개념인 콜백, Promise, async/await를 단계적으로 학습합니다. 실제 API 연동 실습을 통해 실무에서 바로 사용 가능한 비동기 코드를 작성합니다.",
-    "contentCurry": [
-      {
-        "title": "비동기 기초",
-        "lessons": [
-          { "lessonsTitle": "콜백과 Promise", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "async/await 문법", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "에러 핸들링", "lessonsvideo": "파일경로" }
-        ]
-      },
-      {
-        "title": "API 연동 실습",
-        "lessons": [
-          { "lessonsTitle": "fetch API 심화", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "axios 사용법", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "실전 API 프로젝트", "lessonsvideo": "파일경로" }
-        ]
-      }
-    ],
-    "contentPrice": 28000,
-    "lessonNumber": 74,
-    "classNumber": 68,
-    "category": "JavaScript",
-    "userName": "신예은",
-    "registerDate": "2026-02-01"
-  },
-  {
-    "id": 8,
-    "contentId": 8,
-    "contentImg": "이미지 경로",
-    "contentTitle": "Python 웹 크롤링",
-    "contentLevel": "보통",
-    "contentTime": 7,
-    "contentAfter": [
-      "웹 크롤링 개념 이해",
-      "requests 라이브러리",
-      "BeautifulSoup 파싱",
-      "셀렉터 활용하기",
-      "페이지 순회 처리",
-      "데이터 저장하기",
-      "Selenium 기초",
-      "동적 페이지 크롤링",
-      "크롤링 윤리 준수",
-      "자동화 스크립트 작성"
-    ],
-    "contentPreview": "Python으로 웹 데이터를 자동으로 수집하는 크롤링 강의입니다.",
-    "contentSimple": "requests와 BeautifulSoup을 활용한 정적 크롤링부터 Selenium을 이용한 동적 페이지 수집까지 학습합니다. 수집한 데이터를 CSV로 저장하고 활용하는 실습을 진행합니다.",
-    "contentCurry": [
-      {
-        "title": "정적 크롤링",
-        "lessons": [
-          { "lessonsTitle": "requests 기초", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "BeautifulSoup 파싱", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "데이터 CSV 저장", "lessonsvideo": "파일경로" }
-        ]
-      },
-      {
-        "title": "동적 크롤링",
-        "lessons": [
-          { "lessonsTitle": "Selenium 설치", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "동적 페이지 처리", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "자동화 스크립트", "lessonsvideo": "파일경로" }
-        ]
-      }
-    ],
-    "contentPrice": 23000,
-    "lessonNumber": 89,
-    "classNumber": 76,
-    "category": "Python",
-    "userName": "강태호",
-    "registerDate": "2026-02-05"
-  },
-  {
-    "id": 9,
-    "contentId": 9,
-    "contentImg": "이미지 경로",
-    "contentTitle": "HTML 시맨틱과 SEO",
-    "contentLevel": "쉬움",
-    "contentTime": 2,
-    "contentAfter": [
-      "시맨틱 태그 총정리",
-      "SEO 기본 개념",
-      "메타 태그 최적화",
-      "Open Graph 설정",
-      "구조화 데이터 작성",
-      "접근성 향상 방법",
-      "이미지 alt 태그",
-      "페이지 속도 개선",
-      "모바일 최적화",
-      "검색 노출 전략"
-    ],
-    "contentPreview": "시맨틱 HTML과 SEO 최적화를 동시에 학습하는 강의입니다.",
-    "contentSimple": "올바른 시맨틱 태그 사용법과 검색 엔진 최적화(SEO) 전략을 함께 학습합니다. 메타 태그, 구조화 데이터, 접근성 개선 등 실무에서 꼭 필요한 내용을 다룹니다.",
-    "contentCurry": [
-      {
-        "title": "시맨틱 HTML",
-        "lessons": [
-          { "lessonsTitle": "시맨틱 태그 정리", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "접근성 향상", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "올바른 구조 작성", "lessonsvideo": "파일경로" }
-        ]
-      },
-      {
-        "title": "SEO 최적화",
-        "lessons": [
-          { "lessonsTitle": "메타 태그 설정", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "구조화 데이터", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "검색 노출 전략", "lessonsvideo": "파일경로" }
-        ]
-      }
-    ],
-    "contentPrice": 12000,
-    "lessonNumber": 61,
-    "classNumber": 60,
-    "category": "HTML",
-    "userName": "문소희",
-    "registerDate": "2026-02-08"
-  },
-  {
-    "id": 10,
-    "contentId": 10,
     "contentImg": "이미지 경로",
     "contentTitle": "C++ 자료구조와 알고리즘",
     "contentLevel": "어려움",
@@ -916,284 +548,8 @@ const lectureList = [
     "registerDate": "2026-02-10"
   },
   {
-    "id": 11,
-    "contentId": 11,
-    "contentImg": "이미지 경로",
-    "contentTitle": "JavaScript DOM 조작 실전",
-    "contentLevel": "쉬움",
-    "contentTime": 7,
-    "contentAfter": [
-      "DOM 트리 구조 이해",
-      "요소 선택 방법",
-      "텍스트 내용 변경",
-      "스타일 동적 변경",
-      "클래스 추가와 제거",
-      "이벤트 리스너 등록",
-      "요소 생성과 삭제",
-      "폼 데이터 처리",
-      "로컬스토리지 활용",
-      "Todo 앱 완성"
-    ],
-    "contentPreview": "JavaScript로 DOM을 자유롭게 조작하는 실전 강의입니다.",
-    "contentSimple": "JavaScript를 사용해 HTML 요소를 동적으로 조작하는 방법을 실습 중심으로 학습합니다. 이벤트 처리, 로컬스토리지 활용까지 다루며 Todo 앱을 직접 완성합니다.",
-    "contentCurry": [
-      {
-        "title": "DOM 기초",
-        "lessons": [
-          { "lessonsTitle": "요소 선택과 탐색", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "내용과 스타일 변경", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "클래스 조작", "lessonsvideo": "파일경로" }
-        ]
-      },
-      {
-        "title": "이벤트와 실습",
-        "lessons": [
-          { "lessonsTitle": "이벤트 리스너", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "로컬스토리지", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "Todo 앱 제작", "lessonsvideo": "파일경로" }
-        ]
-      }
-    ],
-    "contentPrice": 16000,
-    "lessonNumber": 72,
-    "classNumber": 63,
-    "category": "JavaScript",
-    "userName": "이수진",
-    "registerDate": "2026-02-14"
-  },
-  {
     "id": 12,
-    "contentId": 12,
-    "contentImg": "이미지 경로",
-    "contentTitle": "Python 머신러닝 입문",
-    "contentLevel": "어려움",
-    "contentTime": 8,
-    "contentAfter": [
-      "머신러닝 개념 이해",
-      "scikit-learn 설치",
-      "데이터 전처리",
-      "선형 회귀 모델",
-      "분류 알고리즘 학습",
-      "모델 평가 지표",
-      "교차 검증 방법",
-      "하이퍼파라미터 튜닝",
-      "과적합 방지 전략",
-      "실전 모델 배포"
-    ],
-    "contentPreview": "scikit-learn으로 머신러닝 모델을 직접 구축하는 강의입니다.",
-    "contentSimple": "머신러닝의 핵심 알고리즘을 scikit-learn 라이브러리로 실습합니다. 데이터 전처리부터 모델 학습, 평가, 배포까지 전 과정을 경험하며 실전 ML 역량을 쌓습니다.",
-    "contentCurry": [
-      {
-        "title": "머신러닝 기초",
-        "lessons": [
-          { "lessonsTitle": "데이터 전처리", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "선형 회귀", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "분류 알고리즘", "lessonsvideo": "파일경로" }
-        ]
-      },
-      {
-        "title": "모델 최적화",
-        "lessons": [
-          { "lessonsTitle": "교차 검증", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "하이퍼파라미터 튜닝", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "모델 배포", "lessonsvideo": "파일경로" }
-        ]
-      }
-    ],
-    "contentPrice": 40000,
-    "lessonNumber": 98,
-    "classNumber": 91,
-    "category": "Python",
-    "userName": "박동현",
-    "registerDate": "2026-02-18"
-  },
-  {
-    "id": 13,
-    "contentId": 13,
-    "contentImg": "이미지 경로",
-    "contentTitle": "HTML 폼과 유효성 검사",
-    "contentLevel": "입문",
-    "contentTime": 3,
-    "contentAfter": [
-      "폼 태그 기본 구조",
-      "input 타입 정리",
-      "label과 접근성",
-      "select와 checkbox",
-      "기본 유효성 검사",
-      "커스텀 메시지 설정",
-      "정규식 패턴 적용",
-      "서버 전송 이해",
-      "파일 업로드 처리",
-      "실전 회원가입 폼"
-    ],
-    "contentPreview": "HTML 폼 요소와 유효성 검사를 처음부터 배우는 강의입니다.",
-    "contentSimple": "다양한 input 타입과 폼 요소의 사용법을 배우고, HTML5 내장 유효성 검사 기능을 활용합니다. 실전 회원가입 폼 제작으로 실무 감각을 익힙니다.",
-    "contentCurry": [
-      {
-        "title": "폼 기초",
-        "lessons": [
-          { "lessonsTitle": "input 타입 정리", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "select와 checkbox", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "label과 접근성", "lessonsvideo": "파일경로" }
-        ]
-      },
-      {
-        "title": "유효성 검사",
-        "lessons": [
-          { "lessonsTitle": "기본 유효성 검사", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "정규식 패턴", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "회원가입 폼 실습", "lessonsvideo": "파일경로" }
-        ]
-      }
-    ],
-    "contentPrice": 10000,
-    "lessonNumber": 65,
-    "classNumber": 60,
-    "category": "HTML",
-    "userName": "한지수",
-    "registerDate": "2026-02-20"
-  },
-  {
-    "id": 14,
-    "contentId": 14,
-    "contentImg": "이미지 경로",
-    "contentTitle": "CSS Tailwind 실전",
-    "contentLevel": "쉬움",
-    "contentTime": 4,
-    "contentAfter": [
-      "Tailwind 설치 및 설정",
-      "유틸리티 클래스 이해",
-      "색상과 간격 시스템",
-      "반응형 브레이크포인트",
-      "버튼 컴포넌트 제작",
-      "카드 UI 만들기",
-      "네비게이션 바 구성",
-      "다크모드 적용",
-      "커스텀 설정 파일",
-      "랜딩 페이지 완성"
-    ],
-    "contentPreview": "Tailwind CSS로 빠르고 효율적으로 UI를 구성하는 강의입니다.",
-    "contentSimple": "Tailwind CSS의 유틸리티 클래스 시스템을 익히고 실무에서 자주 쓰이는 컴포넌트를 빠르게 제작하는 방법을 학습합니다. 최종적으로 완성도 높은 랜딩 페이지를 구현합니다.",
-    "contentCurry": [
-      {
-        "title": "Tailwind 기초",
-        "lessons": [
-          { "lessonsTitle": "설치와 기본 설정", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "유틸리티 클래스", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "반응형 디자인", "lessonsvideo": "파일경로" }
-        ]
-      },
-      {
-        "title": "컴포넌트 실습",
-        "lessons": [
-          { "lessonsTitle": "버튼과 카드 UI", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "네비게이션 바", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "랜딩 페이지 완성", "lessonsvideo": "파일경로" }
-        ]
-      }
-    ],
-    "contentPrice": 19000,
-    "lessonNumber": 80,
-    "classNumber": 74,
-    "category": "CSS",
-    "userName": "조민혁",
-    "registerDate": "2026-02-24"
-  },
-  {
-    "id": 15,
-    "contentId": 15,
-    "contentImg": "이미지 경로",
-    "contentTitle": "JavaScript ES6+ 핵심 문법",
-    "contentLevel": "보통",
-    "contentTime": 7,
-    "contentAfter": [
-      "let과 const 이해",
-      "화살표 함수 활용",
-      "구조 분해 할당",
-      "스프레드 연산자",
-      "템플릿 리터럴",
-      "모듈 시스템 이해",
-      "클래스 문법 활용",
-      "이터레이터와 제너레이터",
-      "옵셔널 체이닝",
-      "최신 문법 총정리"
-    ],
-    "contentPreview": "ES6 이후 최신 JavaScript 문법을 빠르게 익히는 강의입니다.",
-    "contentSimple": "현대 JavaScript 개발에서 필수인 ES6+ 문법을 체계적으로 학습합니다. 화살표 함수, 구조 분해, 모듈 시스템 등 실무에서 매일 쓰이는 문법을 예제와 함께 마스터합니다.",
-    "contentCurry": [
-      {
-        "title": "ES6 핵심",
-        "lessons": [
-          { "lessonsTitle": "화살표 함수와 const", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "구조 분해 할당", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "스프레드 연산자", "lessonsvideo": "파일경로" }
-        ]
-      },
-      {
-        "title": "ES6+ 심화",
-        "lessons": [
-          { "lessonsTitle": "모듈 시스템", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "클래스 문법", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "최신 문법 총정리", "lessonsvideo": "파일경로" }
-        ]
-      }
-    ],
-    "contentPrice": 21000,
-    "lessonNumber": 77,
-    "classNumber": 69,
-    "category": "JavaScript",
-    "userName": "신예은",
-    "registerDate": "2026-02-28"
-  },
-  {
-    "id": 16,
-    "contentId": 16,
-    "contentImg": "이미지 경로",
-    "contentTitle": "Python 자동화 스크립트",
-    "contentLevel": "보통",
-    "contentTime": 7,
-    "contentAfter": [
-      "os 모듈 활용",
-      "파일 자동 정리",
-      "엑셀 자동화 처리",
-      "이메일 자동 발송",
-      "스케줄러 설정",
-      "카카오 API 연동",
-      "슬랙 알림 구현",
-      "GUI 자동화 도구",
-      "작업 로그 기록",
-      "자동화 배포 실습"
-    ],
-    "contentPreview": "Python으로 반복 작업을 자동화하는 실용적인 강의입니다.",
-    "contentSimple": "파일 관리, 엑셀 처리, 이메일 발송 등 실무에서 자주 발생하는 반복 작업을 Python 스크립트로 자동화하는 방법을 학습합니다. 외부 API 연동까지 포함한 실전 프로젝트를 진행합니다.",
-    "contentCurry": [
-      {
-        "title": "파일과 데이터 자동화",
-        "lessons": [
-          { "lessonsTitle": "파일 자동 정리", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "엑셀 자동화", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "스케줄러 설정", "lessonsvideo": "파일경로" }
-        ]
-      },
-      {
-        "title": "API 연동 자동화",
-        "lessons": [
-          { "lessonsTitle": "이메일 자동 발송", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "슬랙 알림 구현", "lessonsvideo": "파일경로" },
-          { "lessonsTitle": "자동화 배포", "lessonsvideo": "파일경로" }
-        ]
-      }
-    ],
-    "contentPrice": 27000,
-    "lessonNumber": 85,
-    "classNumber": 78,
-    "category": "Python",
-    "userName": "강태호",
-    "registerDate": "2026-03-03"
-  },
-  {
-    "id": 17,
-    "contentId": 17,
+    "contentId": 3,
     "contentImg": "이미지 경로",
     "contentTitle": "C++ 포인터와 메모리 관리",
     "contentLevel": "어려움",
@@ -1238,8 +594,146 @@ const lectureList = [
     "registerDate": "2026-03-07"
   },
   {
-    "id": 18,
-    "contentId": 18,
+    "id": 12,
+    "contentId": 4,
+    "contentImg": "이미지 경로",
+    "contentTitle": "C++ 객체지향 프로그래밍 완성",
+    "contentLevel": "보통",
+    "contentTime": 6,
+    "contentAfter": [
+      "클래스 설계 원칙",
+      "생성자와 소멸자",
+      "상속 구조 이해",
+      "다형성 활용",
+      "추상 클래스",
+      "인터페이스 패턴",
+      "연산자 오버로딩",
+      "템플릿 기초",
+      "예외 처리",
+      "실전 프로젝트 완성"
+    ],
+    "contentPreview": "C++ OOP 개념을 실습 중심으로 완성하는 강의입니다.",
+    "contentSimple": "클래스 설계부터 상속, 다형성, 추상화까지 객체지향의 4대 원칙을 C++로 깊이 있게 학습합니다. 실전 프로젝트를 통해 유지보수 가능한 코드 작성 능력을 키울 수 있습니다.",
+    "contentCurry": [
+      {
+        "title": "OOP 기초",
+        "lessons": [
+          { "lessonsTitle": "클래스와 객체", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "상속과 다형성", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "추상 클래스", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "OOP 심화",
+        "lessons": [
+          { "lessonsTitle": "연산자 오버로딩", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "템플릿 기초", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "실전 프로젝트", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 28000,
+    "lessonNumber": 84,
+    "classNumber": 76,
+    "category": "C+",
+    "userName": "김민준",
+    "registerDate": "2026-03-20"
+  },
+  {
+    "id": 13,
+    "contentId": 5,
+    "contentImg": "이미지 경로",
+    "contentTitle": "CSS 레이아웃 마스터",
+    "contentLevel": "쉬움",
+    "contentTime": 3,
+    "contentAfter": [
+      "CSS 선택자 완벽 이해",
+      "박스 모델 활용",
+      "Flexbox 레이아웃",
+      "Grid 시스템 구성",
+      "반응형 디자인 적용",
+      "애니메이션 효과",
+      "변수와 커스텀 속성",
+      "미디어 쿼리 작성",
+      "다크모드 구현",
+      "실전 UI 제작"
+    ],
+    "contentPreview": "Flexbox와 Grid로 자유자재로 레이아웃을 구성하는 강의입니다.",
+    "contentSimple": "CSS의 핵심인 Flexbox와 Grid를 깊이 있게 학습합니다. 반응형 웹 디자인과 애니메이션 효과까지 다루어 실무에서 바로 활용 가능한 UI를 제작할 수 있습니다.",
+    "contentCurry": [
+      {
+        "title": "CSS 기초",
+        "lessons": [
+          { "lessonsTitle": "선택자와 우선순위", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "박스 모델", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "색상과 폰트", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "레이아웃",
+        "lessons": [
+          { "lessonsTitle": "Flexbox 완전 정복", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "Grid 레이아웃", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "반응형 디자인", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 15000,
+    "lessonNumber": 95,
+    "classNumber": 80,
+    "category": "CSS",
+    "userName": "이수진",
+    "registerDate": "2026-01-08"
+  },
+  {
+    "id": 13,
+    "contentId": 6,
+    "contentImg": "이미지 경로",
+    "contentTitle": "JavaScript DOM 조작 실전",
+    "contentLevel": "쉬움",
+    "contentTime": 7,
+    "contentAfter": [
+      "DOM 트리 구조 이해",
+      "요소 선택 방법",
+      "텍스트 내용 변경",
+      "스타일 동적 변경",
+      "클래스 추가와 제거",
+      "이벤트 리스너 등록",
+      "요소 생성과 삭제",
+      "폼 데이터 처리",
+      "로컬스토리지 활용",
+      "Todo 앱 완성"
+    ],
+    "contentPreview": "JavaScript로 DOM을 자유롭게 조작하는 실전 강의입니다.",
+    "contentSimple": "JavaScript를 사용해 HTML 요소를 동적으로 조작하는 방법을 실습 중심으로 학습합니다. 이벤트 처리, 로컬스토리지 활용까지 다루며 Todo 앱을 직접 완성합니다.",
+    "contentCurry": [
+      {
+        "title": "DOM 기초",
+        "lessons": [
+          { "lessonsTitle": "요소 선택과 탐색", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "내용과 스타일 변경", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "클래스 조작", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "이벤트와 실습",
+        "lessons": [
+          { "lessonsTitle": "이벤트 리스너", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "로컬스토리지", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "Todo 앱 제작", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 16000,
+    "lessonNumber": 72,
+    "classNumber": 63,
+    "category": "JavaScript",
+    "userName": "이수진",
+    "registerDate": "2026-02-14"
+  },
+  {
+    "id": 13,
+    "contentId": 7,
     "contentImg": "이미지 경로",
     "contentTitle": "CSS 반응형 웹 디자인",
     "contentLevel": "보통",
@@ -1284,7 +778,513 @@ const lectureList = [
     "registerDate": "2026-03-10"
   },
   {
-    "id": 19,
+    "id": 13,
+    "contentId": 8,
+    "contentImg": "이미지 경로",
+    "contentTitle": "CSS 변수와 커스텀 속성 활용",
+    "contentLevel": "쉬움",
+    "contentTime": 2,
+    "contentAfter": [
+      "CSS 변수 선언법",
+      "전역 변수 설정",
+      "지역 변수 활용",
+      "변수 상속 이해",
+      "테마 시스템 설계",
+      "다크모드 구현",
+      "JavaScript와 연동",
+      "컴포넌트 스타일링",
+      "유지보수 전략",
+      "실전 디자인 시스템"
+    ],
+    "contentPreview": "CSS Custom Properties로 유지보수 쉬운 스타일을 작성하는 강의입니다.",
+    "contentSimple": "CSS 변수(Custom Properties)를 활용해 디자인 토큰을 관리하고 테마 시스템을 구축하는 방법을 학습합니다. 다크모드 구현과 컴포넌트 스타일링 실습을 포함합니다.",
+    "contentCurry": [
+      {
+        "title": "CSS 변수 기초",
+        "lessons": [
+          { "lessonsTitle": "변수 선언과 사용", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "전역 및 지역 변수", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "변수 상속", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "테마 시스템",
+        "lessons": [
+          { "lessonsTitle": "다크모드 구현", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "JS와 CSS 변수 연동", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "디자인 시스템 실습", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 13000,
+    "lessonNumber": 58,
+    "classNumber": 52,
+    "category": "CSS",
+    "userName": "이수진",
+    "registerDate": "2026-03-22"
+  },
+  {
+    "id": 14,
+    "contentId": 9,
+    "contentImg": "이미지 경로",
+    "contentTitle": "JavaScript 입문",
+    "contentLevel": "입문",
+    "contentTime": 4,
+    "contentAfter": [
+      "변수와 자료형 이해",
+      "조건문과 반복문",
+      "함수 작성하기",
+      "배열과 객체 활용",
+      "DOM 조작 기초",
+      "이벤트 처리",
+      "ES6 문법 익히기",
+      "비동기 처리 이해",
+      "fetch API 사용",
+      "미니 프로젝트 완성"
+    ],
+    "contentPreview": "JavaScript의 기초 개념을 실습과 함께 빠르게 익히는 강의입니다.",
+    "contentSimple": "프로그래밍 입문자를 위한 JavaScript 기초 강의입니다. 변수, 함수, DOM 조작부터 ES6 최신 문법까지 단계별로 학습하며 간단한 웹 애플리케이션을 완성합니다.",
+    "contentCurry": [
+      {
+        "title": "JS 기초 문법",
+        "lessons": [
+          { "lessonsTitle": "변수와 자료형", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "조건문과 반복문", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "함수 작성법", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "DOM과 이벤트",
+        "lessons": [
+          { "lessonsTitle": "DOM 조작 기초", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "이벤트 리스너", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "fetch API", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 20000,
+    "lessonNumber": 78,
+    "classNumber": 65,
+    "category": "JavaScript",
+    "userName": "박동현",
+    "registerDate": "2026-01-12"
+  },
+  {
+    "id": 14,
+    "contentId": 10,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python 머신러닝 입문",
+    "contentLevel": "어려움",
+    "contentTime": 8,
+    "contentAfter": [
+      "머신러닝 개념 이해",
+      "scikit-learn 설치",
+      "데이터 전처리",
+      "선형 회귀 모델",
+      "분류 알고리즘 학습",
+      "모델 평가 지표",
+      "교차 검증 방법",
+      "하이퍼파라미터 튜닝",
+      "과적합 방지 전략",
+      "실전 모델 배포"
+    ],
+    "contentPreview": "scikit-learn으로 머신러닝 모델을 직접 구축하는 강의입니다.",
+    "contentSimple": "머신러닝의 핵심 알고리즘을 scikit-learn 라이브러리로 실습합니다. 데이터 전처리부터 모델 학습, 평가, 배포까지 전 과정을 경험하며 실전 ML 역량을 쌓습니다.",
+    "contentCurry": [
+      {
+        "title": "머신러닝 기초",
+        "lessons": [
+          { "lessonsTitle": "데이터 전처리", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "선형 회귀", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "분류 알고리즘", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "모델 최적화",
+        "lessons": [
+          { "lessonsTitle": "교차 검증", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "하이퍼파라미터 튜닝", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "모델 배포", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 40000,
+    "lessonNumber": 98,
+    "classNumber": 91,
+    "category": "Python",
+    "userName": "박동현",
+    "registerDate": "2026-02-18"
+  },
+  {
+    "id": 14,
+    "contentId": 11,
+    "contentImg": "이미지 경로",
+    "contentTitle": "JavaScript 객체와 프로토타입",
+    "contentLevel": "보통",
+    "contentTime": 5,
+    "contentAfter": [
+      "객체 리터럴 이해",
+      "프로토타입 체인",
+      "this 바인딩 규칙",
+      "생성자 함수 패턴",
+      "Object.create 활용",
+      "클래스 문법 적용",
+      "믹스인 패턴",
+      "팩토리 함수",
+      "getter와 setter",
+      "실전 OOP 패턴"
+    ],
+    "contentPreview": "JavaScript의 객체 지향과 프로토타입 체인을 완벽히 이해하는 강의입니다.",
+    "contentSimple": "JavaScript의 핵심 개념인 프로토타입 체인과 객체 지향 패턴을 깊이 있게 학습합니다. this 바인딩, 클로저, 클래스 문법을 통해 견고한 JS 코드 작성 능력을 기릅니다.",
+    "contentCurry": [
+      {
+        "title": "객체와 프로토타입",
+        "lessons": [
+          { "lessonsTitle": "프로토타입 체인", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "this 바인딩", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "생성자 함수", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "클래스와 패턴",
+        "lessons": [
+          { "lessonsTitle": "클래스 문법", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "믹스인과 팩토리", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "실전 OOP", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 23000,
+    "lessonNumber": 81,
+    "classNumber": 74,
+    "category": "JavaScript",
+    "userName": "박동현",
+    "registerDate": "2026-03-12"
+  },
+  {
+    "id": 14,
+    "contentId": 12,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python 딥러닝 기초",
+    "contentLevel": "어려움",
+    "contentTime": 9,
+    "contentAfter": [
+      "신경망 기본 원리",
+      "퍼셉트론 이해",
+      "활성화 함수",
+      "역전파 알고리즘",
+      "Keras 모델 구성",
+      "CNN 아키텍처",
+      "RNN과 LSTM",
+      "과적합 방지",
+      "모델 저장과 로드",
+      "실전 프로젝트"
+    ],
+    "contentPreview": "TensorFlow와 Keras로 딥러닝 모델을 직접 구현하는 강의입니다.",
+    "contentSimple": "신경망의 기본 원리부터 CNN, RNN까지 딥러닝 핵심 아키텍처를 학습합니다. TensorFlow/Keras를 활용한 실습으로 이미지 분류, 텍스트 처리 모델을 직접 구현합니다.",
+    "contentCurry": [
+      {
+        "title": "딥러닝 기초",
+        "lessons": [
+          { "lessonsTitle": "신경망 원리", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "Keras 모델 구성", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "과적합 방지", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "딥러닝 심화",
+        "lessons": [
+          { "lessonsTitle": "CNN 이미지 분류", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "RNN 텍스트 처리", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "실전 프로젝트", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 45000,
+    "lessonNumber": 105,
+    "classNumber": 98,
+    "category": "Python",
+    "userName": "박동현",
+    "registerDate": "2026-03-21"
+  },
+  {
+    "id": 15,
+    "contentId": 13,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python 데이터 분석 입문",
+    "contentLevel": "쉬움",
+    "contentTime": 5,
+    "contentAfter": [
+      "Python 환경 설정",
+      "기본 문법 익히기",
+      "리스트와 딕셔너리",
+      "파일 입출력 처리",
+      "NumPy 기초 활용",
+      "Pandas 데이터 처리",
+      "데이터 시각화",
+      "통계 기초 적용",
+      "데이터 정제하기",
+      "분석 리포트 작성"
+    ],
+    "contentPreview": "Python으로 데이터를 분석하는 기초 능력을 키우는 강의입니다.",
+    "contentSimple": "Python 기본 문법부터 NumPy, Pandas를 활용한 데이터 처리까지 학습합니다. 실제 데이터셋을 사용한 실습으로 데이터 분석 역량을 빠르게 쌓을 수 있습니다.",
+    "contentCurry": [
+      {
+        "title": "Python 기초",
+        "lessons": [
+          { "lessonsTitle": "환경 설정 및 설치", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "기본 문법과 자료형", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "함수와 모듈", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "데이터 분석",
+        "lessons": [
+          { "lessonsTitle": "NumPy 활용", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "Pandas 데이터 처리", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "Matplotlib 시각화", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 25000,
+    "lessonNumber": 92,
+    "classNumber": 88,
+    "category": "Python",
+    "userName": "최서영",
+    "registerDate": "2026-01-15"
+  },
+  {
+    "id": 15,
+    "contentId": 14,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python 데이터 시각화",
+    "contentLevel": "보통",
+    "contentTime": 4,
+    "contentAfter": [
+      "Matplotlib 기초",
+      "다양한 차트 종류",
+      "색상과 스타일 설정",
+      "Seaborn 통계 그래프",
+      "히트맵 그리기",
+      "Plotly 인터랙티브 차트",
+      "서브플롯 구성",
+      "시계열 데이터 시각화",
+      "지도 시각화 입문",
+      "대시보드 제작"
+    ],
+    "contentPreview": "Matplotlib과 Seaborn으로 데이터를 시각적으로 표현하는 강의입니다.",
+    "contentSimple": "Matplotlib, Seaborn, Plotly를 활용해 다양한 차트와 그래프를 그리는 방법을 학습합니다. 실제 데이터셋으로 인사이트를 도출하는 시각화 실습을 진행합니다.",
+    "contentCurry": [
+      {
+        "title": "기본 시각화",
+        "lessons": [
+          { "lessonsTitle": "Matplotlib 기초", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "Seaborn 통계 그래프", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "차트 커스터마이징", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "고급 시각화",
+        "lessons": [
+          { "lessonsTitle": "Plotly 인터랙티브", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "시계열 시각화", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "대시보드 제작", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 22000,
+    "lessonNumber": 79,
+    "classNumber": 71,
+    "category": "Python",
+    "userName": "최서영",
+    "registerDate": "2026-02-12"
+  },
+  {
+    "id": 15,
+    "contentId": 15,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python 통계 분석 기초",
+    "contentLevel": "보통",
+    "contentTime": 5,
+    "contentAfter": [
+      "기술 통계 이해",
+      "확률 분포 개념",
+      "정규 분포 활용",
+      "표본과 모집단",
+      "신뢰 구간 계산",
+      "가설 검정 방법",
+      "t-검정 실습",
+      "카이제곱 검정",
+      "상관 분석",
+      "회귀 분석 기초"
+    ],
+    "contentPreview": "Python으로 기초 통계부터 가설 검정까지 학습하는 강의입니다.",
+    "contentSimple": "기술 통계, 확률 분포, 가설 검정 등 데이터 분석에 필수인 통계 이론을 Python 코드로 실습합니다. SciPy와 Statsmodels를 활용해 실제 데이터에 적용하는 연습을 합니다.",
+    "contentCurry": [
+      {
+        "title": "통계 기초",
+        "lessons": [
+          { "lessonsTitle": "기술 통계", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "확률 분포", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "신뢰 구간", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "가설 검정",
+        "lessons": [
+          { "lessonsTitle": "t-검정", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "카이제곱 검정", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "회귀 분석", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 26000,
+    "lessonNumber": 86,
+    "classNumber": 79,
+    "category": "Python",
+    "userName": "최서영",
+    "registerDate": "2026-03-05"
+  },
+  {
+    "id": 15,
+    "contentId": 16,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python SQL 데이터베이스 연동",
+    "contentLevel": "보통",
+    "contentTime": 6,
+    "contentAfter": [
+      "SQL 기초 문법",
+      "SQLite 연동",
+      "CRUD 구현",
+      "조인과 서브쿼리",
+      "트랜잭션 처리",
+      "SQLAlchemy 설치",
+      "ORM 모델 정의",
+      "쿼리 작성법",
+      "Pandas와 DB 연계",
+      "실전 데이터 파이프라인"
+    ],
+    "contentPreview": "Python으로 SQL 데이터베이스를 연결하고 데이터를 처리하는 강의입니다.",
+    "contentSimple": "SQLite, MySQL을 Python과 연동하여 데이터를 CRUD 처리하는 방법을 학습합니다. SQLAlchemy ORM을 활용한 데이터베이스 조작과 Pandas와의 연계 실습을 포함합니다.",
+    "contentCurry": [
+      {
+        "title": "SQL과 Python",
+        "lessons": [
+          { "lessonsTitle": "SQL 기초 문법", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "SQLite 연동", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "CRUD 구현", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "ORM 활용",
+        "lessons": [
+          { "lessonsTitle": "SQLAlchemy 기초", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "ORM 모델 설계", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "데이터 파이프라인", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 28000,
+    "lessonNumber": 88,
+    "classNumber": 81,
+    "category": "Python",
+    "userName": "최서영",
+    "registerDate": "2026-03-19"
+  },
+  {
+    "id": 16,
+    "contentId": 17,
+    "contentImg": "이미지 경로",
+    "contentTitle": "C++ 프로그래밍 기초",
+    "contentLevel": "보통",
+    "contentTime": 6,
+    "contentAfter": [
+      "C++ 개발 환경 구성",
+      "변수와 포인터 이해",
+      "조건문과 반복문",
+      "함수와 재귀 호출",
+      "배열과 문자열 처리",
+      "구조체와 클래스",
+      "상속과 다형성",
+      "파일 입출력 처리",
+      "STL 컨테이너 활용",
+      "알고리즘 구현 실습"
+    ],
+    "contentPreview": "C++의 핵심 개념을 실습과 함께 체계적으로 배우는 강의입니다.",
+    "contentSimple": "C++ 문법의 기초부터 객체지향 프로그래밍, STL까지 다룹니다. 포인터와 메모리 관리 등 C++만의 특징을 이해하고 알고리즘 문제 풀이에 응용하는 능력을 기릅니다.",
+    "contentCurry": [
+      {
+        "title": "C++ 기초 문법",
+        "lessons": [
+          { "lessonsTitle": "변수와 포인터", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "함수와 재귀", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "배열과 문자열", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "객체지향 프로그래밍",
+        "lessons": [
+          { "lessonsTitle": "클래스와 객체", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "상속과 다형성", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "STL 컨테이너", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 22000,
+    "lessonNumber": 83,
+    "classNumber": 70,
+    "category": "C+",
+    "userName": "한지수",
+    "registerDate": "2026-01-20"
+  },
+  {
+    "id": 16,
+    "contentId": 18,
+    "contentImg": "이미지 경로",
+    "contentTitle": "HTML 폼과 유효성 검사",
+    "contentLevel": "입문",
+    "contentTime": 3,
+    "contentAfter": [
+      "폼 태그 기본 구조",
+      "input 타입 정리",
+      "label과 접근성",
+      "select와 checkbox",
+      "기본 유효성 검사",
+      "커스텀 메시지 설정",
+      "정규식 패턴 적용",
+      "서버 전송 이해",
+      "파일 업로드 처리",
+      "실전 회원가입 폼"
+    ],
+    "contentPreview": "HTML 폼 요소와 유효성 검사를 처음부터 배우는 강의입니다.",
+    "contentSimple": "다양한 input 타입과 폼 요소의 사용법을 배우고, HTML5 내장 유효성 검사 기능을 활용합니다. 실전 회원가입 폼 제작으로 실무 감각을 익힙니다.",
+    "contentCurry": [
+      {
+        "title": "폼 기초",
+        "lessons": [
+          { "lessonsTitle": "input 타입 정리", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "select와 checkbox", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "label과 접근성", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "유효성 검사",
+        "lessons": [
+          { "lessonsTitle": "기본 유효성 검사", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "정규식 패턴", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "회원가입 폼 실습", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 10000,
+    "lessonNumber": 65,
+    "classNumber": 60,
+    "category": "HTML",
+    "userName": "한지수",
+    "registerDate": "2026-02-20"
+  },
+  {
+    "id": 16,
     "contentId": 19,
     "contentImg": "이미지 경로",
     "contentTitle": "JavaScript 함수형 프로그래밍",
@@ -1330,8 +1330,652 @@ const lectureList = [
     "registerDate": "2026-03-14"
   },
   {
-    "id": 20,
+    "id": 16,
     "contentId": 20,
+    "contentImg": "이미지 경로",
+    "contentTitle": "알고리즘 코딩 테스트 완성",
+    "contentLevel": "어려움",
+    "contentTime": 8,
+    "contentAfter": [
+      "시간복잡도 분석",
+      "배열과 문자열 유형",
+      "투 포인터 기법",
+      "슬라이딩 윈도우",
+      "BFS/DFS 완전 정복",
+      "다익스트라 알고리즘",
+      "동적 프로그래밍 패턴",
+      "그리디 전략",
+      "이분 탐색 응용",
+      "기출 문제 풀이"
+    ],
+    "contentPreview": "코딩 테스트에 자주 출제되는 알고리즘 유형을 완전 정복하는 강의입니다.",
+    "contentSimple": "정렬, 탐색, 그래프, 동적 프로그래밍 등 코딩 테스트 핵심 유형을 체계적으로 정리합니다. 실제 기업 코딩 테스트 기출 문제 풀이로 실전 감각을 높입니다.",
+    "contentCurry": [
+      {
+        "title": "기초 알고리즘",
+        "lessons": [
+          { "lessonsTitle": "정렬과 탐색", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "투 포인터 기법", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "BFS/DFS", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "심화 알고리즘",
+        "lessons": [
+          { "lessonsTitle": "동적 프로그래밍", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "그리디 전략", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "기출 문제 풀이", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 38000,
+    "lessonNumber": 110,
+    "classNumber": 102,
+    "category": "C+",
+    "userName": "한지수",
+    "registerDate": "2026-03-22"
+  },
+  {
+    "id": 17,
+    "contentId": 21,
+    "contentImg": "이미지 경로",
+    "contentTitle": "CSS 애니메이션과 트랜지션",
+    "contentLevel": "보통",
+    "contentTime": 2,
+    "contentAfter": [
+      "transition 속성 이해",
+      "transform 다루기",
+      "keyframe 애니메이션",
+      "타이밍 함수 활용",
+      "hover 효과 제작",
+      "로딩 스피너 만들기",
+      "슬라이드 애니메이션",
+      "스크롤 효과 구현",
+      "성능 최적화 방법",
+      "실전 인터랙션 UI"
+    ],
+    "contentPreview": "CSS만으로 생동감 있는 애니메이션을 구현하는 강의입니다.",
+    "contentSimple": "transition, transform, keyframe을 활용해 다양한 애니메이션 효과를 만드는 방법을 배웁니다. 실무에서 자주 쓰이는 로딩, 슬라이드, hover 인터랙션 UI를 직접 제작합니다.",
+    "contentCurry": [
+      {
+        "title": "트랜지션과 변환",
+        "lessons": [
+          { "lessonsTitle": "transition 속성", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "transform 효과", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "hover 인터랙션", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "애니메이션 심화",
+        "lessons": [
+          { "lessonsTitle": "keyframe 작성법", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "로딩 스피너 제작", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "스크롤 애니메이션", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 18000,
+    "lessonNumber": 66,
+    "classNumber": 62,
+    "category": "CSS",
+    "userName": "조민혁",
+    "registerDate": "2026-01-25"
+  },
+  {
+    "id": 17,
+    "contentId": 22,
+    "contentImg": "이미지 경로",
+    "contentTitle": "CSS Tailwind 실전",
+    "contentLevel": "쉬움",
+    "contentTime": 4,
+    "contentAfter": [
+      "Tailwind 설치 및 설정",
+      "유틸리티 클래스 이해",
+      "색상과 간격 시스템",
+      "반응형 브레이크포인트",
+      "버튼 컴포넌트 제작",
+      "카드 UI 만들기",
+      "네비게이션 바 구성",
+      "다크모드 적용",
+      "커스텀 설정 파일",
+      "랜딩 페이지 완성"
+    ],
+    "contentPreview": "Tailwind CSS로 빠르고 효율적으로 UI를 구성하는 강의입니다.",
+    "contentSimple": "Tailwind CSS의 유틸리티 클래스 시스템을 익히고 실무에서 자주 쓰이는 컴포넌트를 빠르게 제작하는 방법을 학습합니다. 최종적으로 완성도 높은 랜딩 페이지를 구현합니다.",
+    "contentCurry": [
+      {
+        "title": "Tailwind 기초",
+        "lessons": [
+          { "lessonsTitle": "설치와 기본 설정", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "유틸리티 클래스", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "반응형 디자인", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "컴포넌트 실습",
+        "lessons": [
+          { "lessonsTitle": "버튼과 카드 UI", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "네비게이션 바", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "랜딩 페이지 완성", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 19000,
+    "lessonNumber": 80,
+    "classNumber": 74,
+    "category": "CSS",
+    "userName": "조민혁",
+    "registerDate": "2026-02-24"
+  },
+  {
+    "id": 17,
+    "contentId": 23,
+    "contentImg": "이미지 경로",
+    "contentTitle": "CSS SCSS 전처리기 완성",
+    "contentLevel": "보통",
+    "contentTime": 3,
+    "contentAfter": [
+      "SCSS 환경 설정",
+      "변수 선언과 활용",
+      "중첩 규칙 작성",
+      "믹스인 정의하기",
+      "함수와 연산자",
+      "상속 extend",
+      "파셜 파일 관리",
+      "BEM 방법론 적용",
+      "모듈 구조 설계",
+      "실전 프로젝트 적용"
+    ],
+    "contentPreview": "SCSS로 대규모 CSS를 효율적으로 관리하는 강의입니다.",
+    "contentSimple": "SCSS 변수, 중첩, 믹스인, 함수 등 전처리기 핵심 기능을 학습합니다. BEM 방법론과 결합하여 유지보수하기 쉬운 스타일 구조를 설계하는 방법을 익힙니다.",
+    "contentCurry": [
+      {
+        "title": "SCSS 기초",
+        "lessons": [
+          { "lessonsTitle": "변수와 중첩", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "믹스인과 함수", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "파셜과 import", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "SCSS 심화",
+        "lessons": [
+          { "lessonsTitle": "BEM 방법론", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "모듈 구조 설계", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "실전 프로젝트", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 17000,
+    "lessonNumber": 70,
+    "classNumber": 65,
+    "category": "CSS",
+    "userName": "조민혁",
+    "registerDate": "2026-03-15"
+  },
+  {
+    "id": 17,
+    "contentId": 24,
+    "contentImg": "이미지 경로",
+    "contentTitle": "UI/UX 디자인 기초와 CSS 구현",
+    "contentLevel": "쉬움",
+    "contentTime": 5,
+    "contentAfter": [
+      "UI/UX 기본 원칙",
+      "컬러 이론 이해",
+      "타이포그래피 규칙",
+      "레이아웃 원칙",
+      "Figma 기초 사용법",
+      "디자인 시스템 개념",
+      "컴포넌트 설계",
+      "CSS 구현 실습",
+      "접근성 디자인",
+      "실전 페이지 완성"
+    ],
+    "contentPreview": "UI/UX 원칙을 이해하고 CSS로 직접 구현하는 실전 강의입니다.",
+    "contentSimple": "컬러 이론, 타이포그래피, 레이아웃 등 UI/UX 디자인 원칙을 학습하고 CSS로 구현합니다. Figma 기초 사용법과 디자인 시스템을 실제 코드로 옮기는 실습을 포함합니다.",
+    "contentCurry": [
+      {
+        "title": "디자인 원칙",
+        "lessons": [
+          { "lessonsTitle": "UI/UX 기본 원칙", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "컬러와 타이포그래피", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "Figma 기초", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "CSS 구현",
+        "lessons": [
+          { "lessonsTitle": "디자인 시스템", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "컴포넌트 CSS", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "실전 페이지 완성", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 21000,
+    "lessonNumber": 75,
+    "classNumber": 68,
+    "category": "CSS",
+    "userName": "조민혁",
+    "registerDate": "2026-03-23"
+  },
+  {
+    "id": 18,
+    "contentId": 25,
+    "contentImg": "이미지 경로",
+    "contentTitle": "JavaScript 비동기 완전 정복",
+    "contentLevel": "어려움",
+    "contentTime": 4,
+    "contentAfter": [
+      "동기와 비동기 차이",
+      "콜백 함수 이해",
+      "Promise 개념 학습",
+      "async/await 문법",
+      "에러 핸들링 처리",
+      "fetch API 심화",
+      "axios 라이브러리",
+      "병렬 요청 처리",
+      "타임아웃 설정",
+      "실전 API 연동"
+    ],
+    "contentPreview": "Promise부터 async/await까지 비동기 처리를 완벽히 이해하는 강의입니다.",
+    "contentSimple": "JavaScript 비동기 처리의 핵심 개념인 콜백, Promise, async/await를 단계적으로 학습합니다. 실제 API 연동 실습을 통해 실무에서 바로 사용 가능한 비동기 코드를 작성합니다.",
+    "contentCurry": [
+      {
+        "title": "비동기 기초",
+        "lessons": [
+          { "lessonsTitle": "콜백과 Promise", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "async/await 문법", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "에러 핸들링", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "API 연동 실습",
+        "lessons": [
+          { "lessonsTitle": "fetch API 심화", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "axios 사용법", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "실전 API 프로젝트", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 28000,
+    "lessonNumber": 74,
+    "classNumber": 68,
+    "category": "JavaScript",
+    "userName": "신예은",
+    "registerDate": "2026-02-01"
+  },
+  {
+    "id": 18,
+    "contentId": 26,
+    "contentImg": "이미지 경로",
+    "contentTitle": "JavaScript ES6+ 핵심 문법",
+    "contentLevel": "보통",
+    "contentTime": 7,
+    "contentAfter": [
+      "let과 const 이해",
+      "화살표 함수 활용",
+      "구조 분해 할당",
+      "스프레드 연산자",
+      "템플릿 리터럴",
+      "모듈 시스템 이해",
+      "클래스 문법 활용",
+      "이터레이터와 제너레이터",
+      "옵셔널 체이닝",
+      "최신 문법 총정리"
+    ],
+    "contentPreview": "ES6 이후 최신 JavaScript 문법을 빠르게 익히는 강의입니다.",
+    "contentSimple": "현대 JavaScript 개발에서 필수인 ES6+ 문법을 체계적으로 학습합니다. 화살표 함수, 구조 분해, 모듈 시스템 등 실무에서 매일 쓰이는 문법을 예제와 함께 마스터합니다.",
+    "contentCurry": [
+      {
+        "title": "ES6 핵심",
+        "lessons": [
+          { "lessonsTitle": "화살표 함수와 const", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "구조 분해 할당", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "스프레드 연산자", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "ES6+ 심화",
+        "lessons": [
+          { "lessonsTitle": "모듈 시스템", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "클래스 문법", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "최신 문법 총정리", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 21000,
+    "lessonNumber": 77,
+    "classNumber": 69,
+    "category": "JavaScript",
+    "userName": "신예은",
+    "registerDate": "2026-02-28"
+  },
+  {
+    "id": 18,
+    "contentId": 27,
+    "contentImg": "이미지 경로",
+    "contentTitle": "TypeScript 핵심 강의",
+    "contentLevel": "보통",
+    "contentTime": 6,
+    "contentAfter": [
+      "TypeScript 환경 설정",
+      "기본 타입 이해",
+      "인터페이스 정의",
+      "타입 별칭 활용",
+      "제네릭 문법",
+      "유니온과 인터섹션",
+      "타입 가드",
+      "유틸리티 타입",
+      "모듈과 네임스페이스",
+      "React + TS 실습"
+    ],
+    "contentPreview": "TypeScript의 핵심 개념을 빠르게 익혀 실무에 적용하는 강의입니다.",
+    "contentSimple": "JavaScript 개발자를 위한 TypeScript 강의입니다. 타입 시스템, 인터페이스, 제네릭 등 핵심 기능을 학습하고 React + TypeScript 프로젝트에 적용하는 실습을 진행합니다.",
+    "contentCurry": [
+      {
+        "title": "TypeScript 기초",
+        "lessons": [
+          { "lessonsTitle": "기본 타입", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "인터페이스와 타입", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "제네릭", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "TypeScript 심화",
+        "lessons": [
+          { "lessonsTitle": "유틸리티 타입", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "타입 가드", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "React + TS 실습", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 25000,
+    "lessonNumber": 82,
+    "classNumber": 75,
+    "category": "JavaScript",
+    "userName": "신예은",
+    "registerDate": "2026-03-10"
+  },
+  {
+    "id": 18,
+    "contentId": 28,
+    "contentImg": "이미지 경로",
+    "contentTitle": "React 입문",
+    "contentLevel": "보통",
+    "contentTime": 8,
+    "contentAfter": [
+      "React 환경 설정",
+      "JSX 문법 이해",
+      "컴포넌트 작성",
+      "Props 전달하기",
+      "State 관리",
+      "이벤트 핸들링",
+      "useEffect 활용",
+      "React Router 설정",
+      "상태 끌어올리기",
+      "미니 프로젝트 완성"
+    ],
+    "contentPreview": "React의 핵심 개념을 처음부터 실습 중심으로 배우는 강의입니다.",
+    "contentSimple": "컴포넌트, Props, State, Hooks 등 React의 핵심 개념을 단계별로 학습합니다. 실전 프로젝트를 통해 React로 SPA를 구현하는 전체 흐름을 경험합니다.",
+    "contentCurry": [
+      {
+        "title": "React 기초",
+        "lessons": [
+          { "lessonsTitle": "JSX와 컴포넌트", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "Props와 State", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "이벤트 처리", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "React 심화",
+        "lessons": [
+          { "lessonsTitle": "Hooks 활용", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "React Router", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "미니 프로젝트", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 32000,
+    "lessonNumber": 96,
+    "classNumber": 89,
+    "category": "JavaScript",
+    "userName": "신예은",
+    "registerDate": "2026-03-20"
+  },
+  {
+    "id": 19,
+    "contentId": 29,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python 웹 크롤링",
+    "contentLevel": "보통",
+    "contentTime": 7,
+    "contentAfter": [
+      "웹 크롤링 개념 이해",
+      "requests 라이브러리",
+      "BeautifulSoup 파싱",
+      "셀렉터 활용하기",
+      "페이지 순회 처리",
+      "데이터 저장하기",
+      "Selenium 기초",
+      "동적 페이지 크롤링",
+      "크롤링 윤리 준수",
+      "자동화 스크립트 작성"
+    ],
+    "contentPreview": "Python으로 웹 데이터를 자동으로 수집하는 크롤링 강의입니다.",
+    "contentSimple": "requests와 BeautifulSoup을 활용한 정적 크롤링부터 Selenium을 이용한 동적 페이지 수집까지 학습합니다. 수집한 데이터를 CSV로 저장하고 활용하는 실습을 진행합니다.",
+    "contentCurry": [
+      {
+        "title": "정적 크롤링",
+        "lessons": [
+          { "lessonsTitle": "requests 기초", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "BeautifulSoup 파싱", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "데이터 CSV 저장", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "동적 크롤링",
+        "lessons": [
+          { "lessonsTitle": "Selenium 설치", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "동적 페이지 처리", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "자동화 스크립트", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 23000,
+    "lessonNumber": 89,
+    "classNumber": 76,
+    "category": "Python",
+    "userName": "강태호",
+    "registerDate": "2026-02-05"
+  },
+  {
+    "id": 19,
+    "contentId": 30,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python 자동화 스크립트",
+    "contentLevel": "보통",
+    "contentTime": 7,
+    "contentAfter": [
+      "os 모듈 활용",
+      "파일 자동 정리",
+      "엑셀 자동화 처리",
+      "이메일 자동 발송",
+      "스케줄러 설정",
+      "카카오 API 연동",
+      "슬랙 알림 구현",
+      "GUI 자동화 도구",
+      "작업 로그 기록",
+      "자동화 배포 실습"
+    ],
+    "contentPreview": "Python으로 반복 작업을 자동화하는 실용적인 강의입니다.",
+    "contentSimple": "파일 관리, 엑셀 처리, 이메일 발송 등 실무에서 자주 발생하는 반복 작업을 Python 스크립트로 자동화하는 방법을 학습합니다. 외부 API 연동까지 포함한 실전 프로젝트를 진행합니다.",
+    "contentCurry": [
+      {
+        "title": "파일과 데이터 자동화",
+        "lessons": [
+          { "lessonsTitle": "파일 자동 정리", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "엑셀 자동화", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "스케줄러 설정", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "API 연동 자동화",
+        "lessons": [
+          { "lessonsTitle": "이메일 자동 발송", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "슬랙 알림 구현", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "자동화 배포", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 27000,
+    "lessonNumber": 85,
+    "classNumber": 78,
+    "category": "Python",
+    "userName": "강태호",
+    "registerDate": "2026-03-03"
+  },
+  {
+    "id": 19,
+    "contentId": 31,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python FastAPI 백엔드 개발",
+    "contentLevel": "보통",
+    "contentTime": 8,
+    "contentAfter": [
+      "FastAPI 환경 설정",
+      "라우터 구성",
+      "Pydantic 모델",
+      "의존성 주입",
+      "비동기 엔드포인트",
+      "JWT 인증 구현",
+      "SQLAlchemy 연동",
+      "CORS 설정",
+      "API 문서 자동화",
+      "Docker 배포"
+    ],
+    "contentPreview": "FastAPI로 빠르고 현대적인 REST API 서버를 구축하는 강의입니다.",
+    "contentSimple": "Python FastAPI 프레임워크를 사용해 고성능 REST API를 구축하는 방법을 학습합니다. 비동기 처리, JWT 인증, DB 연동까지 백엔드 개발 전반을 실습 중심으로 익힙니다.",
+    "contentCurry": [
+      {
+        "title": "FastAPI 기초",
+        "lessons": [
+          { "lessonsTitle": "라우터와 엔드포인트", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "Pydantic 스키마", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "의존성 주입", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "FastAPI 심화",
+        "lessons": [
+          { "lessonsTitle": "JWT 인증", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "DB 연동", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "Docker 배포", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 33000,
+    "lessonNumber": 94,
+    "classNumber": 86,
+    "category": "Python",
+    "userName": "강태호",
+    "registerDate": "2026-03-17"
+  },
+  {
+    "id": 19,
+    "contentId": 32,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Linux 기초와 서버 운영",
+    "contentLevel": "보통",
+    "contentTime": 6,
+    "contentAfter": [
+      "Linux 기본 명령어",
+      "파일 시스템 구조",
+      "사용자와 권한 관리",
+      "패키지 관리",
+      "네트워크 설정",
+      "SSH 원격 접속",
+      "Bash 스크립트 작성",
+      "cron 작업 설정",
+      "로그 관리",
+      "서버 보안 기초"
+    ],
+    "contentPreview": "Linux 명령어부터 서버 운영까지 기초를 다지는 강의입니다.",
+    "contentSimple": "Linux 파일 시스템, 사용자 관리, 네트워크 설정 등 서버 운영에 필수인 기초 지식을 학습합니다. Bash 스크립트와 cron 작업을 활용한 서버 자동화 실습을 포함합니다.",
+    "contentCurry": [
+      {
+        "title": "Linux 기초",
+        "lessons": [
+          { "lessonsTitle": "기본 명령어", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "파일 시스템", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "사용자와 권한", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "서버 운영",
+        "lessons": [
+          { "lessonsTitle": "SSH와 네트워크", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "Bash 스크립트", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "서버 보안 기초", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 24000,
+    "lessonNumber": 80,
+    "classNumber": 73,
+    "category": "Python",
+    "userName": "강태호",
+    "registerDate": "2026-03-23"
+  },
+  {
+    "id": 20,
+    "contentId": 33,
+    "contentImg": "이미지 경로",
+    "contentTitle": "HTML 시맨틱과 SEO",
+    "contentLevel": "쉬움",
+    "contentTime": 2,
+    "contentAfter": [
+      "시맨틱 태그 총정리",
+      "SEO 기본 개념",
+      "메타 태그 최적화",
+      "Open Graph 설정",
+      "구조화 데이터 작성",
+      "접근성 향상 방법",
+      "이미지 alt 태그",
+      "페이지 속도 개선",
+      "모바일 최적화",
+      "검색 노출 전략"
+    ],
+    "contentPreview": "시맨틱 HTML과 SEO 최적화를 동시에 학습하는 강의입니다.",
+    "contentSimple": "올바른 시맨틱 태그 사용법과 검색 엔진 최적화(SEO) 전략을 함께 학습합니다. 메타 태그, 구조화 데이터, 접근성 개선 등 실무에서 꼭 필요한 내용을 다룹니다.",
+    "contentCurry": [
+      {
+        "title": "시맨틱 HTML",
+        "lessons": [
+          { "lessonsTitle": "시맨틱 태그 정리", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "접근성 향상", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "올바른 구조 작성", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "SEO 최적화",
+        "lessons": [
+          { "lessonsTitle": "메타 태그 설정", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "구조화 데이터", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "검색 노출 전략", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 12000,
+    "lessonNumber": 61,
+    "classNumber": 60,
+    "category": "HTML",
+    "userName": "문소희",
+    "registerDate": "2026-02-08"
+  },
+  {
+    "id": 20,
+    "contentId": 34,
     "contentImg": "이미지 경로",
     "contentTitle": "Python Flask 웹 개발",
     "contentLevel": "보통",
@@ -1374,8 +2018,102 @@ const lectureList = [
     "category": "Python",
     "userName": "문소희",
     "registerDate": "2026-03-18"
+  },
+  {
+    "id": 20,
+    "contentId": 35,
+    "contentImg": "이미지 경로",
+    "contentTitle": "HTML 기초와 웹 표준",
+    "contentLevel": "입문",
+    "contentTime": 3,
+    "contentAfter": [
+      "웹 표준 개념 이해",
+      "HTML5 문서 구조",
+      "올바른 마크업 원칙",
+      "시맨틱 요소 선택",
+      "접근성 WCAG 기준",
+      "ARIA 속성 활용",
+      "유효성 검사 도구",
+      "크로스 브라우저 대응",
+      "deprecated 태그 정리",
+      "실전 마크업 리뷰"
+    ],
+    "contentPreview": "웹 표준을 준수하는 올바른 HTML 작성법을 배우는 강의입니다.",
+    "contentSimple": "W3C 웹 표준과 HTML5 스펙을 기반으로 올바른 마크업 작성법을 학습합니다. 접근성(WCAG) 기준을 반영한 시맨틱 구조 설계와 크로스 브라우저 호환성 확보 방법을 실습합니다.",
+    "contentCurry": [
+      {
+        "title": "웹 표준 기초",
+        "lessons": [
+          { "lessonsTitle": "HTML5 문서 구조", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "시맨틱 요소 선택", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "유효성 검사", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "접근성과 호환성",
+        "lessons": [
+          { "lessonsTitle": "WCAG와 ARIA", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "크로스 브라우저 대응", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "실전 마크업 리뷰", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 11000,
+    "lessonNumber": 63,
+    "classNumber": 58,
+    "category": "HTML",
+    "userName": "문소희",
+    "registerDate": "2026-03-16"
+  },
+  {
+    "id": 20,
+    "contentId": 36,
+    "contentImg": "이미지 경로",
+    "contentTitle": "웹 성능 최적화 기초",
+    "contentLevel": "보통",
+    "contentTime": 4,
+    "contentAfter": [
+      "Core Web Vitals 이해",
+      "이미지 최적화 방법",
+      "CSS/JS 압축",
+      "코드 스플리팅",
+      "레이지 로딩 적용",
+      "캐싱 전략 설계",
+      "CDN 활용하기",
+      "렌더 블로킹 제거",
+      "DevTools 성능 측정",
+      "Lighthouse 점수 개선"
+    ],
+    "contentPreview": "웹 페이지 로딩 속도와 성능을 개선하는 기초 강의입니다.",
+    "contentSimple": "이미지 최적화, 코드 스플리팅, 캐싱 전략 등 웹 성능을 향상시키는 다양한 기법을 학습합니다. Chrome DevTools를 활용한 성능 측정과 개선 프로세스를 실습 중심으로 진행합니다.",
+    "contentCurry": [
+      {
+        "title": "성능 기초",
+        "lessons": [
+          { "lessonsTitle": "Core Web Vitals", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "이미지 최적화", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "CSS/JS 압축", "lessonsvideo": "파일경로" }
+        ]
+      },
+      {
+        "title": "고급 최적화",
+        "lessons": [
+          { "lessonsTitle": "코드 스플리팅", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "캐싱과 CDN", "lessonsvideo": "파일경로" },
+          { "lessonsTitle": "Lighthouse 개선", "lessonsvideo": "파일경로" }
+        ]
+      }
+    ],
+    "contentPrice": 20000,
+    "lessonNumber": 71,
+    "classNumber": 64,
+    "category": "HTML",
+    "userName": "문소희",
+    "registerDate": "2026-03-21"
   }
 ]
+
+localStorage.setItem("lectureList", JSON.stringify(lectureList));
 
 localStorage.setItem("lectureList", JSON.stringify(lectureList));
 
