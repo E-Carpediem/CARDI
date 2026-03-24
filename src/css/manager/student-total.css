@@ -103,8 +103,9 @@
 }
 
 .m-fileter {
-    height : 70px;
+    height: 70px;
 }
+
 .tms-content-top-ct {
     display: flex;
     align-items: center;
@@ -271,7 +272,8 @@
     justify-content: center;
 }
 
-.tms-bottom-number>p:first-child {
+
+.tms-bottom-active-number {
     border-radius: 10px;
     background: #2F4156;
     color: white;
