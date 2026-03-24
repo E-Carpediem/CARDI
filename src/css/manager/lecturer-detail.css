@@ -339,7 +339,7 @@
     justify-content: center;
 }
 
-.tmm-lector-bottom-number>p:first-child {
+.tmm-lector-active-bottom-number{
     border-radius: 10px;
     background: #2F4156;
     color: white;

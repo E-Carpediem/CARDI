@@ -10,7 +10,7 @@ const arrayMembership = userList.filter((sub) => sub.membershipStatus === true);
 const arrayUnMembership = userList.filter((sub) => sub.membershipStatus === false);
 const arraySignDate = userList.filter((sub) => sub.membershipStatus === false);
 
-// 페이지네이션 코드는 AI 코드입니다.
+// 페이지네이션 코드는 AI 코드입니다. 시작지점
 let currentPage = 1;
 let currentList = userListData;
 const ITEMS_PER_PAGE = 10;
@@ -24,8 +24,7 @@ function renderPagination(totalItems) {
     for (let i = 1; i <= totalPages; i++) {
         const $page = document.createElement('p');
         $page.textContent = i;
-        if (i === currentPage) {$page.style.background = '#2F4156'
-            console.log($page.style);
+        if (i === currentPage) {$page.classList.add('tm-bottom-active-number');
         }; 
         $page.addEventListener('click', () => {
             currentPage = i;
@@ -34,14 +33,16 @@ function renderPagination(totalItems) {
         $paginationCt.appendChild($page);
     }
 }
+// 페이지 네이션 AI 코드 끝
 
 function userTotalManagement(arrayList) {
     document.querySelectorAll('.tm-content').forEach(el => el.remove());
 
-    // ✅ 추가: 현재 페이지에 해당하는 슬라이스만 사용
+    // 페이지네이션 코드 시작
     const start = (currentPage - 1) * ITEMS_PER_PAGE;
     const pageItems = arrayList.slice(start, start + ITEMS_PER_PAGE);
     const pageMaxArray = pageItems.length;
+    // 끝
 
     for (let i = pageMaxArray - 1; i >= 0; i--) {
         $totalUser.insertAdjacentHTML('afterend',
@@ -72,7 +73,6 @@ function userTotalManagement(arrayList) {
             : (pageItems[i].membershipStatus === true ? $userMembershipColor.className += 'tm-content-memebership-student' : $userMembershipColor.className += 'tm-content-memebership-lecture');
     };
 
-    // ✅ 추가: 페이지네이션 버튼 렌더
     renderPagination(arrayList.length);
 }
 
@@ -86,7 +86,6 @@ const $ArraySignDate = document.querySelector('.m-array>p:nth-of-type(1)');
 const $ArraySort = document.querySelector('.m-array>p:nth-of-type(2)');
 
 $ArraySub.addEventListener('click', () => {
-    // ✅ 추가: 필터 변경 시 1페이지로 리셋
     currentPage = 1; currentList = arraySub;
     userTotalManagement(arraySub);
 })

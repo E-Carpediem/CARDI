@@ -315,7 +315,7 @@
     justify-content: center;
 }
 
-.tml-bottom-number>p:first-child {
+.tml-bottom-active-number {
     border-radius: 10px;
     background: #2F4156;
     color: white;
