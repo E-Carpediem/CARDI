@@ -7,6 +7,7 @@ const totalcontent = document.querySelector('.mm-inf-content-number');
 const recentSignUpUser = document.querySelector('.mm-recent-user-title');
 const $popularLecture = document.querySelector('.mm-popular-lecture-title');
 
+localStorage.setItem('navSelect', "home");
 const recentUser = getUserList.filter((sub) => {
     return sub.role != "manager"
 })
