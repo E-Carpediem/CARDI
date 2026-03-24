@@ -10,6 +10,8 @@
     align-items: center;
     justify-content: space-between;
 
+    position: relative;
+
 }
 
 .cmd-content-title-ct>h3 {
@@ -155,6 +157,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
+    position: relative;
 }
 
 .cmd-edit-delete-hover-student,
@@ -163,18 +166,24 @@
     background: #FFF;
     width: 83px;
     height: 73px;
-    position: fixed;
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    left: 56%;
+    /* left: 56%; */
+}
 
+.cmd-edit-delete-hover-student {
+    top: 41px;
+    right: 135px;
 }
 
 .cmd-edit-delete-hover-lecture {
-    left: 61.5%;
+    top : 100%;
+    right :0;
 }
+
 
 
 .cmd-edit-delete-hover-lecture-m,

@@ -106,7 +106,8 @@
 .tmm-lector-category {
     background: #567C8D;
     border-radius: 20px;
-    width: 45px;
+    width: auto;
+    padding : 5px;
     height: 25px;
     top :15px;
     right : 10px;
