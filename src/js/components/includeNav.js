@@ -95,7 +95,7 @@ fetch("/components/nav.html")
             roleStudent();
         } else if (navLocalStorage.role == "manager") {
             roleManager();
-        } else if (navLocalStorage.role == "lecture") {
+        } else if (navLocalStorage.role == "lecturer") {
             roleLecture();
         } else {
             roleNone();

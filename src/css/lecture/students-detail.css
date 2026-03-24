@@ -26,14 +26,14 @@
 
 .msd-header-title {
     color: #2F4156;
-    font-size: 48px;
+    font-size: clamp(28px, 48px, 48px);
     margin: 0;
     font-weight: 400;
 }
 
 .msd-header-stats-box {
     display: flex;
-    gap: 30px;
+    gap: 3%;
     width: 40%;
     justify-content: flex-end;
 }
@@ -59,12 +59,12 @@
 }
 
 .msd-stat-label {
-    font-size: 14px;
+    font-size: clamp(12px, 14px, 14px);
     color: #2F4156;
 }
 
 .msd-stat-value {
-    font-size: 32px;
+    font-size: clamp(20px, 32px, 32px);
     font-weight: 700;
     color: #2F4156;
 }
@@ -76,12 +76,11 @@
     background: #EDE7E3;
     border: 1px solid #D9D9D9;
     border-radius: 20px;
-
     padding: 20px 25px;
 }
 
 .msd-lecture-title {
-    font-size: 20px;
+    font-size: clamp(16px, 20px, 20px);
     font-weight: 600;
     color: #2F4156;
 }
@@ -91,14 +90,14 @@
     color: #FFF;
     padding: 10px 22px;
     border-radius: 12px;
-    font-size: 16px;
+    font-size: clamp(12px, 16px, 16px);
     font-weight: 600;
 }
 
 .msd-table-header {
     display: grid;
-    grid-template-columns: 120px 1fr 150px 200px 120px;
-    padding: 0 30px;
+    grid-template-columns: 12% 1fr 15% 20% 12%;
+    padding: 0 2%;
     margin-bottom: 10px;
     font-size: 16px;
     font-weight: 600;
@@ -107,9 +106,9 @@
 
 .msd-student-row {
     display: grid;
-    grid-template-columns: 120px 1fr 150px 200px 120px;
+    grid-template-columns: 12% 1fr 15% 20% 12%;
     align-items: center;
-    padding: 22px 30px;
+    padding: 22px 2%;
     background: #FFF;
     border: none;
     border-radius: 0;
@@ -141,7 +140,8 @@
 }
 
 .msd-progress-bar {
-    width: 120px;
+    width: 100%;
+    max-width: 120px;
     height: 10px;
     background: #D9D9D9;
     border-radius: 5px;
@@ -181,4 +181,100 @@
 
 .msd-student-status-box.completed .msd-student-status {
     color: #FFF;
+}
+
+
+@media (max-width: 1024px) {
+
+    .msd-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .msd-header-left {
+        width: 100%;
+    }
+
+    .msd-header-stats-box {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .msd-stat-card {
+        padding: 20px;
+    }
+
+    .msd-table-header,
+    .msd-student-row {
+        grid-template-columns: 15% 1fr 20% 25% 15%;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .msd-header-stats-box {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .msd-stat-card {
+        width: 100%;
+    }
+
+    .msd-table-header {
+        display: none;
+    }
+
+    .msd-student-row {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 16px;
+    }
+
+    .col {
+        font-size: 14px;
+    }
+
+    .col.name {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .col.email {
+        word-break: break-all;
+    }
+
+    .col.progress {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .msd-progress-bar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .col.status {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .msd-header-title {
+        font-size: 24px;
+    }
+
+    .msd-lecture-box {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .msd-lecture-category {
+        align-self: flex-end;
+    }
 }

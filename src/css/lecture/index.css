@@ -161,6 +161,7 @@
         justify-content: center;
     }
 
+    .lct-new-lecture,
     .lct-lecture-card {
         width: 45%;
         min-width: 260px;
@@ -194,7 +195,8 @@
         gap: 20px;
     }
 
-    l .lct-lecture-card {
+    .lct-new-lecture,
+    .lct-lecture-card {
         width: 100%;
         max-width: 400px;
     }

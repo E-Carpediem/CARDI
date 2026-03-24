@@ -181,30 +181,6 @@ function renderCart() {
     updateSummary();
 }
 
-//테스트 데이터
-function initTestData() {
-    const cartList = getCartList();
-
-    if (!cartList.length) {
-        const testData = [];
-
-        for (let i = 1; i <= 5; i++) {
-            testData.push({
-                contentId: 'content' + i,
-                contentTitle: '강의 제목 ' + i,
-                contentImg: '/src/assets/img/test.jpg',
-                contentPrice: 10000 * i,
-                userName: '강사 ' + i,
-                contentTime: `${i}시간`,
-                selected: false
-            });
-        }
-
-        setCartList(testData);
-    }
-}
-
-
 //버튼 이벤트
 $selectAllBtn.addEventListener('click', () => {
     const items = $$('.sc-cart-item');
@@ -284,7 +260,6 @@ $applyBtn.addEventListener('click', () => {
         console.log('신청 완료:', currentUser.appliedLecture);
     });
 });
-
 
 renderCart();
 
