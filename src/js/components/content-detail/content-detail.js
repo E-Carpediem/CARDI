@@ -160,6 +160,12 @@ function renderLectureData() {
         </article>
     `;
 
+    const imgBox = $(".cd-lecture-img");
+
+    if (imgBox && lectureData.contentImg) {
+        imgBox.style.backgroundImage = `url(${lectureData.contentImg})`;
+    }
+
     // 미니 nav바에서 커리큘럼을 클릭 시 커리큘럼 쪽으로 스크롤
     $("#cd-nav-curry").addEventListener("click", () => {
         $("#cd-curry-container").scrollIntoView({

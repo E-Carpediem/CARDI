@@ -41,6 +41,9 @@ function escapeHTML(value) {
 // 강의 렌더링
 function renderLectures() {
     const lectureList = getLectureList();
+    const lectureListBox = $('.ct-lecture-list');
+
+    lectureListBox.innerHTML = "";
 
     lectureList.forEach(item => {
         const card = document.createElement('div');
