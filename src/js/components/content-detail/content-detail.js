@@ -144,8 +144,8 @@ function renderLectureData() {
                     <section id="cd-content-level">난이도: ${escapeHTML(lectureData.contentLevel || "")}</section>
                 </article>
 
-                <button class="cd-btn" id="cd-btn-color1"></button>
-                <button class="cd-btn" id="cd-btn-color2"></button>
+                <button class="cd-btn" id="cd-btn-color1">장바구니</button>
+                <button class="cd-btn" id="cd-btn-color2">신청하기</button>
             </article>
         </article>
     `;
@@ -166,11 +166,13 @@ function renderLectureData() {
     return lectureData;
 }
 
+// 모달 닫기 함수
 function closeModal() {
     const activeModal = $(".active-modal");
     if (activeModal) activeModal.innerHTML = "";
 }
 
+// 투버튼 모달 열기 함수
 function openTwoButtonModal(message, onConfirm) {
     const activeModal = $(".active-modal");
 
@@ -206,6 +208,7 @@ function openTwoButtonModal(message, onConfirm) {
     });
 }
 
+// 원버튼 모달 열기 함수
 function openOneButtonModal(message) {
     const activeModal = $(".active-modal");
 
@@ -236,16 +239,19 @@ function openOneButtonModal(message) {
     });
 }
 
+// miInfo 와 동일한 id 값을 가진 user의 role 값이 lecturer 일 때 강사에 맞는 페이지로 렌더링하는 함수
 function lecturer(lectureData) {
     const result = getCurrentUser();
 
     const { user } = result;
 
+    // role 값이 lecturer 이 아니면 함수를 중단하고 다음 함수로
     if (user.role !== "lecturer") return;
 
     $("#cd-btn-color1").textContent = "수정하기";
     $("#cd-btn-color2").textContent = "삭제하기";
 
+    // 수정하기 버튼 클릭 시 작동하는 함수
     function handleUpdate() {
         openTwoButtonModal(
             "수정하시겠습니까?<br>확인 버튼을 누르면 강의 수정 페이지로 이동합니다.",
@@ -255,6 +261,7 @@ function lecturer(lectureData) {
         );
     }
 
+    // 삭제하기 버튼 클릭 시 작동하는 함수
     function handleDelete() {
         openTwoButtonModal(
             "삭제하시겠습니까?<br>삭제 후엔 되돌릴 수 없습니다.",
@@ -267,6 +274,8 @@ function lecturer(lectureData) {
                     item => Number(item.contentId) !== targetContentId
                 );
 
+                // userList 전체를 순회해서 해당 강의가 장바구니 또는 신청한 강의에 있으면 해당 user의
+                // 장바구니 또는 신청한 강의 목록에서 삭제
                 userList.forEach(user => {
                     if (Array.isArray(user.shoppingCart)) {
                         user.shoppingCart = user.shoppingCart.filter(
@@ -293,23 +302,24 @@ function lecturer(lectureData) {
     $("#cd-btn-color2").addEventListener("click", handleDelete);
 }
 
+// miInfo 와 동일한 id 값을 가진 user의 role 값이 student 일 때 강사에 맞는 페이지로 렌더링하는 함수
 function student(lectureData) {
     const result = getCurrentUser();
-    if (!result) return;
 
     const { user, userIndex, userList } = result;
 
+    // role 값이 student 가 아니면 함수를 중단하고 다음 함수로
     if (user.role !== "student") return;
 
     $("#cd-btn-color1").textContent = "장바구니";
     $("#cd-btn-color2").textContent = "신청하기";
 
+    // 장바구니 버튼 클릭 시 작동하는 함수
     function handleCart() {
         openTwoButtonModal(
             "장바구니에 추가하시겠습니까?",
             () => {
                 const currentResult = getCurrentUser();
-                if (!currentResult) return;
 
                 const { user, userIndex, userList } = currentResult;
                 const lectureList = getLectureList();
@@ -317,16 +327,6 @@ function student(lectureData) {
                 const content = lectureList.find(
                     item => Number(item.contentId) === Number(lectureData.contentId)
                 );
-
-                if (!content) return;
-
-                if (!Array.isArray(user.shoppingCart)) {
-                    user.shoppingCart = [];
-                }
-
-                if (!Array.isArray(user.appliedLecture)) {
-                    user.appliedLecture = [];
-                }
 
                 const exists = user.shoppingCart.some(
                     item => Number(item.contentId) === Number(content.contentId)
@@ -354,14 +354,15 @@ function student(lectureData) {
         );
     }
 
+    // 신청하기 버튼 클릭 시 작동하는 함수
     function handleApply() {
+        // 신청 날짜
         const today = new Date().toISOString().split("T")[0];
 
         openTwoButtonModal(
             "신청하시겠습니까?",
             () => {
                 const currentResult = getCurrentUser();
-                if (!currentResult) return;
 
                 const { user, userIndex, userList } = currentResult;
                 const lectureList = getLectureList();
@@ -369,16 +370,6 @@ function student(lectureData) {
                 const content = lectureList.find(
                     item => Number(item.contentId) === Number(lectureData.contentId)
                 );
-
-                if (!content) return;
-
-                if (!Array.isArray(user.appliedLecture)) {
-                    user.appliedLecture = [];
-                }
-
-                if (!Array.isArray(user.shoppingCart)) {
-                    user.shoppingCart = [];
-                }
 
                 const applied = user.appliedLecture.some(
                     item => Number(item.contentId) === Number(content.contentId)
@@ -412,18 +403,20 @@ function student(lectureData) {
     $("#cd-btn-color2").addEventListener("click", handleApply);
 }
 
+// miInfo 와 동일한 id 값을 가진 user의 role 값이 manager 일 때 강사에 맞는 페이지로 렌더링하는 함수
 function manager(lectureData) {
     const result = getCurrentUser();
-    if (!result) return;
 
     const { user } = result;
 
+    // role 값이 manager 가 아니면 해당 함수를 중단
     if (user.role !== "manager") return;
 
     $("#cd-btn-color1").style.display = "none";
     $("#cd-btn-color2").style.display = "block";
     $("#cd-btn-color2").textContent = "삭제하기";
 
+    // 삭제하기 버튼 클릭 시 작동하는 함수. manager는 어떠한 강의든 삭제 가능
     function handleDelete() {
         openTwoButtonModal(
             "삭제하시겠습니까?<br>삭제 후엔 되돌릴 수 없습니다.",
@@ -453,7 +446,7 @@ function manager(lectureData) {
                 setLectureList(updatedLectureList);
                 localStorage.setItem("userList", JSON.stringify(userList));
 
-                window.location.href = "/lecturer/index.html";
+                window.location.href = "/manager/lecture-total.html";
             }
         );
     }
