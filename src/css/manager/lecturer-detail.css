@@ -77,9 +77,8 @@
     font-weight: 600;
     line-height: normal;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: 120px 160px;
 
 }
 
@@ -140,7 +139,7 @@
 
 .tmm-lector-lecture-title {
     color: #000;
-    font-size: 11px;
+    font-size: 13px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;

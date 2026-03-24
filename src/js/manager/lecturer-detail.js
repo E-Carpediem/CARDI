@@ -5,7 +5,7 @@ const getParams = new URLSearchParams(window.location.search);
 const lecturerId = Number(getParams.get('id'));
 
 const lectureList = contentsListData.filter((sub) => sub.id === lecturerId);
-console.log(lectureList)
+// console.log(lectureList)
 const $totalContents = document.querySelector(".tmm-lector-content-top-ct");
 const $lectureInf = document.querySelector(".tmm-lecture-inf");
 const $lectureInfProfile = document.querySelector(".tmm-lecture-inf-profile");
@@ -56,10 +56,9 @@ function lectureMainLectures() {
                 </div>
             </div>`
         );
-        const lectureImg = document.querySelector('.tmm-lector-backImg');
-        lectureImg.style.backgroundImage = `url${lecture.contentImg}`;
     });
 }
+
 
 
 function userTotalManagement(arrayList) {
@@ -206,3 +205,11 @@ $managerFilter.addEventListener("click", () => {
         ? $managerFilterCt.style.display = "flex"
         : $managerFilterCt.style.display = "none"
 })
+
+
+const lectureImg = document.querySelectorAll('.tmm-lector-backImg');
+
+
+for (let i = 0; i < 4; i++) {
+    lectureImg[i].style.backgroundImage = `url(${lectureList[i].contentImg})`;
+}
