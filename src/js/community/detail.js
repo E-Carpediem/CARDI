@@ -109,7 +109,7 @@ function Question() {
     const rightSideFill = () => {
         $('.cm-right-ct>h3').innerText = `${currentCommunity.contentTitle}`;
         $('#cm-lecturer-name').innerText = `강사명: ${currentCommunity.userName}`;
-        $('#cm-content-time').innerText = `강의 시간: ${currentCommunity.contentTime}`;
+        $('#cm-content-time').innerText = `강의 시간: ${currentCommunity.contentTime}시간`;
         $('#cm-content-level').innerText = `난이도: ${currentCommunity.contentLevel}`;
     }
 
@@ -163,8 +163,10 @@ function Question() {
 
     //답변 수정 저장
     const saveModifyAnswer = () => {
-        this.communityList[commuIndex].communityTotal[questIndex].answerContent = $('#cmd-textarea-modify').value;
-        this.communityList[commuIndex].communityTotal[questIndex].questionState = true;
+        this.communityList[commuIndex].communityTotal[questIndex].answerContent
+            = $('#cmd-textarea-modify').value;
+        this.communityList[commuIndex].communityTotal[questIndex].questionState
+            = true;
         currentCommunity = this.communityList[commuIndex];
         this.currentQuestion = currentCommunity.communityTotal.find((question) => {
             return question.questionId === Number(questionId);
@@ -293,7 +295,6 @@ function Question() {
     $('.cm-right-ct>button').addEventListener('click', () => {
         window.location.href = `/components/content-detail.html?contentId=${currentCommunity.contentId}`;
     })
-
 
 
 }

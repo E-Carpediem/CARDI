@@ -82,7 +82,10 @@ function Regist() {
     this.currentCommunity = commu.getLocalStorage('currentCommunity');
     this.communityList = commu.getLocalStorage('communityList');
 
-    const currentDate = new Date().toLocaleDateString().replaceAll(' ', '')
+    const year = new Date().getFullYear();
+    const month = String(new Date().getMonth()).padStart(2, '0');
+    const date = String(new Date().getDate()).padStart(2, '0');
+    const currentDate = `${year}.${month}.${date}`;
     const modifyQuestion = commu.getLocalStorage('modifyQuestion') || null;
 
     this.init = () => {
@@ -111,7 +114,7 @@ function Regist() {
     const rightSideFill = () => {
         $('.cm-right-ct>h3').innerText = `${this.currentCommunity.contentTitle}`;
         $('#cm-lecturer-name').innerText = `강사명: ${this.currentCommunity.userName}`;
-        $('#cm-content-time').innerText = `강의 시간: ${this.currentCommunity.contentTime}`;
+        $('#cm-content-time').innerText = `강의 시간: ${this.currentCommunity.contentTime}시간`;
         $('#cm-content-level').innerText = `난이도: ${this.currentCommunity.contentLevel}`;
     }
 
@@ -121,7 +124,8 @@ function Regist() {
 
     $('.cm-top-ct>button').addEventListener('click', () => {
         activeTwoModal(() => {
-            closeModal($('.modal')); history.back();
+            closeModal($('.modal'));
+            history.back();
             localStorage.removeItem('modifyQuestion');
         }, '저장되지 않았습니다.<br>나가시겠습니까?');
 
@@ -144,6 +148,7 @@ function Regist() {
             this.currentCommunity.communityTotal.push(questionInfo);
             this.communityList[commuIndex] = this.currentCommunity;
             commu.setLocalStorage('communityList', this.communityList);
+            history.back();
         }
 
         if ($('#cm-title-input').value.trim() && $('#cm-content-textarea').value.trim()) {
