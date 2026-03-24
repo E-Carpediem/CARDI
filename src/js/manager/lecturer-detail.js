@@ -10,6 +10,10 @@ const $totalContents = document.querySelector(".tmm-lector-content-top-ct");
 const $lectureInf = document.querySelector(".tmm-lecture-inf");
 const $lectureInfProfile = document.querySelector(".tmm-lecture-inf-profile");
 const $lectorMainLecture = document.querySelector(".tmm-lector-main-lecture");
+const $lectorProfileImage = document.querySelector(".tmm-lecture-inf-profile");
+
+const $lectorProfileDate = contentsUserListData.find(user => user.id === lecturerId).userProfile;
+$lectorProfileImage.style.backgroundImage = `url(${$lectorProfileDate})`;
 
 // 페이지네이션 코드는 AI로 작성하였습니다. 코드 시작
 let currentPage = 1;
