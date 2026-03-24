@@ -57,10 +57,10 @@ function addSummaryBlock(item) {
     block.dataset.price = item.contentPrice;
 
     block.innerHTML = `
-        <div class="sc-summary-thumb"></div>
+        <div class="sc-summary-thumb"style="background-image:url(${item.contentImg})"></div>
         <div class="sc-summary-info">
             <p class="sc-summary-title">${item.contentTitle}</p>
-            <p class="sc-summary-meta">${item.userName} | ${item.contentTime}</p>
+            <p class="sc-summary-meta">${item.userName} | ${item.contentTime}시간</p>
         </div>
     `;
     $selectedContainer.appendChild(block);
@@ -172,9 +172,9 @@ function renderCart() {
                 <h2>${item.contentTitle}</h2>
                 <div>
                     <span>${item.userName}</span> |
-                    <span>${item.contentTime}</span>
+                    <span>${item.contentTime}시간</span>
                 </div>
-                <p>가격: ${Number(item.contentPrice).toLocaleString()} 원</p>
+                <p>가격: ${Number(item.contentPrice).toLocaleString()}원</p>
             </div>
             <button class="sc-cart-btn move">강의로 이동</button>
         `;
