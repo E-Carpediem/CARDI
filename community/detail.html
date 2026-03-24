@@ -15,14 +15,21 @@
         <main class="cm-main-ct">
             <section class="cm-left-ct">
                 <div class="cm-top-ct">
-                    <button><img src="../src/assets/img/community_backBtn.svg"></button>
+                    <button><img src="../src/assets/img/community_backBtn.svg">
+                    </button>
                     <p>커뮤니티</p>
                 </div>
                 <article class="cmd-content-ct">
                     <div class="cmd-content-title-ct">
                         <h3></h3>
-                        <img src="../src/assets/img/community-dot-btn.svg" hidden>
-                        <div></div>
+                        <div class="cmd-edit-delete-hover-student none">
+                            <p class="question-modify">수정</p>
+                            <hr>
+                            <p class="question-delete">삭제</p>
+                        </div>
+                        <img class="cmd-student-dot-img" src="../src/assets/img/community-dot-btn.svg" hidden>
+
+                        <div class="cmd-reply-check-div"></div>
                     </div>
                     <div class="cmd-content-user-info">
                         <p class="cmd-user-info-name"></p>
@@ -35,7 +42,12 @@
                     <div>
                         <div class="cmd-reply-lecture-info-ct" hidden>
                             <p class="cmd-reply-lecturer-name"></p>
-                            <img src="../src/assets/img/community-dot-btn.svg" hidden>
+                            <div class="cmd-edit-delete-hover-lecture none">
+                                <p class="reply-modify">수정</p>
+                                <hr>
+                                <p class="reply-delete">삭제</p>
+                            </div>
+                            <img class="cmd-lecture-dot-img" src="../src/assets/img/community-dot-btn.svg" hidden>
                         </div>
                         <p class="cmd-reply-content">아직 답변이 없습니다. </p>
                     </div>
@@ -51,8 +63,9 @@
                 <article class="cmd-reply-ct" id="cmd-lecture-modify-ct" hidden>
                     <p>답변 수정하기</p>
                     <div>
-                        <textarea></textarea>
-                        <button><img src="../src/assets/img/commuhity-send-btn.svg"></button>
+                        <textarea id="cmd-textarea-modify"></textarea>
+                        <button class="cmd-reply-modify-btn"><img
+                                src="../src/assets/img/commuhity-send-btn.svg"></button>
                     </div>
                 </article>
             </section>
@@ -74,6 +87,7 @@
     <script type="module" src="../src/js/components/modalOneButton.js"></script>
     <script type="module" src="../src/js/components/modalTwoButton.js"></script>
     <script type="module" src="../src/js/community/detail.js"></script>
+    <script type="module" src="../src/js/community/modify.js>"></script>
 </body>
 
 </html>

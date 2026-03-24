@@ -1,5 +1,4 @@
-// localStorage.setItem('contentsList', JSON.stringify(contentsList));
-const contentsListData = JSON.parse(localStorage.getItem('contentsList'));
+const contentsListData = JSON.parse(localStorage.getItem('lectureList'));
 
 const $totalContents = document.querySelector(".tc-content-top-ct");
 
@@ -16,9 +15,9 @@ function userTotalManagement(arrayList) {
         <p> ${i + 1} </p>
         <p> ${arrayList[i].contentId} </p>
         <p> ${arrayList[i].contentTitle} </p>
-        <p> ${arrayList[i].instructorName}</p>
-        <p> ${arrayList[i].studentNumber}명 </p>
-        <p> ${arrayList[i].lessonsNumber}개 </p>
+        <p> ${arrayList[i].userName}</p>
+        <p> ${arrayList[i].classNumber}명 </p>
+        <p> ${arrayList[i].lessonNumber}개 </p>
         <p> ${arrayList[i].registerDate} </p>
         <p data-id="${arrayList[i].contentId}"> 삭제하기 </p>
     </div>`)
@@ -35,14 +34,14 @@ const $ArraySort = document.querySelector('.m-array>p:nth-of-type(2)');
 
 $ArraySignDate.addEventListener('click', () => {
     const ArraySignDate = [...contentsListData].sort((a, b) =>
-        b.contentTitle.localeCompare(a.signDate)
+        a.contentTitle.localeCompare(b.contentTitle)
     );
     userTotalManagement(ArraySignDate);
 });
 
 $ArraySort.addEventListener('click', () => {
     const ArraySort = [...contentsListData].sort((a, b) =>
-        b.instructorName.localeCompare(b.userName, 'ko')
+        a.userName.localeCompare(b.userName, 'ko')
     );
     userTotalManagement(ArraySort);
 });
@@ -108,6 +107,26 @@ function deleteContents() {
         return item.contentId;
     });
     let a = contentsListData.splice(targetIndex, 1);
-    localStorage.setItem('contentsList', JSON.stringify(contentsListData));
+    localStorage.setItem('lectureList', JSON.stringify(contentsListData));
     userTotalManagement(contentsListData);
 }
+
+
+const $userManagementCategory = document.querySelectorAll('.tm-user-management>p');
+const $managerArray = document.querySelector('.manager-array-common');
+const $managerFilter = document.querySelector('.manager-fileter-common');
+const $managerArrayCt = document.querySelector('.m-array');
+const $managerFilterCt = document.querySelector('.m-fileter');
+
+
+$managerArray.addEventListener("click", () => {
+    $managerArrayCt.style.display === "none" 
+    ? $managerArrayCt.style.display = "flex" 
+    : $managerArrayCt.style.display = "none"
+})
+
+$managerFilter.addEventListener("click", () => {
+    $managerFilterCt.style.display === "none"
+    ? $managerFilterCt.style.display = "flex"
+    : $managerFilterCt.style.display = "none"
+})
