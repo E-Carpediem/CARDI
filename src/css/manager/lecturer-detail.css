@@ -109,6 +109,17 @@
     width: 45px;
     height: 25px;
     margin-right: 10px;
+
+
+    color: #FFF;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    display : flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -123,12 +134,12 @@
 
 .tmm-lector-lecture-title {
     color: #000;
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 }
 
 .tmm-lector-oneline-example {
@@ -316,7 +327,7 @@
     font-weight: 400;
     line-height: normal;
 
-    display : flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -339,7 +350,7 @@
     justify-content: center;
 }
 
-.tmm-lector-active-bottom-number{
+.tmm-lector-active-bottom-number {
     border-radius: 10px;
     background: #2F4156;
     color: white;

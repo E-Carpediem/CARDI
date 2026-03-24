@@ -2,13 +2,14 @@ const contentsListData = JSON.parse(localStorage.getItem('lectureList'));
 const contentsUserListData = JSON.parse(localStorage.getItem('userList'));
 
 const getParams = new URLSearchParams(window.location.search);
-const lecturerId = getParams.get('id') - 1;
+const lecturerId = Number(getParams.get('id'));
 
 const lectureList = contentsListData.filter((sub) => sub.id === lecturerId);
 console.log(lectureList)
 const $totalContents = document.querySelector(".tmm-lector-content-top-ct");
 const $lectureInf = document.querySelector(".tmm-lecture-inf");
 const $lectureInfProfile = document.querySelector(".tmm-lecture-inf-profile");
+const $lectorMainLecture = document.querySelector(".tmm-lector-main-lecture");
 
 // 페이지네이션 코드는 AI로 작성하였습니다. 코드 시작
 let currentPage = 1;
@@ -34,16 +35,36 @@ function renderPagination(totalItems) {
     // 코드 끝
 }
 
+const lecturerInfo = contentsUserListData.find(user => user.id === lecturerId);
+
+function lectureMainLectures() {
+    $lectorMainLecture.innerHTML = '';
+    const mainLectures = lectureList.slice(0, 4);
+
+    mainLectures.forEach((lecture) => {
+        $lectorMainLecture.insertAdjacentHTML('beforeend',
+            `<div class="tmm-lector-lecture">
+                <div class="tmm-lector-category">${lecture.category}</div>
+                <div class="tmm-lector-lecture-coment-ct">
+                    <p class="tmm-lector-lecture-title">${lecture.contentTitle}</p>
+                    <p class="tmm-lector-oneline-example">${lecture.contentPreview}</p>
+                </div>
+            </div>`
+        );
+    });
+}
+
+
 function userTotalManagement(arrayList) {
     document.querySelectorAll('.tmm-lecture-inf-content').forEach(el => el.remove());
     $lectureInfProfile.insertAdjacentHTML("beforebegin",
         `<div class="tmm-lecture-inf-content">
-            <p> ${contentsUserListData[lecturerId].approvalStatus === true ? "승인" : "미승인"}</p>
+            <p> ${contentsUserListData.find(user => user.id === lecturerId).approvalStatus === true ? "승인" : "미승인"}</p>
             <p> 강사정보 </p>
-            <p> 강사명 : ${contentsUserListData[lecturerId].userName} </p>
-            <p> 가입 일자 : ${contentsUserListData[lecturerId].signDate}</p>
-            <p> 전화번호 : ${contentsUserListData[lecturerId].phoneNumber}</p>
-            <p> 이메일 : ${contentsUserListData[lecturerId].userEmail}</p>
+            <p> 강사명 : ${contentsUserListData.find(user => user.id === lecturerId).userName} </p>
+            <p> 가입 일자 : ${contentsUserListData.find(user => user.id === lecturerId).signDate}</p>
+            <p> 전화번호 : ${contentsUserListData.find(user => user.id === lecturerId).phoneNumber}</p>
+            <p> 이메일 : ${contentsUserListData.find(user => user.id === lecturerId).userEmail}</p>
         </div>`)
 
     document.querySelectorAll('.tmm-lector-content').forEach(el => el.remove());
@@ -71,6 +92,7 @@ function userTotalManagement(arrayList) {
     renderPagination(arrayList.length);
 }
 
+lectureMainLectures();
 userTotalManagement(lectureList);
 
 const $ArraySignDate = document.querySelector('.m-array>p:nth-of-type(1)');
@@ -80,7 +102,8 @@ $ArraySignDate.addEventListener('click', () => {
     const ArraySignDate = [...contentsListData].sort((a, b) =>
         b.contentTitle.localeCompare(a.signDate)
     );
-    currentPage = 1; currentList = ArraySignDate;
+    currentPage = 1;
+    currentList = ArraySignDate;
     userTotalManagement(ArraySignDate);
 });
 
@@ -88,7 +111,8 @@ $ArraySort.addEventListener('click', () => {
     const ArraySort = [...contentsListData].sort((a, b) =>
         b.instructorName.localeCompare(b.userName, 'ko')
     );
-    currentPage = 1; currentList = ArraySort;
+    currentPage = 1;
+    currentList = ArraySort;
     userTotalManagement(ArraySort);
 });
 
@@ -154,6 +178,8 @@ function deleteContents(contentId) {
     const totalPages = Math.ceil(LectureList.length / ITEMS_PER_PAGE);
     if (currentPage > totalPages) currentPage = totalPages || 1;
     currentList = LectureList;
+
+    lectureMainLectures()
     userTotalManagement(LectureList);
 }
 
