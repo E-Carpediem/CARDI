@@ -298,7 +298,7 @@ const userList = [
   {
     "role": "lecturer",
     "id": 12,
-    "userProfile": "이미지 경로",
+    "userProfile": "/src/assets/img/animal1.jpg",
     "userId": "lct1",
     "password": "lecturer1234",
     "userName": "김민준",
@@ -316,7 +316,7 @@ const userList = [
   {
     "role": "lecturer",
     "id": 13,
-    "userProfile": "이미지 경로",
+    "userProfile": "/src/assets/img/animal6.jpg",
     "userId": "lct2",
     "password": "lec2pass99",
     "userName": "이수진",
@@ -334,7 +334,7 @@ const userList = [
   {
     "role": "lecturer",
     "id": 14,
-    "userProfile": "이미지 경로",
+    "userProfile": "/src/assets/img/animal10.jpg",
     "userId": "lct3",
     "password": "lct3pass12",
     "userName": "박동현",
@@ -352,7 +352,7 @@ const userList = [
   {
     "role": "lecturer",
     "id": 15,
-    "userProfile": "이미지 경로",
+    "userProfile": "/src/assets/img/animal1.jpg",
     "userId": "lct4",
     "password": "lct4pass56",
     "userName": "최서영",
@@ -370,7 +370,7 @@ const userList = [
   {
     "role": "lecturer",
     "id": 16,
-    "userProfile": "이미지 경로",
+    "userProfile": "/src/assets/img/animal6.jpg",
     "userId": "lct5",
     "password": "lct5pass78",
     "userName": "한지수",
@@ -388,7 +388,7 @@ const userList = [
   {
     "role": "lecturer",
     "id": 17,
-    "userProfile": "이미지 경로",
+    "userProfile": "/src/assets/img/animal10.jpg",
     "userId": "lct6",
     "password": "lct6pass90",
     "userName": "조민혁",
@@ -406,7 +406,7 @@ const userList = [
   {
     "role": "lecturer",
     "id": 18,
-    "userProfile": "이미지 경로",
+    "userProfile": "/src/assets/img/animal1.jpg",
     "userId": "lct7",
     "password": "lct7pass11",
     "userName": "신예은",
@@ -424,7 +424,7 @@ const userList = [
   {
     "role": "lecturer",
     "id": 19,
-    "userProfile": "이미지 경로",
+    "userProfile": "/src/assets/img/animal6.jpg",
     "userId": "lct8",
     "password": "lct8pass22",
     "userName": "강태호",
@@ -442,7 +442,7 @@ const userList = [
   {
     "role": "lecturer",
     "id": 20,
-    "userProfile": "이미지 경로",
+    "userProfile": "/src/assets/img/animal10.jpg",
     "userId": "lct9",
     "password": "lct9pass33",
     "userName": "문소희",
