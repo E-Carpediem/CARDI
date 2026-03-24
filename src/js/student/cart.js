@@ -11,13 +11,35 @@ const $deleteAllBtn = $('.sc-delete-all');
 const $deleteBtn = $('.sc-cart-btn.delete');
 const $applyBtn = $('.sc-cart-btn.apply');
 
-//STORAGE
-function getCartList() {
-    return JSON.parse(localStorage.getItem('cartList')) || [];
+function getCurrentUser() {
+    const myInfo =
+        JSON.parse(localStorage.getItem("myInfo")) ||
+        JSON.parse(sessionStorage.getItem("myInfo"));
+
+
+    const userList = JSON.parse(localStorage.getItem("userList")) || [];
+    const userIndex = userList.findIndex(user => user.id === myInfo.id);
+
+    const currentUser = userList[userIndex];
+
+    if (!Array.isArray(currentUser.shoppingCart)) {
+        currentUser.shoppingCart = [];
+    }
+
+    if (!Array.isArray(currentUser.appliedLecture)) {
+        currentUser.appliedLecture = [];
+    }
+
+    return {
+        myInfo,
+        userList,
+        userIndex,
+        currentUser
+    };
 }
 
-function setCartList(list) {
-    localStorage.setItem('cartList', JSON.stringify(list));
+function saveUserList(userList) {
+    localStorage.setItem("userList", JSON.stringify(userList));
 }
 
 // 재사용 함수
@@ -58,26 +80,31 @@ function addSummaryBlock(item) {
 
 //선택 처리
 function handleSelectedItem(item, isChecked) {
-    const cartList = getCartList();
-    const id = item.dataset.id;
+    const result = getCurrentUser();
 
-    // 로컬스토리지 갱신
-    const index = cartList.findIndex(i => i.contentId === id);
-    if (index !== -1) cartList[index].selected = isChecked;
+    const { currentUser, userIndex, userList } = result;
+    const id = Number(item.dataset.id);
 
-    setCartList(cartList);
+    const index = currentUser.shoppingCart.findIndex(
+        lecture => Number(lecture.contentId) === id
+    );
 
-    // 오른쪽 요약 처리
+    if (index === -1) return;
+
+    currentUser.shoppingCart[index].selected = isChecked;
+    userList[userIndex] = currentUser;
+    saveUserList(userList);
+
     if (isChecked) {
-        addSummaryBlock(cartList[index]);
-        item.classList.add('active');
-        item.querySelector('.sc-cart-check').classList.add('active');
+        addSummaryBlock(currentUser.shoppingCart[index]);
+        item.classList.add("active");
+        item.querySelector(".sc-cart-check").classList.add("active");
     } else {
         const block = $selectedContainer.querySelector(`[data-id="block-${id}"]`);
         if (block) block.remove();
 
-        item.classList.remove('active');
-        item.querySelector('.sc-cart-check').classList.remove('active');
+        item.classList.remove("active");
+        item.querySelector(".sc-cart-check").classList.remove("active");
     }
 
     updateSummary();
@@ -142,23 +169,37 @@ function bindItemEvents(item) {
     moveBtn.addEventListener('click', e => {
         e.stopPropagation();
         const contentId = item.dataset.id;
+        console.log(item);
         window.location.href = `/components/content-detail.html?contentId=${contentId}`;
     });
 }
 
 //렌더링 함수
 function renderCart() {
-    const cartList = getCartList();
-    $cartList.innerHTML = '';
+    const result = getCurrentUser();
+    if (!result) {
+        $cartList.innerHTML = "";
+        $selectedContainer.innerHTML = "";
+        updateTotalCount();
+        updateSummary();
+        return;
+    }
+
+    const { currentUser } = result;
+    const cartList = currentUser.shoppingCart;
+
+    $cartList.innerHTML = "";
+    $selectedContainer.innerHTML = "";
 
     cartList.forEach(item => {
-        const div = document.createElement('div');
-        div.classList.add('sc-cart-item');
-        if (item.selected) div.classList.add('active');
+        const div = document.createElement("div");
+        div.classList.add("sc-cart-item");
+
+        if (item.selected) div.classList.add("active");
         div.dataset.id = item.contentId;
 
         div.innerHTML = `
-            <div class="sc-cart-check ${item.selected ? 'active' : ''}"></div>
+            <div class="sc-cart-check ${item.selected ? "active" : ""}"></div>
             <div class="sc-cart-thumb" style="background-image:url(${item.contentImg})"></div>
             <div class="sc-cart-info">
                 <h2>${item.contentTitle}</h2>
@@ -166,7 +207,7 @@ function renderCart() {
                     <span>${item.userName}</span> |
                     <span>${item.contentTime}</span>
                 </div>
-                <p>가격: ${item.contentPrice.toLocaleString()} 원</p>
+                <p>가격: ${Number(item.contentPrice).toLocaleString()} 원</p>
             </div>
             <button class="sc-cart-btn move">강의로 이동</button>
         `;
@@ -191,78 +232,87 @@ $selectAllBtn.addEventListener('click', () => {
     items.forEach(item => handleSelectedItem(item, !allChecked));
 });
 
-$deleteBtn.addEventListener('click', () => {
-    const selected = $$('.sc-cart-item.active');
+$deleteBtn.addEventListener("click", () => {
+    const selected = $$(".sc-cart-item.active");
     if (!selected.length) return;
 
-    openConfirmModal('선택된 강의를 삭제하시겠습니까?', () => {
-        let cartList = getCartList();
+    openConfirmModal("선택된 강의를 삭제하시겠습니까?", () => {
+        const result = getCurrentUser();
+        if (!result) return;
 
-        selected.forEach(item => {
-            const id = item.dataset.id;
+        const { currentUser, userIndex, userList } = result;
+        const selectedIds = [...selected].map(item => Number(item.dataset.id));
 
-            item.remove();
-            $selectedContainer.querySelector(`[data-id="block-${id}"]`)?.remove();
-            cartList = cartList.filter(i => i.contentId !== id);
-        });
+        currentUser.shoppingCart = currentUser.shoppingCart.filter(
+            lecture => !selectedIds.includes(Number(lecture.contentId))
+        );
 
-        setCartList(cartList);
-        updateTotalCount();
-        updateSummary();
+        userList[userIndex] = currentUser;
+        saveUserList(userList);
+
+        renderCart();
     });
 });
 
-$deleteAllBtn.addEventListener('click', () => {
-    if (!$cartList.children.length) return;
+$deleteAllBtn.addEventListener("click", () => {
+    const result = getCurrentUser();
+    if (!result) return;
 
-    openConfirmModal('전체 삭제하시겠습니까?', () => {
-        setCartList([]);
-        $cartList.innerHTML = '';
-        $selectedContainer.innerHTML = '';
-        updateTotalCount();
-        updateSummary();
+    const { currentUser, userIndex, userList } = result;
+
+    if (!currentUser.shoppingCart.length) return;
+
+    openConfirmModal("전체 삭제하시겠습니까?", () => {
+        currentUser.shoppingCart = [];
+
+        userList[userIndex] = currentUser;
+        saveUserList(userList);
+
+        renderCart();
     });
 });
 
-$applyBtn.addEventListener('click', () => {
-    const selected = $$('.sc-cart-item.active');
+$applyBtn.addEventListener("click", () => {
+    const selected = $$(".sc-cart-item.active");
     if (!selected.length) return;
 
-    openConfirmModal('신청하시겠습니까?', () => {
-        let cartList = getCartList();
-        const today = new Date().toISOString().split('T')[0];
+    openConfirmModal("신청하시겠습니까?", () => {
+        const result = getCurrentUser();
+        if (!result) return;
 
-        selected.forEach(item => {
-            const id = item.dataset.id;
+        const { currentUser, userIndex, userList } = result;
+        const today = new Date().toISOString().split("T")[0];
+        const selectedIds = [...selected].map(item => Number(item.dataset.id));
 
+        selectedIds.forEach(id => {
             const exists = currentUser.appliedLecture.some(
-                lec => lec.contentId === id
+                lecture => Number(lecture.contentId) === id
             );
 
             if (!exists) {
                 currentUser.appliedLecture.push({
                     contentId: id,
-                    appliedDate: today
+                    appliedDate: today,
+                    completeContents: 0
                 });
             }
-
-            cartList = cartList.filter(i => i.contentId !== id);
-
-            item.remove();
-            $selectedContainer.querySelector(`[data-id="block-${id}"]`)?.remove();
         });
 
-        localStorage.setItem('userList', JSON.stringify(userList));
-        setCartList(cartList);
-        updateTotalCount();
-        updateSummary();
+        currentUser.shoppingCart = currentUser.shoppingCart.filter(
+            lecture => !selectedIds.includes(Number(lecture.contentId))
+        );
 
-        console.log('신청 완료:', currentUser.appliedLecture);
+        userList[userIndex] = currentUser;
+        saveUserList(userList);
+
+        renderCart();
     });
 });
 
 renderCart();
 
-window.addEventListener('storage', (e) => {
-    if (e.key === 'cartList') renderCart();
+window.addEventListener("storage", (e) => {
+    if (e.key === "userList") {
+        renderCart();
+    }
 });

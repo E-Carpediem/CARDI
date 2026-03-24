@@ -39,7 +39,16 @@ function getCurrentUser() {
 
     const userList = JSON.parse(localStorage.getItem("userList")) || [];
 
-    const userIndex = userList.findIndex(user => user.id === myInfo.id);
+    const currentUser = userList[userIndex];
+
+    if (!Array.isArray(currentUser.shoppingCart)) {
+        currentUser.shoppingCart = [];
+    }
+
+    if (!Array.isArray(currentUser.appliedLecture)) {
+        currentUser.appliedLecture = [];
+    }
+
 
     return {
         myInfo,
