@@ -50,7 +50,6 @@ function getContentIdFromUrl() {
 }
 
 const targetContentId = getContentIdFromUrl();
-console.log('?', targetContentId);
 
 // 수정할 강의 찾는 함수
 function getTargetLecture() {
@@ -403,7 +402,7 @@ function collectLectureData(originalLecture) {
     return {
         id: originalLecture.id,
         contentId: originalLecture.contentId,
-        contentImg: thumbnailPreview.getAttribute("src"),
+        contentImg: "",
         contentTitle: $("#le-content-title").value.trim(),
         contentLevel: $("#le-content-level").value,
         contentTime: Number(timeInput.value),
@@ -418,8 +417,38 @@ function collectLectureData(originalLecture) {
         userName: originalLecture.userName,
         lessonNumber: originalLecture.lessonNumber,
         classNumber: originalLecture.classNumber,
-        registerDate: today
+        registerDate: today,
+        communityTotal: originalLecture.communutyTotal
     };
+}
+
+function getCommunityList() {
+    return JSON.parse(localStorage.getItem("communityList")) || [];
+}
+
+function updateCommunityData(updatedLecture, originalLecture) {
+    const communityList = getCommunityList();
+
+    const updatedCommunityList = communityList.map((community) => {
+        if (Number(community.contentId) === Number(updatedLecture.contentId)) {
+            return {
+                ...community,
+                id: updatedLecture.id,
+                contentId: updatedLecture.contentId,
+                contentTitle: updatedLecture.contentTitle,
+                contentImg: updatedLecture.contentImg,
+                contentLevel: updatedLecture.contentLevel,
+                contentTime: updatedLecture.contentTime,
+                userName: updatedLecture.userName,
+
+                // 기존 값 유지
+                communityTotal: originalLecture.communityTotal
+            };
+        }
+        return community;
+    });
+
+    store.setLocalStorage("communityList", updatedCommunityList);
 }
 
 // 강의 수정 저장
@@ -439,6 +468,7 @@ function updateLectureData() {
     });
 
     store.setLocalStorage("lectureList", updatedLectureList);
+    updateCommunityData(updatedLecture, originalLecture);
 }
 
 // 수정 버튼 처리

@@ -43,7 +43,6 @@ function getLectureList() {
 const lectureList = getLectureList();
 let currentUserId = myInfo.id;
 let currentUserName = myInfo.userName;
-console.log(currentUserName);
 
 // 숫자만 입력가능하게 하는 함수
 function inputNumber(inputElement) {
@@ -155,7 +154,6 @@ formCurry.addEventListener("click", (e) => {
     if (e.target.classList.contains("le-add-small")) {
         const currentGroup = e.target.closest(".le-add-big");
         const bigInput = $(".le-content-curry", currentGroup);
-        console.log(bigInput);
         const bigIndex = bigInput.id.replace("le-content-curry", "");
         const nextSmallIndex = getNextSmallIndex(currentGroup);
 
@@ -399,7 +397,7 @@ function collectLectureData() {
     return {
         id: currentUserId,
         contentId: getContentId(), // 고유값
-        contentImg: thumbnailPreview.getAttribute("src"),
+        contentImg: "",
         contentTitle: $("#le-content-title").value.trim(),
         contentLevel: $("#le-content-level").value,
         contentTime: Number(timeInput.value),
@@ -414,20 +412,42 @@ function collectLectureData() {
         contentCurry: collectCurryData(),
         category: $("#le-category").value,
         userName: currentUserName,
-        lessonNumber: 155,
-        classNumber: 100,
+        lessonNumber: 0,
+        classNumber: 0,
         registerDate: today
-
     };
 }
 
-// 강의 목록에 새 강의 추가 저장
+// localStorage -> lectureList에 등록한 강의를 저장하는 함수
 function saveLectureData() {
     const lectureList = store.getLocalStorage("lectureList", []);
     const newLecture = collectLectureData();
 
+    function getCommunityList() {
+        return JSON.parse(localStorage.getItem("communityList")) || [];
+    }
+
+    function saveCommunityData(newLecture) {
+        const communityList = getCommunityList();
+
+        const newCommunity = {
+            id: newLecture.id,
+            contentId: newLecture.contentId,
+            contentTitle: newLecture.contentTitle,
+            contentImg: newLecture.contentImg,
+            contentLevel: newLecture.contentLevel,
+            contentTime: newLecture.contentTime,
+            userName: newLecture.userName,
+            communityTotal: []
+        };
+
+        communityList.push(newCommunity);
+        store.setLocalStorage("communityList", communityList);
+    }
+
     lectureList.push(newLecture);
     store.setLocalStorage("lectureList", lectureList);
+    saveCommunityData(newLecture);
 }
 
 // 등록 처리
