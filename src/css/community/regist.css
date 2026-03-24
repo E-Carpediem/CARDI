@@ -51,6 +51,7 @@
 
 .cm-title-ct>div {
     display: flex;
+    gap: 26px;
     margin-top: 18px;
 }
 
@@ -81,7 +82,8 @@
     height: 100%;
 }
 
-.cm-regist-btn {
+.cm-regist-btn,
+.cm-modify-btn {
     width: 295px;
     height: 60px;
     border-radius: 10px;
@@ -94,6 +96,10 @@
     line-height: normal;
     margin: 19px 0 0 auto;
     display: block;
+}
+
+.none {
+    display: none;
 }
 
 .cm-right-ct>img {

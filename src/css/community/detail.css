@@ -27,7 +27,7 @@
     margin-right: 6px;
 }
 
-.cmd-content-title-ct>div {
+.cmd-reply-check-div {
     width: 117px;
     height: 53px;
     border-radius: 20px;
@@ -155,4 +155,29 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
+}
+
+.cmd-edit-delete-hover-student,
+.cmd-edit-delete-hover-lecture {
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    width: 83px;
+    height: 73px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 56%;
+
+}
+
+.cmd-edit-delete-hover-lecture {
+    left: 61.5%;
+}
+
+
+
+.none {
+    display: none;
 }

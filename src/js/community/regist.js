@@ -83,10 +83,17 @@ function Regist() {
     this.communityList = commu.getLocalStorage('communityList');
 
     const currentDate = new Date().toLocaleDateString().replaceAll(' ', '')
+    const modifyQuestion = commu.getLocalStorage('modifyQuestion') || null;
 
     this.init = () => {
         fil();
         rightSideFill();
+        if (modifyQuestion) {
+            $('.cm-regist-btn').classList.add('none');
+            $('.cm-modify-btn').classList.remove('none');
+            $('#cm-title-input').value = modifyQuestion.questionTitle;
+            $('#cm-content-textarea').value = modifyQuestion.questionContent;
+        }
 
     }
 
@@ -111,13 +118,14 @@ function Regist() {
         $('.cm-content-ct>p').innerText = `${$('.cm-content-ct>textarea').value.length}/1000`;
     })
 
-
+    //등록 버튼
     $('.cm-regist-btn').addEventListener('click', () => {
         const questionInfo = {
             "questionId": this.currentCommunity.communityTotal.length + 1,
             "questionTitle": $('#cm-title-input').value,
             "questionContent": $('#cm-content-textarea').value,
-            "questionOwner": myInfo.userId,
+            "questionOwner": myInfo.userName,
+            "questionOwnerId": myInfo.userId,
             "questionDate": currentDate,
             "questionState": false,
             "answerContent": null,
@@ -127,11 +135,47 @@ function Regist() {
             this.currentCommunity.communityTotal.push(questionInfo);
             this.communityList[commuIndex] = this.currentCommunity;
             commu.setLocalStorage('communityList', this.communityList);
-
         }
 
         if ($('#cm-title-input').value.trim() && $('#cm-content-textarea').value.trim()) {
             activeTwoModal(() => { closeModal($('.modal')); saveQuestion(); }, '질문을 저장하시겠습니까?');
+
+        } else {
+            activeOneModal(() => closeModal($('.modal')), '값을 입력해주세요.');
+        }
+
+
+
+    })
+
+    //수정 버튼
+    $('.cm-modify-btn').addEventListener('click', () => {
+        const questionModiInfo = {
+            "questionId": modifyQuestion.questionId,
+            "questionTitle": $('#cm-title-input').value,
+            "questionContent": $('#cm-content-textarea').value,
+            "questionOwner": myInfo.userName,
+            "questionOwnerId": myInfo.userId,
+            "questionDate": currentDate,
+            "questionState": false,
+            "answerContent": null,
+        }
+
+        const saveModiQuestion = () => {
+            const modifyQuestionId = this.currentCommunity.communityTotal.findIndex(q => {
+                return q.questionId === modifyQuestion.questionId
+            })
+            this.currentCommunity.communityTotal[modifyQuestionId] = questionModiInfo;
+            this.communityList[commuIndex] = this.currentCommunity;
+            commu.setLocalStorage('currentCommunity', this.currentCommunity);
+            commu.setLocalStorage('communityList', this.communityList);
+            localStorage.removeItem('modifyQuestion');
+            history.back()
+
+        }
+
+        if ($('#cm-title-input').value.trim() && $('#cm-content-textarea').value.trim()) {
+            activeTwoModal(() => { closeModal($('.modal')); saveModiQuestion(); }, '질문을 저장하시겠습니까?');
 
         } else {
             activeOneModal(() => closeModal($('.modal')), '값을 입력해주세요.');
