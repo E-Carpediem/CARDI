@@ -18,7 +18,6 @@ function getCurrentUser() {
     const userIndex = userList.findIndex(user => user.id === myInfo.id);
     const currentUser = userList[userIndex];
 
-    // 장바구니와 수강 강의 배열 초기화
     if (!Array.isArray(currentUser.shoppingCart)) currentUser.shoppingCart = [];
     if (!Array.isArray(currentUser.appliedLecture)) currentUser.appliedLecture = [];
 
@@ -57,13 +56,40 @@ function addSummaryBlock(item) {
     block.dataset.price = item.contentPrice;
 
     block.innerHTML = `
-        <div class="sc-summary-thumb"style="background-image:url(${item.contentImg})"></div>
+        <div class="sc-summary-thumb" style="background-image:url(${item.contentImg})"></div>
         <div class="sc-summary-info">
             <p class="sc-summary-title">${item.contentTitle}</p>
             <p class="sc-summary-meta">${item.userName} | ${item.contentTime}시간</p>
         </div>
     `;
     $selectedContainer.appendChild(block);
+}
+
+//원버튼 모달
+function openOneButtonModal(message) {
+    const activeModal = document.querySelector(".active-modal");
+
+    activeModal.innerHTML = `
+        <div class="modal">
+            <div class="modal-container">
+                <div class="modal-top">${message}</div>
+                <div class="modal-bottom">
+                    <div class="modal-box modal-check">확인</div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    const modal = activeModal.querySelector(".modal");
+    const checkBtn = modal.querySelector(".modal-check");
+
+    modal.style.display = "flex";
+
+    checkBtn.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+    });
 }
 
 // 강의 선택/해제 처리
@@ -93,9 +119,10 @@ function handleSelectedItem(item, isChecked) {
     updateSummary();
 }
 
-// 모달 열기
+//투버튼 모달
 function openConfirmModal(message, onConfirm) {
     const container = document.querySelector('.active-modal');
+
     container.innerHTML = `
         <div class="modal">
             <div class="modal-container">
@@ -111,9 +138,16 @@ function openConfirmModal(message, onConfirm) {
     const $modal = container.querySelector('.modal');
     $modal.style.display = 'flex';
 
-    $modal.querySelector('.modal-close').onclick = () => closeModal();
-    $modal.onclick = (e) => { if (e.target === $modal) closeModal(); };
-    $modal.querySelector('.modal-check').onclick = () => { onConfirm(); closeModal(); };
+    $modal.querySelector('.modal-close').onclick = closeModal;
+
+    $modal.onclick = (e) => {
+        if (e.target === $modal) closeModal();
+    };
+
+    $modal.querySelector('.modal-check').onclick = () => {
+        closeModal();
+        onConfirm();
+    };
 }
 
 // 모달 닫기
@@ -245,8 +279,16 @@ $applyBtn.addEventListener("click", () => {
 
         // 신청 처리 후 장바구니에서 제거
         selectedIds.forEach(id => {
-            const exists = currentUser.appliedLecture.some(lecture => Number(lecture.contentId) === id);
-            if (!exists) currentUser.appliedLecture.push({ contentId: id, appliedDate: today, completeContents: 0 });
+            const exists = currentUser.appliedLecture.some(
+                lecture => Number(lecture.contentId) === id
+            );
+            if (!exists) {
+                currentUser.appliedLecture.push({
+                    contentId: id,
+                    appliedDate: today,
+                    completeContents: 0
+                });
+            }
         });
 
         currentUser.shoppingCart = currentUser.shoppingCart.filter(
@@ -256,6 +298,7 @@ $applyBtn.addEventListener("click", () => {
         userList[userIndex] = currentUser;
         saveUserList(userList);
         renderCart();
+        openOneButtonModal("신청되었습니다.");
     });
 });
 
