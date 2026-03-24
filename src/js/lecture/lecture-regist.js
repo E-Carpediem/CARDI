@@ -416,7 +416,8 @@ function collectLectureData() {
         userName: currentUserName,
         lessonNumber: 155,
         classNumber: 100,
-        registerDate: today
+        registerDate: today,
+        communityTotal: []
 
     };
 }

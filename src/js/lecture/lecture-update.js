@@ -418,7 +418,8 @@ function collectLectureData(originalLecture) {
         userName: originalLecture.userName,
         lessonNumber: originalLecture.lessonNumber,
         classNumber: originalLecture.classNumber,
-        registerDate: today
+        registerDate: today,
+        communityTotal: originalLecture.communutyTotal
     };
 }
 
