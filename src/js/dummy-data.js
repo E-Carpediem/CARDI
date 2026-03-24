@@ -2230,6 +2230,86 @@ const cmList = [
     "contentLevel": "입문"
   },
   {
+    "id": 12,
+    "contentId": 4,
+    "contentImg": "이미지 경로",
+    "contentTitle": "C++ 객체지향 프로그래밍 완성",
+    "contentLevel": "보통",
+    "contentTime": 6,
+    "userName": "김민준",
+    "communityTotal": []
+  },
+  {
+    "id": 13,
+    "contentId": 5,
+    "contentImg": "이미지 경로",
+    "contentTitle": "CSS 레이아웃 마스터",
+    "contentLevel": "쉬움",
+    "contentTime": 3,
+    "userName": "이수진",
+    "communityTotal": []
+  },
+  {
+    "id": 13,
+    "contentId": 6,
+    "contentImg": "이미지 경로",
+    "contentTitle": "JavaScript DOM 조작 실전",
+    "contentLevel": "쉬움",
+    "contentTime": 7,
+    "userName": "이수진",
+    "communityTotal": []
+  },
+  {
+    "id": 13,
+    "contentId": 7,
+    "contentImg": "이미지 경로",
+    "contentTitle": "CSS 반응형 웹 디자인",
+    "contentLevel": "보통",
+    "contentTime": 3,
+    "userName": "이수진",
+    "communityTotal": []
+  },
+  {
+    "id": 13,
+    "contentId": 8,
+    "contentImg": "이미지 경로",
+    "contentTitle": "CSS 변수와 커스텀 속성 활용",
+    "contentLevel": "쉬움",
+    "contentTime": 2,
+    "userName": "이수진",
+    "communityTotal": []
+  },
+  {
+    "id": 14,
+    "contentId": 9,
+    "contentImg": "이미지 경로",
+    "contentTitle": "JavaScript 입문",
+    "contentLevel": "입문",
+    "contentTime": 4,
+    "userName": "박동현",
+    "communityTotal": []
+  },
+  {
+    "id": 14,
+    "contentId": 10,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python 머신러닝 입문",
+    "contentLevel": "어려움",
+    "contentTime": 8,
+    "userName": "박동현",
+    "communityTotal": []
+  },
+  {
+    "id": 14,
+    "contentId": 11,
+    "contentImg": "이미지 경로",
+    "contentTitle": "JavaScript 객체와 프로토타입",
+    "contentLevel": "보통",
+    "contentTime": 5,
+    "userName": "박동현",
+    "communityTotal": []
+  },
+  {
     "id": 14,
     "contentId": 12,
     "contentTitle": "Python 머신러닝 입문",
@@ -2261,6 +2341,46 @@ const cmList = [
     "contentLevel": "어려움"
   },
   {
+    "id": 15,
+    "contentId": 13,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python 데이터 분석 입문",
+    "contentLevel": "쉬움",
+    "contentTime": 5,
+    "userName": "최서영",
+    "communityTotal": []
+  },
+  {
+    "id": 15,
+    "contentId": 14,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python 데이터 시각화",
+    "contentLevel": "보통",
+    "contentTime": 4,
+    "userName": "최서영",
+    "communityTotal": []
+  },
+  {
+    "id": 15,
+    "contentId": 15,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python 통계 분석 기초",
+    "contentLevel": "보통",
+    "contentTime": 5,
+    "userName": "최서영",
+    "communityTotal": []
+  },
+  {
+    "id": 15,
+    "contentId": 16,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python SQL 데이터베이스 연동",
+    "contentLevel": "보통",
+    "contentTime": 6,
+    "userName": "최서영",
+    "communityTotal": []
+  },
+  {
     "id": 12,
     "contentId": 17,
     "contentTitle": "C++ 포인터와 메모리 관리",
@@ -2290,7 +2410,250 @@ const cmList = [
     "userName": "김민준",
     "contentTime": 8,
     "contentLevel": "어려움"
+  },
+  {
+    "id": 16,
+    "contentId": 18,
+    "contentImg": "이미지 경로",
+    "contentTitle": "HTML 폼과 유효성 검사",
+    "contentLevel": "입문",
+    "contentTime": 3,
+    "userName": "한지수",
+    "communityTotal": []
+  },
+  {
+    "id": 16,
+    "contentId": 19,
+    "contentImg": "이미지 경로",
+    "contentTitle": "JavaScript 함수형 프로그래밍",
+    "contentLevel": "어려움",
+    "contentTime": 4,
+    "userName": "한지수",
+    "communityTotal": []
+  },
+  {
+    "id": 16,
+    "contentId": 20,
+    "contentImg": "이미지 경로",
+    "contentTitle": "알고리즘 코딩 테스트 완성",
+    "contentLevel": "어려움",
+    "contentTime": 8,
+    "userName": "한지수",
+    "communityTotal": []
+  },
+  {
+    "id": 17,
+    "contentId": 21,
+    "contentImg": "이미지 경로",
+    "contentTitle": "CSS 애니메이션과 트랜지션",
+    "contentLevel": "보통",
+    "contentTime": 2,
+    "userName": "조민혁",
+    "communityTotal": []
+  },
+  {
+    "id": 17,
+    "contentId": 22,
+    "contentImg": "이미지 경로",
+    "contentTitle": "CSS Tailwind 실전",
+    "contentLevel": "쉬움",
+    "contentTime": 4,
+    "userName": "조민혁",
+    "communityTotal": []
+  },
+  {
+    "id": 17,
+    "contentId": 23,
+    "contentImg": "이미지 경로",
+    "contentTitle": "CSS SCSS 전처리기 완성",
+    "contentLevel": "보통",
+    "contentTime": 3,
+    "userName": "조민혁",
+    "communityTotal": []
+  },
+  {
+    "id": 17,
+    "contentId": 24,
+    "contentImg": "이미지 경로",
+    "contentTitle": "UI/UX 디자인 기초와 CSS 구현",
+    "contentLevel": "쉬움",
+    "contentTime": 5,
+    "userName": "조민혁",
+    "communityTotal": []
+  },
+  {
+    "id": 18,
+    "contentId": 25,
+    "contentImg": "이미지 경로",
+    "contentTitle": "JavaScript 비동기 완전 정복",
+    "contentLevel": "어려움",
+    "contentTime": 4,
+    "userName": "신예은",
+    "communityTotal": []
+  },
+  {
+    "id": 18,
+    "contentId": 26,
+    "contentImg": "이미지 경로",
+    "contentTitle": "JavaScript ES6+ 핵심 문법",
+    "contentLevel": "보통",
+    "contentTime": 7,
+    "userName": "신예은",
+    "communityTotal": []
+  },
+  {
+    "id": 18,
+    "contentId": 27,
+    "contentImg": "이미지 경로",
+    "contentTitle": "TypeScript 핵심 강의",
+    "contentLevel": "보통",
+    "contentTime": 6,
+    "userName": "신예은",
+    "communityTotal": []
+  },
+  {
+    "id": 18,
+    "contentId": 28,
+    "contentImg": "이미지 경로",
+    "contentTitle": "React 입문",
+    "contentLevel": "보통",
+    "contentTime": 8,
+    "userName": "신예은",
+    "communityTotal": []
+  },
+  {
+    "id": 19,
+    "contentId": 29,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python 웹 크롤링",
+    "contentLevel": "보통",
+    "contentTime": 7,
+    "userName": "강태호",
+    "communityTotal": []
+  },
+  {
+    "id": 19,
+    "contentId": 30,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python 자동화 스크립트",
+    "contentLevel": "보통",
+    "contentTime": 7,
+    "userName": "강태호",
+    "communityTotal": []
+  },
+  {
+    "id": 19,
+    "contentId": 31,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python FastAPI 백엔드 개발",
+    "contentLevel": "보통",
+    "contentTime": 8,
+    "userName": "강태호",
+    "communityTotal": []
+  },
+  {
+    "id": 19,
+    "contentId": 32,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Linux 기초와 서버 운영",
+    "contentLevel": "보통",
+    "contentTime": 6,
+    "userName": "강태호",
+    "communityTotal": []
+  },
+  {
+    "id": 20,
+    "contentId": 33,
+    "contentImg": "이미지 경로",
+    "contentTitle": "HTML 시맨틱과 SEO",
+    "contentLevel": "쉬움",
+    "contentTime": 2,
+    "userName": "문소희",
+    "communityTotal": []
+  },
+  {
+    "id": 20,
+    "contentId": 34,
+    "contentImg": "이미지 경로",
+    "contentTitle": "Python Flask 웹 개발",
+    "contentLevel": "보통",
+    "contentTime": 7,
+    "userName": "문소희",
+    "communityTotal": []
+  },
+  {
+    "id": 20,
+    "contentId": 35,
+    "contentImg": "이미지 경로",
+    "contentTitle": "HTML 기초와 웹 표준",
+    "contentLevel": "입문",
+    "contentTime": 3,
+    "userName": "문소희",
+    "communityTotal": []
+  },
+  {
+    "id": 20,
+    "contentId": 36,
+    "contentImg": "이미지 경로",
+    "contentTitle": "웹 성능 최적화 기초",
+    "contentLevel": "보통",
+    "contentTime": 4,
+    "userName": "문소희",
+    "communityTotal": []
   }
+
 ]
 
 localStorage.setItem("communityList", JSON.stringify(cmList));
+
+
+(function applyThumbnailImages() {
+  const lectureList = JSON.parse(localStorage.getItem("lectureList")) || [];
+  const userList = JSON.parse(localStorage.getItem("userList")) || [];
+
+  if (!lectureList.length) return;
+
+  // 🔹 lectureList 업데이트
+  lectureList.forEach(lecture => {
+    const id = Number(lecture.contentId);
+    if (!id) return;
+
+    const mod = id % 4;
+
+    if (mod === 1) {
+      lecture.contentImg = "/src/assets/img/lectureThumbnail.png";
+    } else if (mod === 2) {
+      lecture.contentImg = "/src/assets/img/lectureThumbnail1.jpg";
+    } else if (mod === 3) {
+      lecture.contentImg = "/src/assets/img/lectureThumbnail2.jpg";
+    } else {
+      lecture.contentImg = "/src/assets/img/lectureThumbnail3.jpg";
+    }
+  });
+
+  // 🔹 userList.shoppingCart도 같이 업데이트
+  userList.forEach(user => {
+    if (!Array.isArray(user.shoppingCart)) return;
+
+    user.shoppingCart.forEach(item => {
+      const id = Number(item.contentId);
+      if (!id) return;
+
+      const mod = id % 4;
+
+      if (mod === 1) {
+        item.contentImg = "/src/assets/img/lectureThumbnail.png";
+      } else if (mod === 2) {
+        item.contentImg = "/src/assets/img/lectureThumbnail1.jpg";
+      } else if (mod === 3) {
+        item.contentImg = "/src/assets/img/lectureThumbnail2.jpg";
+      } else {
+        item.contentImg = "/src/assets/img/lectureThumbnail3.jpg";
+      }
+    });
+  });
+
+  // 🔹 저장
+  localStorage.setItem("lectureList", JSON.stringify(lectureList));
+  localStorage.setItem("userList", JSON.stringify(userList));
+})();
